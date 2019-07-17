@@ -1,0 +1,34 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<GencodeDayDTO>
+
+<table id="datesListEdit" class="table table-striped table-bordered nowrap" width="100%">
+    <thead>
+        <tr>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Día Inicio</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="odd gradeX">
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearDto.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthDto.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    <button type="button" class="fa fa-pencil" style="background-color:transparent; border:none;" onclick="Edit(@item.Id)"></button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,304 @@
+﻿
+@model SEDESOL.DataEntities.IntegrationObjects.SoupKitchenModel
+@{
+    Html.EnableClientValidation(false);
+    ViewBag.Title = "Editar Registro del Comedor";
+}
+<script src="~/plugins/masked-input/masked-input.min.js"></script>
+<h4>Información del Comedor</h4>
+<hr/>
+@*@using (Html.BeginForm("Edit", "SoupKitchen", FormMethod.Post, new { @id = "frmSoupKitchen", data_parsley_validate = "true" }))
+{*@
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                    </div>
+                    <h4 class="panel-title">Formulario de datos</h4>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="panel-body">
+                    <form class="form-horizontal" id="frmSoupKitchen" data-parsley-validate="true">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    @Html.HiddenFor(model => model.SoupKitchen.Id, new { id = "skId" })
+                                    <label class="col-md-4 control-label">Nombre:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.Name, new { htmlAttributes = new { @class = "form-control", @id = "txtName", data_parsley_required = "true" } })
+                                    @Html.ValidationMessageFor(model => model.SoupKitchen.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Descripción:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.Description, new { htmlAttributes = new { @class = "form-control", @id = "txtDescription" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.Description, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Capacidad:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.Capacity, new { htmlAttributes = new { @class = "form-control", @id = "txtCapacity" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.Description, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Región:</label>
+                                    @Html.DropDownListFor(model => model.SoupKitchen.Id_Region, new SelectList(Model.ListRegion, "Id", "Name"), "Seleccione una opción", new { @class = "form-control", @id = "cboRegion", data_parsley_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.SoupKitchen.Id_Region, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Estado:</label>
+                                    @Html.DropDownListFor(model => model.SoupKitchen.Id_State, new SelectList(Model.States, "Id", "Name"), "Seleccione una opción", new { @class = "form-control", @id = "cboState", data_parsley_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Teléfono:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "txtPhone" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.PhoneNumber, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Contacto:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.ContactName, new { htmlAttributes = new { @class = "form-control", @id = "txtContact" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.ContactName, "", new { @class = "text-danger" })*@
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Dirección:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.Address, new { htmlAttributes = new { @class = "form-control", @id = "txtAddress" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.Address, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Folio:</label>
+                                    @Html.EditorFor(model => model.SoupKitchen.Folio, new { htmlAttributes = new { @class = "form-control", @id = "txtFolio", @placeholder = "__-____" } })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.Address, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="col-md-1" style="margin-left:-20px;">
+                                            @Html.EditorFor(model => model.SoupKitchen.AllowAnonym, new { htmlAttributes = new { @class = "form-control", @id = "chkAnonym" } })
+
+                                        </div>
+                                        <div class="col-md-8" style="margin-top:5px;">
+                                            <label class="col-md-12 control-label">Permitir Beneficiarios Anónimos</label>
+                                            @*@Html.ValidationMessageFor(model => model.SoupKitchen.Address, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-5"></div>
+                                    <div class="col-md-4">
+                                        <button type="button" id="btnClean" onclick="Clean()" class="btn btn-sm col-md-12 btn-default" style="font-size:14px;">Limpiar Formulario</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" id="bntSaveSoup" onclick="SaveSoupKitchen()" class="btn btn-sm col-md-12 btn-success" style="font-size:14px;">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                    </div>
+                    <h4 class="panel-title">Niveles de Aprobación</h4>
+                </div>
+                <form id="frmCode" data-parsley-validate="true">
+                    <div class="panel-body panel-form">
+                        <div class="form-horizontal form-bordered">
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-2 control-label" style="text-align:right;">Nivel:</label>
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.DropDownListFor(model => model.ListUserType, new SelectList(Model.ListUserType, "Id", "Description"), "Seleccione una opción", new { @class = "form-control parsley-validated", @id = "cboUserType", data_parsley_required = "true" })
+                                    @*@Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })*@
+                                    
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <button type="button" id="btnRegistrar" onclick="SaveRegister()" class="btn btn-sm col-md-12 btn-success" style="font-size:14px;">Agregar</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-md-2">
+
+                               </div>
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.Partial("UserTypeList", Model.ListUserTypeSKDto)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@*}*@
+<div>
+    @Html.ActionLink("Regresar a Listado", "SoupKitchen", "SoupKitchen")
+</div>
+
+@section scripts{
+   <script>
+       function SaveRegister() {
+           var att = {};
+           att.Id_SoupKitchen = $("#skId").val();
+           att.Id_UserType = $("#cboUserType").val();
+
+           if (att.Id_SoupKitchen > 0) {
+               if ($('#frmCode').parsley().validate()) {
+                   $.ajax({
+                       type: "POST",
+                       url: '@Url.Action("SaveUserTypeSk", "SoupKitchen")',
+                       data: '{att: ' + JSON.stringify(att) + '}',
+                       dataType: "json",
+                       async: false,
+                       contentType: "application/json; charset=utf-8",
+                       success: function (data) {
+                           if (data.message == "SUCCESS") {
+
+                               //$("#userTypeSoupKitchenList").dataTable().fnDestroy();
+                               $('#userTypeSoupKitchenList').html(data.PartialView);
+                               //$('#userTypeSoupKitchenList').DataTable({
+                               //    select: true,
+                               //    responsive: true,
+                               //    "pageLength": 10,
+                               //    "lengthChange": false,
+                               //    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                               //});
+                               $("#btnRegistrar").notify("Registro Guardado", "success", { position: "right top" });
+                               cleanForm();
+                           }
+                           else {
+                               $("#btnRegistrar").notify(data.message, "error", { position: "right top" });
+                           }
+                       },
+                       error: function () {
+                           $("#btnRegistrar").notify("Se ha producido un error.", "error", { position: "right top" });
+                       }
+                   });
+                   return false;
+               }
+           }
+           else {
+               $("#btnRegistrar").notify("No se ha asignado un comedor.", "error", { position: "right top" });
+           }
+       }
+
+       function cleanForm() {
+
+           $("#cboUserType").val("");
+       }
+
+       function Delete(id) {
+
+           var idSoupKitchen = $("#skId").val();
+           $.ajax({
+               type: 'POST',
+               url: "@Url.Action("DeleteLevel", "SoupKitchen")",
+               dataType: 'json',
+               async: false,
+               data: { 'idUserTypeSk': id, 'idSoupKitchen' : idSoupKitchen },
+               success: function (data) {
+                   if (data.message == "SUCCESS") {
+                       $.notify("Nivel de Aprobación Eliminado", "success", { position: "right top" });
+
+                       //$("#attendanceList").dataTable().fnDestroy();
+                       $('#userTypeSoupKitchenList').html(data.PartialView);
+                       //$('#attendanceList').DataTable({
+                       //    select: true,
+                       //    responsive: true,
+                       //    "pageLength": 10,
+                       //    "lengthChange": false,
+                       //    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                       //});
+                   }
+                   else {
+                       $.notify(data.message, "error", { position: "right top" });
+                   }
+               },
+               error: function (jqXHR, textStatus, errorThrown) {
+                   alert("error: " + jqXHR.responseText);
+               }
+           });
+           return false;
+       }
+
+
+       function SaveSoupKitchen() {
+
+           var att = {};
+           att.Id = $("#skId").val();
+           att.Name = $("#txtName").val();
+           att.Description = $("#txtDescription").val();
+           att.Capacity = $("#txtCapacity").val();
+           att.Address = $("#txtAddress").val();
+           att.PhoneNumber = $("#txtPhone").val();
+           att.ContactName = $("#txtContact").val();
+           att.Id_State = $("#cboState").val();
+           //att.AllowAnonym = $("#chkAnonym").val();
+           att.Folio = $("#txtFolio").val();
+           att.Id_Region = $("#cboRegion").val();
+
+           if ($('#chkAnonym').is(":checked")) {
+               att.AllowAnonym = true;
+           }
+           else {
+               att.AllowAnonym = false;
+           }
+           if ($('#frmSoupKitchen').parsley().validate()) {
+               $.ajax({
+                   type: "POST",
+                   url: '@Url.Action("SaveSoupKitchen", "SoupKitchen")',
+                   data: '{att: ' + JSON.stringify(att) + '}',
+                   dataType: "json",
+                   async: false,
+                   contentType: "application/json; charset=utf-8",
+                   success: function (data) {
+                       if (data.message == "SUCCESS") {
+                           
+                           $("#skId").val(data.Id);
+                           $('#userTypeSoupKitchenList').html(data.PartialView);
+                           $("#bntSaveSoup").notify("Registro Guardado", "success", { position: "right top" });
+                           //cleanForm();
+                       }
+                       else {
+                           $("#bntSaveSoup").notify(data.message, "error", { position: "right top" });
+                       }
+                   },
+                   error: function () {
+                       $("#bntSaveSoup").notify("Se ha producido un error.", "error", { position: "right top" });
+                   }
+               });
+               return false;
+           }
+
+
+       }
+
+       function Clean() {
+
+           $("#cboUserType").val("");
+           $("#skId").val("");
+           $("#txtName").val("");
+           $("#txtDescription").val("");
+           $("#txtCapacity").val("");
+           $("#txtAddress").val("");
+           $("#txtPhone").val("");
+           $("#txtContact").val("");
+           $("#cboState").val("");
+           $("#chkAnonym").prop("checked", false);
+           $("#txtFolio").val("");
+           $("#userTypeSoupKitchenList tr").remove();
+           $("#cboRegion").val("");
+       }
+    </script>     
+}
+
+@section documentReady{
+   $("#txtFolio").mask("**-****");
+
+
+}
+

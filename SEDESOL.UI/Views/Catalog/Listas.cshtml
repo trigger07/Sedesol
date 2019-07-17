@@ -1,0 +1,496 @@
+﻿@model SEDESOL.DataEntities.DTO.CatalogDTO
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">Listado</h4>
+    </div>
+    <div class="panel-body" id="pnlCatalogos">
+        <div class="row">
+            @*States m*@
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-green">
+                    <div class="stats-icon"><i class="fa fa-book"></i></div>
+                    <div class="stats-info">
+                        <h4><span class="semi-bold">ESTADOS MEXICANOS</span></h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="#modal-add" data-toggle="modal" data-catalog="m" class="agregar">Agregar <i class="fa fa-pencil"></i></a>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                           @foreach (var item in Model.States)
+                            {
+                                <li>
+                                    <a href="#modal-alert" class="borrar" data-activo="@item.IsActive" data-toggle="modal" data-id="@item.Id" data-catalog="m" data-title="@item.Name"><i class="fa fa-trash-o"></i></a>
+                                    <a class="activar" data-inactivo="@item.IsActive" data-id="@item.Id" data-catalog="m" data-title="@item.Name"><i class="fa fa-plug"></i></a>
+                                    <a style="" title="" data-original-title="" id="states" class="editable editable-click materia" href="#" data-type="text" data-pk="@item.Id" data-catalog="m" data-placement="bottom" data-placeholder="Required" data-title="Agregue una descripción">@item.Name</a>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            @*Months p*@
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-blue">
+                    <div class="stats-icon"><i class="fa fa-history"></i></div>
+                    <div class="stats-info">
+                        <h4><span class="semi-bold">MESES</span></h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="#" data-toggle="modal" data-catalog="p" class="agregar"></a>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var item in Model.Months)
+                            {
+                                <li>
+                                    <a href="#modal-alert" class="borrar" data-activo="@item.IsActive" data-toggle="modal" data-id="@item.Id" data-catalog="p" data-title="@item.Description"><i class="fa fa-trash-o"></i></a>
+                                    <a class="activar" data-inactivo="@item.IsActive" data-id="@item.Id" data-catalog="p" data-title="@item.Description"><i class="fa fa-plug"></i></a>
+                                    <a style="" title="" data-original-title="" id="months" class="editable editable-click periodo" href="#" data-type="text" data-pk="@item.Id" data-catalog="p" data-placement="bottom" data-placeholder="Required" data-title="Agregue una descripción">@item.Description</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @*Status n*@
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-purple">
+                    <div class="stats-icon"><i class="fa fa-mortar-board"></i></div>
+                    <div class="stats-info">
+                        <h4><span class="semi-bold">ESTADOS DE CAPTURA</span></h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="#" data-toggle="modal" data-catalog="n" class="agregar"></a>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var item in Model.Status)
+                            {
+                                <li>
+                                    <a href="#modal-alert" class="borrar" data-activo="@item.IsActive" data-toggle="modal" data-id="@item.Id" data-catalog="n" data-title="@item.Description"><i class="fa fa-trash-o"></i></a>
+                                    <a class="activar" data-inactivo="@item.IsActive" data-id="@item.Id" data-catalog="n" data-title="@item.Description"><i class="fa fa-plug"></i></a>
+                                    <a title="" data-original-title="" id="status" class="editable editable-click nivel" href="#" data-type="text" data-pk="@item.Id" data-catalog="n" data-placement="bottom" data-placeholder="Required" data-title="Agregue una descripción">@item.Description</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @*Years c*@
+            <div class="col-md-3 col-sm-6">
+                <div class="widget widget-stats bg-red">
+                    <div class="stats-icon"><i class="fa fa-calendar"></i></div>
+                    <div class="stats-info">
+                        <h4><span class="semi-bold">AÑOS</span></h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="#modal-add" data-toggle="modal" data-catalog="c" class="agregar">Agregar <i class="fa fa-pencil"></i></a>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var item in Model.Years)
+                            {
+                                <li>
+                                    <a href="#modal-alert" class="borrar" data-activo="@item.IsActive" data-toggle="modal" data-id="@item.Id" data-catalog="c" data-title="@item.Description"><i class="fa fa-trash-o"></i></a>
+                                    <a class="activar" data-inactivo="@item.IsActive" data-id="@item.Id" data-catalog="c" data-title="@item.Description"><i class="fa fa-plug"></i></a>
+                                    <a style="" title="" data-original-title="" id="years" class="editable editable-click cursolectivo" href="#" data-type="text" data-pk="@item.Id" data-catalog="d" data-placement="bottom" data-placeholder="Required" data-title="Agregue una descripción">@item.Description</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="modal-add" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Agregar Nuevo</h4>
+            </div>
+            <div class="modal-body">
+                <form data-async method="POST">
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="control-label col-md-3 col-sm-3" for="fullname">Descripción:</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" data-parsley-id="4840" class="form-control" id="descripcion" name="descripcion" data-parsley-range="[1,200]" placeholder="De 1 a 200 caracteres" data-catalog=""></input>
+                                <ul id="parsley-id-4840" class="parsley-errors-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cerrar</a>
+                <a href="javascript:;" class="btn btn-sm btn-success" id="btnSalvarNuevo">Salvar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-alert" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Desactivar</h4>
+            </div>
+            <div class="modal-body">
+                <div class="m-b-0">
+                    <h5><span id="mensajePersonalizado"></span></h5>
+                    <input type="hidden" id="identificador" value="" data-catalog="" data-activo="">
+                    <ul id="parsley-id-4840" class="parsley-errors-list"></ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cerrar</a>
+                <a href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal" id="btnBorrarElemento">Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+
+    li .fa-trash-o {
+        padding-right: 7px;
+        cursor: pointer;
+        color: black !important;
+    }
+
+    [data-activo="False"] {
+        display: none;
+    }
+
+    [data-inactivo="True"] {
+        display: none;
+    }
+
+    [data-inactivo="False"], [data-inactivo="False"] + a {
+        color: lightgray !important;
+    }
+
+    li .fa-plug {
+        padding-right: 6px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        $("#descripcion").keypress(function (event) {
+            //alert('entra');
+            if (event.keyCode === 13) {
+                
+                //$('#btnSalvarNuevo').click();
+                if ($('#descripcion').val() == '') {
+                    event.preventDefault()
+                    //alert('El campo descripción es requerido.');
+                    //$('.parsley-errors-list').append('<li class="parsley-required">Este valor es requerido!</li>');
+                    $("#btnSalvarNuevo").notify("El campo descripción es requerido!", "error", { position: "left middle" });
+                }
+                else {
+                    var nuevo = $('#descripcion').val();
+                    var id = $('#modal-add #descripcion').attr('data-catalog');
+
+                    $('.parsley-errors-list li').remove();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Insertar", "Catalog")',
+                        data: JSON.stringify({ "descripcion": nuevo, "catalogoId": id }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data, textStatus, jQxhr) {
+                            if (data.Result === "success") {
+                                $('#modal-add').modal('hide');
+                            } else if (data.Result === "duplicate") {
+                                $('.parsley-errors-list').append('<li class="parsley-required">Este valor ya existe en este catálogo!</li>');
+                            }
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+                            debugger;
+                        }
+                    });
+                }
+            }
+        });
+
+        $('.materia').editable({
+            validate: function(value) {
+                if (!value) {
+                    return 'Campo Requerido!';
+                }
+            },
+            send: 'always',
+            url: '@Url.Action("Editar", "Catalog")',
+            params: function (params) {
+                var data = {};
+                data["descripcion"] = params["value"];
+                data["catalogoId"] = 'm';
+                data["itemId"] = params.pk;
+                return data;
+            },
+            ajaxOptions: {
+                type: 'POST',
+                dataType: 'json',
+                async: true,
+                cache: false,
+                timeout: 10000
+            },
+            success: function (response, newValue) {
+                if (response.Result === "duplicate") {
+                    return 'Este valor ya existe en este catálogo!';
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                debugger;
+            }
+        });
+
+        @*$('.periodo').editable({
+            validate: function (value) {
+                if (!value) {
+                    return 'Campo Requerido!';
+                }
+            },
+            send: 'always',
+            url: '@Url.Action("Editar", "Catalog")',
+            params: function (params) {
+                var data = {};
+                data["descripcion"] = params["value"];
+                data["catalogoId"] = 'p';
+                data["itemId"] = params.pk;
+                return data;
+            },
+            ajaxOptions: {
+                type: 'POST',
+                dataType: 'json',
+                async: true,
+                cache: false,
+                timeout: 10000
+            },
+            success: function (response, newValue) {
+                if (response.Result === "duplicate") {
+                    return 'Este valor ya existe en este catálogo!';
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                debugger;
+            }
+        });*@
+
+        @*$('.nivel').editable({
+            validate: function (value) {
+                if (!value) {
+                    return 'Campo Requerido!';
+                }
+            },
+            send: 'always',
+            url: '@Url.Action("Editar", "Catalog")',
+            params: function (params) {
+                var data = {};
+                data["descripcion"] = params["value"];
+                data["catalogoId"] = 'n';
+                data["itemId"] = params.pk;
+                return data;
+            },
+            ajaxOptions: {
+                type: 'POST',
+                dataType: 'json',
+                async: true,
+                cache: false,
+                timeout: 10000
+            },
+            success: function (response, newValue) {
+                if (response.Result === "duplicate") {
+                    return 'Este valor ya existe en este catálogo!';
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                debugger;
+            }
+        });*@
+
+        $('.cursolectivo').editable({
+            validate: function (value) {
+                if (!value) {
+                    return 'Campo Requerido!';
+                }
+            },
+            send: 'always',
+            url: '@Url.Action("Editar", "Catalog")',
+            params: function (params) {
+                var data = {};
+                data["descripcion"] = params["value"];
+                data["catalogoId"] = 'c';
+                data["itemId"] = params.pk;
+                return data;
+            },
+            ajaxOptions: {
+                type: 'POST',
+                dataType: 'json',
+                async: true,
+                cache: false,
+                timeout: 10000
+            },
+            success: function (response, newValue) {
+                if (response.Result === "duplicate") {
+                    return 'Este valor ya existe en este catálogo!';
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                debugger;
+            }
+        });
+
+        $('.borrar').on('click', function () {
+            $('#modal-alert #identificador').val('');
+            var catalog = $(this).attr("data-catalog");
+            var title = '';
+            var catalogo;
+            switch (catalog) {
+                case 'm':
+                    title = 'Desactivar Estado Mexicano';
+                    catalogo = 'Estados Mexicanos';
+                    break;
+                case 'p':
+                    title = 'Desactivar Mes';
+                    catalogo = 'Meses';
+                    break;
+                case 'n':
+                    title = 'Desactivar Estado de Captura';
+                    catalogo = 'Estados de Captura';
+                    break;
+                case 'c':
+                    title = 'Desactivar Año';
+                    catalogo = 'Años';
+                    break;
+            }
+            $('#mensajePersonalizado').html('Desea desactivar <strong>' + $(this).attr("data-title") + '</strong> del catálogo de <strong>' + catalogo + '</strong>?');
+            $('#modal-alert .modal-title').text(title);
+            $('#modal-alert #identificador').val($(this).attr("data-title"));
+            $('#modal-alert #identificador').attr('data-catalog', catalog);
+            $('#modal-alert #identificador').attr('data-id', $(this).attr("data-id"));
+            $('#modal-alert #identificador').attr('data-activo', $(this).attr("data-activo"));
+        });
+
+        $('#btnBorrarElemento').on('click', function () {
+            var id = $('#modal-alert #identificador').attr("data-id");
+            var catalogo = $('#modal-alert #identificador').attr("data-catalog");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Borrar", "Catalog")',
+                data: JSON.stringify({ "catalogoId": catalogo, "id": id }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data, textStatus, jQxhr) {
+                    if (data.Result === 'borrado') {
+                        borradoResult = 'borrado';
+                        mostrarMensaje('Elemento desactivado.');
+                    }
+                    else {
+                        mostrarMensaje('Elemento desactivado.');
+                    }
+                    $('#modal-alert').modal('hide');
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    debugger;
+                }
+            });
+        });
+
+        $('.activar').on('click', function () {
+            var id = $(this).attr("data-id");
+            var catalogo = $(this).attr("data-catalog");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Activar", "Catalog")',
+                data: JSON.stringify({ "catalogoId": catalogo, "id": id }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data, textStatus, jQxhr) {
+                    if (data.Result === "success") {
+                        $('#pnlListas').load('@Url.Action("Listas", "Catalog")');
+                        mostrarMensaje('Elemento activado.');
+                    }
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    debugger;
+                }
+            });
+        });
+
+        $('.agregar').on('click', function () {
+            $('#modal-add #descripcion').val('');
+            var catalog = $(this).attr("data-catalog");
+            var title = '';
+            switch (catalog) {
+                case 'm':
+                    title = 'Agregar Nuevo Estado Mexicano';
+                    break;
+                case 'p':
+                    title = 'Agregar Nuevo Mes';
+                    break;
+                case 'n':
+                    title = 'Agregar Nuevo Estado de Captura';
+                    break;
+                case 'c':
+                    title = 'Agregar Nuevo Año';
+                    break;
+            }
+            $('#modal-add .modal-title').text(title);
+            $('#modal-add #descripcion').attr('data-catalog', catalog);
+        });
+
+        $('#btnSalvarNuevo').on('click', function () {
+            if ($('#descripcion').val() == '') {
+                //alert('valida');
+                //$('.parsley-errors-list').append('<li class="parsley-required">Este valor es requerido!</li>');
+                $("#btnSalvarNuevo").notify("El campo descripción es requerido!", "error", { position: "left middle" });
+            }
+            else {
+                var nuevo = $('#descripcion').val();
+                var id = $('#modal-add #descripcion').attr('data-catalog');
+
+                $('.parsley-errors-list li').remove();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("Insertar", "Catalog")',
+                    data: JSON.stringify({ "descripcion": nuevo, "catalogoId": id }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data, textStatus, jQxhr) {
+                        if (data.Result === "success") {
+                            $('#modal-add').modal('hide');
+                        } else if (data.Result === "duplicate") {
+                            $('.parsley-errors-list').append('<li class="parsley-required">Este valor ya existe en este catálogo!</li>');
+                        }
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        debugger;
+                    }
+                });
+            }
+        });
+
+        $('#modal-add').on('hidden.bs.modal', function (e) {
+            $('#pnlListas').load('@Url.Action("Listas", "Catalog")');
+        })
+        $('#modal-alert').on('hidden.bs.modal', function (e) {
+            $('#pnlListas').load('@Url.Action("Listas", "Catalog")');
+        })
+    });
+</script>

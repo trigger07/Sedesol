@@ -1,0 +1,174 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects;
+@model GencodeDayParam
+@{
+    ViewBag.Title = "Fechas de Habilitación";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Fechas de Habilitación de Generación de Códigos</h4>
+    </div>
+    <div class="col-md-1 col-md-offset-3">
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<hr />
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-inverse" style="min-height:80%">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+                <h4 class="panel-title">Formulario de datos</h4>
+            </div>
+            <form id="frmCode" data-parsley-validate="true">
+                <div class="panel-body panel-form">
+                    <div class="form-horizontal form-bordered">
+                        @Html.HiddenFor(model => model.Id, new { id = "GencodeDayId" })
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Año:</label>
+                            <div class="col-md-7 col-sm-7">
+                                @Html.DropDownListFor(model => model.Id_Year, new SelectList(Model.Years, "Id", "Description"), "Seleccione una opción", new { @class = "form-control parsley-validated", @id = "cboYear", data_parsley_required = "true" })
+                                @*@Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Mes:</label>
+                            <div class="col-md-7 col-sm-7">
+                                @Html.DropDownListFor(model => model.Id_Month, new SelectList(Model.Months, "Id", "Description"), "Seleccione una opción", new { @class = "form-control parsley-validated", @id = "cboMonth", data_parsley_required = "true" })
+                                @*@Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Día:</label>
+                            <div class="col-md-7 col-sm-7">
+                                @Html.EditorFor(model => model.Day, new { htmlAttributes = new { @class = "form-control", @id = "txtDay", @placeholder = "", @min = "0", data_parsley_required = "true" } })
+                                @Html.ValidationMessageFor(model => model.Day, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3"></label>
+                            <div class="col-md-7 col-sm-7">
+                                @*<input type="submit" value="Create" class="btn btn-default" />*@
+                                <button type="button" id="btnRegistrar" onclick="SaveRegister()" class="btn btn-sm col-md-12 btn-success" style="font-size:16px;">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+
+                </div>
+
+                <h4 class="panel-title">Listado de Fechas.</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("AvaiDateEdit", Model.listGencodeDayDTO)
+            </div>
+
+        </div>
+    </div>
+
+</div>
+@section scripts{
+    <script>
+        function SaveRegister() {
+            var att = {};
+            att.Id_Year = $("#cboYear").val();
+            att.Id_Month = $("#cboMonth").val();
+            att.Day = $("#txtDay").val();
+            att.Id = $("#GencodeDayId").val();
+
+            if ($('#frmCode').parsley().validate()) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SaveGencodeDay", "InspectionCode")',
+                    data: '{att: ' + JSON.stringify(att) + '}',
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.message == "SUCCESS") {
+
+                            $("#datesListEdit").dataTable().fnDestroy();
+                            $('#datesListEdit').html(data.PartialView);
+                            $('#datesListEdit').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+                            $("#btnRegistrar").notify("Fecha guardada exitosamente", "success", { position: "right top" });
+                            cleanForm();
+                        }
+                        else {
+                            $("#btnRegistrar").notify(data.message, "error", { position: "right top" });
+                        }
+                    },
+                    error: function () {
+                        $("#btnRegistrar").notify("Se ha producido un error. Contacte al administrador.", "error", { position: "right top" });
+                    }
+                });
+                return false;
+            }
+        }
+
+        function cleanForm() {
+
+            $("#cboYear").val("");
+            $("#cboMonth").val("");
+            $("#txtDay").val("");
+            $("#GencodeDayId").val("");
+        }
+
+        function Edit(id) {
+            $.ajax({
+                type: 'GET',
+                url: "@Url.Action("EditGenCodeDay", "InspectionCode")",
+                dataType: 'json',
+                data: { 'id': id },
+                success: function (data) {
+                    $("#cboYear").val(data.Id_Year);
+                    $("#cboMonth").val(data.Id_Month);
+                    $("#txtDay").val(data.Day);
+                    $("#GencodeDayId").val(data.Id);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+            return false;
+        }
+
+        
+    </script>
+}
+
+@section documentReady{
+    $('#datesListEdit').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+
+
+}

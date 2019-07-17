@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.Service", "SEDESOL.Service\SEDESOL.Service.csproj", "{09F7D395-A6DF-4226-9E95-9C89C9779C1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.UI", "SEDESOL.UI\SEDESOL.UI.csproj", "{8DD85BAF-06EB-47E6-9758-C710EFB6E7BB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09F7D395-A6DF-4226-9E95-9C89C9779C1A} = {09F7D395-A6DF-4226-9E95-9C89C9779C1A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.BusinessLogic", "SEDESOL.BusinessLogic\SEDESOL.BusinessLogic.csproj", "{1BB6B9C9-9AC2-4E5F-A063-07EBD39862A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.DataAccess", "SEDESOL.DataAccess\SEDESOL.DataAccess.csproj", "{A08E8E41-38DB-4DF3-9331-F412F9DBE281}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.DataModel", "SEDESOL.DataModel\SEDESOL.DataModel.csproj", "{BE224C95-BACF-4130-808C-B5788D770176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDESOL.DataEntities", "SEDESOL.DataEntities\SEDESOL.DataEntities.csproj", "{A18251BC-7CB5-4DD0-8F69-7181AB89B615}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09F7D395-A6DF-4226-9E95-9C89C9779C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F7D395-A6DF-4226-9E95-9C89C9779C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F7D395-A6DF-4226-9E95-9C89C9779C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F7D395-A6DF-4226-9E95-9C89C9779C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD85BAF-06EB-47E6-9758-C710EFB6E7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD85BAF-06EB-47E6-9758-C710EFB6E7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD85BAF-06EB-47E6-9758-C710EFB6E7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD85BAF-06EB-47E6-9758-C710EFB6E7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB6B9C9-9AC2-4E5F-A063-07EBD39862A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB6B9C9-9AC2-4E5F-A063-07EBD39862A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB6B9C9-9AC2-4E5F-A063-07EBD39862A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB6B9C9-9AC2-4E5F-A063-07EBD39862A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08E8E41-38DB-4DF3-9331-F412F9DBE281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08E8E41-38DB-4DF3-9331-F412F9DBE281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08E8E41-38DB-4DF3-9331-F412F9DBE281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08E8E41-38DB-4DF3-9331-F412F9DBE281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE224C95-BACF-4130-808C-B5788D770176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE224C95-BACF-4130-808C-B5788D770176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE224C95-BACF-4130-808C-B5788D770176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE224C95-BACF-4130-808C-B5788D770176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18251BC-7CB5-4DD0-8F69-7181AB89B615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A18251BC-7CB5-4DD0-8F69-7181AB89B615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A18251BC-7CB5-4DD0-8F69-7181AB89B615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A18251BC-7CB5-4DD0-8F69-7181AB89B615}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://gersontrigueros.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SEDESOL.BusinessLogic\\SEDESOL.BusinessLogic.csproj
+		SccProjectName1 = SEDESOL.BusinessLogic
+		SccLocalPath1 = SEDESOL.BusinessLogic
+		SccProjectUniqueName2 = SEDESOL.DataAccess\\SEDESOL.DataAccess.csproj
+		SccProjectName2 = SEDESOL.DataAccess
+		SccLocalPath2 = SEDESOL.DataAccess
+		SccProjectUniqueName3 = SEDESOL.DataEntities\\SEDESOL.DataEntities.csproj
+		SccProjectName3 = SEDESOL.DataEntities
+		SccLocalPath3 = SEDESOL.DataEntities
+		SccProjectUniqueName4 = SEDESOL.DataModel\\SEDESOL.DataModel.csproj
+		SccProjectName4 = SEDESOL.DataModel
+		SccLocalPath4 = SEDESOL.DataModel
+		SccProjectUniqueName5 = SEDESOL.Service\\SEDESOL.Service.csproj
+		SccProjectName5 = SEDESOL.Service
+		SccLocalPath5 = SEDESOL.Service
+		SccProjectUniqueName6 = SEDESOL.UI\\SEDESOL.UI.csproj
+		SccProjectName6 = SEDESOL.UI
+		SccLocalPath6 = SEDESOL.UI
+	EndGlobalSection
+EndGlobal

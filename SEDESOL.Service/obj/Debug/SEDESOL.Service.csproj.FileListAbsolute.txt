@@ -1,0 +1,103 @@
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\ApplicationInsights.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\EntityFramework.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\EntityFramework.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csprojResolveAssemblyReference.cache
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\ApplicationInsights.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csprojResolveAssemblyReference.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csproj.CoreCompileInputs.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csproj.CopyComplete
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\ApplicationInsights.config
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll.config
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.Service.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.dll
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.BusinessLogic.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataEntities.dll.config
+E:\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\EntityFramework.SqlServer.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.DependencyCollector.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.Web.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.AI.WindowsServer.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\Microsoft.ApplicationInsights.xml
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataAccess.dll.config
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.pdb
+E:\Projects\SEDESOL\SEDESOL.Service\bin\SEDESOL.DataModel.dll.config
+E:\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csprojAssemblyReference.cache
+E:\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csproj.CoreCompileInputs.cache
+E:\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.csproj.CopyComplete
+E:\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.dll
+E:\Projects\SEDESOL\SEDESOL.Service\obj\Debug\SEDESOL.Service.pdb

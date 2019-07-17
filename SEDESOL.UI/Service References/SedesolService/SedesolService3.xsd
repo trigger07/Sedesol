@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SEDESOL.DataEntities.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SEDESOL.DataEntities.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCaptureDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaptureDTO" nillable="true" type="tns:CaptureDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaptureDTO" nillable="true" type="tns:ArrayOfCaptureDTO" />
+  <xs:complexType name="CaptureDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttendanceCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AttendanceList" nillable="true" type="tns:ArrayOfAttendanceDTO" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Folio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_LevelApproval" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Month" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Soup_Kitchen" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Status" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_User" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Year" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageList" nillable="true" type="tns:ArrayOfCaptureImageDTO" />
+      <xs:element minOccurs="0" name="InspectionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Month" nillable="true" type="tns:MonthDTO" />
+      <xs:element minOccurs="0" name="ReceiverCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SoupKitchen" nillable="true" type="tns:SoupKitchenDTO" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:StatusDTO" />
+      <xs:element minOccurs="0" name="UserTypeDto" nillable="true" type="tns:UserTypeDTO" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="tns:YearDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaptureDTO" nillable="true" type="tns:CaptureDTO" />
+  <xs:complexType name="ArrayOfAttendanceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AttendanceDTO" nillable="true" type="tns:AttendanceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttendanceDTO" nillable="true" type="tns:ArrayOfAttendanceDTO" />
+  <xs:complexType name="AttendanceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Birthdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Capture" nillable="true" type="tns:CaptureDTO" />
+      <xs:element minOccurs="0" name="ConditionDto" nillable="true" type="tns:ConditionDTO" />
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Curp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasCurp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Capture" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Condition" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Receiver" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_State_Birth" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAnonym" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Receiver" nillable="true" type="tns:ReceiverDTO" />
+      <xs:element minOccurs="0" name="StateDto" nillable="true" type="tns:StateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AttendanceDTO" nillable="true" type="tns:AttendanceDTO" />
+  <xs:complexType name="ConditionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConditionDTO" nillable="true" type="tns:ConditionDTO" />
+  <xs:complexType name="ReceiverDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attendances" nillable="true" type="tns:ArrayOfAttendanceDTO" />
+      <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Curp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiverDTO" nillable="true" type="tns:ReceiverDTO" />
+  <xs:complexType name="StateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abbreviation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoupKitchenList" nillable="true" type="tns:ArrayOfSoupKitchenDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StateDTO" nillable="true" type="tns:StateDTO" />
+  <xs:complexType name="ArrayOfSoupKitchenDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SoupKitchenDTO" nillable="true" type="tns:SoupKitchenDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSoupKitchenDTO" nillable="true" type="tns:ArrayOfSoupKitchenDTO" />
+  <xs:complexType name="SoupKitchenDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AllowAnonym" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Attendance" nillable="true" type="tns:ArrayOfAttendanceDTO" />
+      <xs:element minOccurs="0" name="Capacity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Folio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Region" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_State" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionDto" nillable="true" type="tns:RegionDTO" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="tns:StateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SoupKitchenDTO" nillable="true" type="tns:SoupKitchenDTO" />
+  <xs:complexType name="RegionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAdded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionProductList" nillable="true" type="tns:ArrayOfRegionProductDTO" />
+      <xs:element minOccurs="0" name="SoupKitchenList" nillable="true" type="tns:ArrayOfSoupKitchenDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionDTO" nillable="true" type="tns:RegionDTO" />
+  <xs:complexType name="ArrayOfRegionProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionProductDTO" nillable="true" type="tns:RegionProductDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionProductDTO" nillable="true" type="tns:ArrayOfRegionProductDTO" />
+  <xs:complexType name="RegionProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Product" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Region" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionProductDTO" nillable="true" type="tns:RegionProductDTO" />
+  <xs:complexType name="ArrayOfCaptureImageDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaptureImageDTO" nillable="true" type="tns:CaptureImageDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaptureImageDTO" nillable="true" type="tns:ArrayOfCaptureImageDTO" />
+  <xs:complexType name="CaptureImageDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaptureDTO" nillable="true" type="tns:CaptureDTO" />
+      <xs:element minOccurs="0" name="FromCam" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Capture" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageFile" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ImageFileB64" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaptureImageDTO" nillable="true" type="tns:CaptureImageDTO" />
+  <xs:complexType name="MonthDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MonthDTO" nillable="true" type="tns:MonthDTO" />
+  <xs:complexType name="StatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusDTO" nillable="true" type="tns:StatusDTO" />
+  <xs:complexType name="UserTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserTypeDTO" nillable="true" type="tns:UserTypeDTO" />
+  <xs:complexType name="YearDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="YearDTO" nillable="true" type="tns:YearDTO" />
+  <xs:complexType name="ArrayOfInspectionCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InspectionCodeDTO" nillable="true" type="tns:InspectionCodeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInspectionCodeDTO" nillable="true" type="tns:ArrayOfInspectionCodeDTO" />
+  <xs:complexType name="InspectionCodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Month" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_User" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Year" type="xs:int" />
+      <xs:element minOccurs="0" name="InspectionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonthDto" nillable="true" type="tns:MonthDTO" />
+      <xs:element minOccurs="0" name="UserDto" nillable="true" type="tns:UserDTO" />
+      <xs:element minOccurs="0" name="YearDto" nillable="true" type="tns:YearDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InspectionCodeDTO" nillable="true" type="tns:InspectionCodeDTO" />
+  <xs:complexType name="UserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dni" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_User_Type" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoupKitchenList" nillable="true" type="tns:ArrayOfSoupKitchenDTO" />
+      <xs:element minOccurs="0" name="UserType" nillable="true" type="tns:UserTypeDTO" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
+  <xs:complexType name="CaptureApprovalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaptureDto" nillable="true" type="tns:CaptureDTO" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Capture" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Status" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_User" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusDto" nillable="true" type="tns:StatusDTO" />
+      <xs:element minOccurs="0" name="UserDto" nillable="true" type="tns:UserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaptureApprovalDTO" nillable="true" type="tns:CaptureApprovalDTO" />
+  <xs:complexType name="ArrayOfMonthDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MonthDTO" nillable="true" type="tns:MonthDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMonthDTO" nillable="true" type="tns:ArrayOfMonthDTO" />
+  <xs:complexType name="ArrayOfYearDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="YearDTO" nillable="true" type="tns:YearDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfYearDTO" nillable="true" type="tns:ArrayOfYearDTO" />
+  <xs:complexType name="ArrayOfStateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StateDTO" nillable="true" type="tns:StateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStateDTO" nillable="true" type="tns:ArrayOfStateDTO" />
+  <xs:complexType name="ArrayOfStatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusDTO" nillable="true" type="tns:StatusDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusDTO" nillable="true" type="tns:ArrayOfStatusDTO" />
+  <xs:complexType name="ArrayOfConditionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConditionDTO" nillable="true" type="tns:ConditionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConditionDTO" nillable="true" type="tns:ArrayOfConditionDTO" />
+  <xs:complexType name="ArrayOfRegionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionDTO" nillable="true" type="tns:RegionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionDTO" nillable="true" type="tns:ArrayOfRegionDTO" />
+  <xs:complexType name="ArrayOfFilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FilterDTO" nillable="true" type="tns:FilterDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFilterDTO" nillable="true" type="tns:ArrayOfFilterDTO" />
+  <xs:complexType name="FilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilterDTO" nillable="true" type="tns:FilterDTO" />
+  <xs:complexType name="ArrayOfSkUserTypeDTOcs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SkUserTypeDTOcs" nillable="true" type="tns:SkUserTypeDTOcs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSkUserTypeDTOcs" nillable="true" type="tns:ArrayOfSkUserTypeDTOcs" />
+  <xs:complexType name="SkUserTypeDTOcs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_SoupKitchen" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_UserType" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoupKitchenDto" nillable="true" type="tns:SoupKitchenDTO" />
+      <xs:element minOccurs="0" name="UserTypeDto" nillable="true" type="tns:UserTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SkUserTypeDTOcs" nillable="true" type="tns:SkUserTypeDTOcs" />
+  <xs:complexType name="ArrayOfUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDTO" nillable="true" type="tns:UserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDTO" nillable="true" type="tns:ArrayOfUserDTO" />
+  <xs:complexType name="ArrayOfUserTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserTypeDTO" nillable="true" type="tns:UserTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserTypeDTO" nillable="true" type="tns:ArrayOfUserTypeDTO" />
+  <xs:complexType name="UserSoupKitchen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Soup_Kitchen" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_User" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserSoupKitchen" nillable="true" type="tns:UserSoupKitchen" />
+  <xs:complexType name="ArrayOfGencodeDayDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GencodeDayDTO" nillable="true" type="tns:GencodeDayDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGencodeDayDTO" nillable="true" type="tns:ArrayOfGencodeDayDTO" />
+  <xs:complexType name="GencodeDayDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Day" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Month" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Year" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonthDto" nillable="true" type="tns:MonthDTO" />
+      <xs:element minOccurs="0" name="YearDto" nillable="true" type="tns:YearDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GencodeDayDTO" nillable="true" type="tns:GencodeDayDTO" />
+  <xs:complexType name="ArrayOfCaptureApprovalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaptureApprovalDTO" nillable="true" type="tns:CaptureApprovalDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaptureApprovalDTO" nillable="true" type="tns:ArrayOfCaptureApprovalDTO" />
+  <xs:complexType name="ArrayOfProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDTO" nillable="true" type="tns:ProductDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDTO" nillable="true" type="tns:ArrayOfProductDTO" />
+  <xs:complexType name="ProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EditDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EditUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ListRegion" nillable="true" type="tns:ArrayOfRegionDTO" />
+      <xs:element minOccurs="0" name="Measure" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MeasureString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Momio" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MomioString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuantityCoupon" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnitMeasure" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDTO" nillable="true" type="tns:ProductDTO" />
+  <xs:complexType name="ArrayOfRationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RationDTO" nillable="true" type="tns:RationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRationDTO" nillable="true" type="tns:ArrayOfRationDTO" />
+  <xs:complexType name="RationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EditDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EditUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasCoupon" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Capture" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Month" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_SoupKitchen" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Year" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MONTHDTO" nillable="true" type="tns:MonthDTO" />
+      <xs:element minOccurs="0" name="RationQuantity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SOUP_KITCHENDTO" nillable="true" type="tns:SoupKitchenDTO" />
+      <xs:element minOccurs="0" name="Sequential" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YEARDTO" nillable="true" type="tns:YearDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RationDTO" nillable="true" type="tns:RationDTO" />
+  <xs:complexType name="ArrayOfConfigurationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConfigurationDTO" nillable="true" type="tns:ConfigurationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConfigurationDTO" nillable="true" type="tns:ArrayOfConfigurationDTO" />
+  <xs:complexType name="ConfigurationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KeyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KeyValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigurationDTO" nillable="true" type="tns:ConfigurationDTO" />
+</xs:schema>

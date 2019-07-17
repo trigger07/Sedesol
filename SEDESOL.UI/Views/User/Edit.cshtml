@@ -1,0 +1,335 @@
+﻿
+@model SEDESOL.DataEntities.IntegrationObjects.UserModel
+@{
+    Html.EnableClientValidation(false);
+    ViewBag.Title = "Editar Registro de Usuario";
+}
+
+<h4 class="page-header">Editar Información de Usuario</h4>
+<hr />
+@*@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @id = "frmUser", data_parsley_validate = "true" }))
+{*@
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                    </div>
+                    <h4 class="panel-title">Formulario de datos</h4>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="panel-body">
+                    <form class="form-horizontal" id="frmUser" data-parsley-validate="true">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    @Html.HiddenFor(model => model.userDTO.Id, new { id = "userId" })
+                                    <label class="col-md-4 control-label">Nombre:</label>
+                                    @Html.EditorFor(model => model.userDTO.Name, new { htmlAttributes = new { @class = "form-control", @id= "txtName", data_parsley_required = "true" } })
+                                    @Html.ValidationMessageFor(model => model.userDTO.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Apellidos:</label>
+                                    @Html.EditorFor(model => model.userDTO.LastName, new { htmlAttributes = new { @class = "form-control", @id = "txtLastName", data_parsley_required = "true" } })
+                                    @Html.ValidationMessageFor(model => model.userDTO.LastName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">UserName:</label>
+                                    @Html.EditorFor(model => model.userDTO.Username, new { htmlAttributes = new { @class = "form-control", @id = "txtUsername", data_parsley_required = "true" } })
+                                    @Html.ValidationMessageFor(model => model.userDTO.Username, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">DNI:</label>
+                                    @Html.EditorFor(model => model.userDTO.Dni, new { htmlAttributes = new { @class = "form-control", @id = "txtDni", data_parsley_required = "true" } })
+                                    @Html.ValidationMessageFor(model => model.userDTO.Dni, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Teléfono:</label>
+                                    @Html.EditorFor(model => model.userDTO.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "txtPhoneNumber" } })
+                                    @*@Html.ValidationMessageFor(model => model.userDTO.PhoneNumber, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Email:</label>
+                                    @Html.EditorFor(model => model.userDTO.Email, new { htmlAttributes = new { @class = "form-control", @id = "txtEmail" } })
+                                    @*@Html.ValidationMessageFor(model => model.userDTO.Email, "", new { @class = "text-danger" })*@
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Tipo de Usuario:</label>
+                                    @Html.DropDownListFor(model => model.userDTO.Id_User_Type, new SelectList(Model.UserTypeDTO, "Id", "Description"), "Seleccione una opción", new { @class = "form-control", @id = "cboUserType",  data_parsley_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.userDTO.Id_User_Type, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @*<label class="col-md-4 control-label">Cambiar Contraseña:</label>*@
+                                    @*<input type="checkbox" name="changePass" value="">Cambiar Contraseña*@
+                                    @*@Html.DropDownListFor(model => model.userDTO.Id_User_Type, new SelectList(Model.UserTypeDTO, "Id", "Description"), "Seleccione una opción", new { @class = "form-control", data_parsley_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.userDTO.Id_User_Type, "", new { @class = "text-danger" })*@
+                                </div>
+                                    <div id="passwordChange">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Contraseña:</label>
+                                            @Html.EditorFor(model => model.userDTO.Password, new { htmlAttributes = new { @class = "form-control"@*, @type = "password"*@, @id = "psw1" } })
+                                            @Html.ValidationMessageFor(model => model.userDTO.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                        @*<div class="form-group">
+                                            <label class="col-md-4 control-label">Confirmar contraseña:</label>
+                                            @Html.EditorFor(model => model.userDTO.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @id = "psw2", data_parsley_required = "true", data_parsley_equalto = "#psw1", data_parsley_message = "Las contraseñas no coinciden" } })
+                                        </div>*@
+                                    </div>
+                                <div class="form-group">
+                                    <div class="col-md-11"></div>
+                                    <div class="col-md-1">
+                                        <button type="button" id="btnGuardar" onclick="SaveUser()" class="btn btn-sm btn-success">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+
+                    </div>
+
+                    <h4 class="panel-title">Comedores Asignados</h4>
+                </div>
+                <div class="panel-body">
+                    Click en el comedor que desea eliminar del usuario 
+                    <br />
+                    @Html.Partial("SKAssignedList", Model.ListSKAssigned)
+                </div>
+
+            </div>
+            <br/>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                       
+                    </div>
+
+                    <h4 class="panel-title">Comedores por Asignar</h4>
+                </div>
+                
+                <div class="panel-body">
+                    Click en el comedor que desea asignar al usuario
+                    <br/>
+                    @Html.Partial("SoupKitchenList", Model.ListSKToAssign)
+                </div>
+
+            </div>
+        </div>
+    </div>
+@*}*@
+<div>
+    @Html.ActionLink("Regresar a Listado", "Index", "User")
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        function SaveUser() {
+            var att = {};
+            att.Username = $("#txtUsername").val();
+            att.Password = $("#psw1").val();
+            att.Name = $("#txtName").val();
+            att.LastName = $("#txtLastName").val();
+            att.PhoneNumber = $("#txtPhoneNumber").val();
+            att.Email = $("#txtEmail").val();
+            att.Dni = $("#txtDni").val();
+            att.Id_User_Type = $("#cboUserType").val();
+            att.Id = $("#userId").val();
+
+            if ($('#frmUser').parsley().validate()) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Edit", "User")',
+                    data: '{att: ' + JSON.stringify(att) + '}',
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.message == "SUCCESS") {
+                            $("#btnGuardar").notify("Registro ingresado", "success", { position: "right top" });
+                            $("#userId").val(data.Id);
+                            //cleanForm();
+
+                            $("#skToAssignList").dataTable().fnDestroy();
+                            $('#skToAssignList').html(data.PartialViewTo);
+                            $('#skToAssignList').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+
+                            $("#skAssignedList").dataTable().fnDestroy();
+                            $('#skAssignedList').html(data.PartialViewAss);
+                            $('#skAssignedList').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+
+                        }
+                        else {
+                            $("#btnGuardar").notify(data.message, "error", { position: "right top" });
+                        }
+                    },
+                    error: function () {
+                        $("#btnGuardar").notify(data.message, "error", { position: "right top" });
+                    }
+                });
+                return false;
+            }
+        }
+
+        function cleanForm() {
+            $("#txtUsername").val("");
+            $("#psw1").val("");
+            //$("#psw2").val("");
+            $("#txtName").val("");
+            $("#txtLastName").val("");
+            $("#txtPhoneNumber").val("");
+            $("#txtEmail").val("");
+            $("#txtDni").val("");
+            $("#cboUserType").val("0");
+            $("#userId").val("");
+        }
+
+        function AssignSk(id) {
+
+            var dto = {};
+            dto.Id_User = $("#userId").val();
+            dto.Id_Soup_Kitchen = id;
+
+            if (dto.Id_User > 0)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: "@Url.Action("SaveUserSoupKitchen", "User")",
+                    dataType: 'json',
+                    async: false,
+                    data: '{dto: ' + JSON.stringify(dto) + '}',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.message == "SUCCESS") {
+
+                            $("#skToAssignList").dataTable().fnDestroy();
+                            $('#skToAssignList').html(data.PartialViewTo);
+                            $('#skToAssignList').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+
+                            $("#skAssignedList").dataTable().fnDestroy();
+                            $('#skAssignedList').html(data.PartialViewAss);
+                            $('#skAssignedList').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+                            $.notify("Comedor asociado", "success", { position: "right top" });
+                        }
+                        else {
+                            $.notify(data.message, "error", { position: "right top" });
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("error: " + jqXHR.responseText);
+                    }
+                });
+                return false;
+            }
+            else
+            {
+                $.notify("No se ha asignado un usuario", "error", { position: "right top" });
+            }
+            
+        }
+
+        function QuitSk(id) {
+           var userId = $("#userId").val();
+
+           if (userId > 0)
+           {
+               $.ajax({
+                   type: 'POST',
+                   url: "@Url.Action("DeleteUserSoupKitchen", "User")",
+                   dataType: 'json',
+                   async: false,
+                   data: '{ id:' + id + ', idUser:' + userId + '}',
+                   contentType: "application/json; charset=utf-8",
+                   success: function (data) {
+                       if (data.message == "SUCCESS") {
+
+                           $("#skToAssignList").dataTable().fnDestroy();
+                           $('#skToAssignList').html(data.PartialViewTo);
+                           $('#skToAssignList').DataTable({
+                               select: true,
+                               responsive: true,
+                               "pageLength": 10,
+                               "lengthChange": false,
+                               "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                           });
+
+                           $("#skAssignedList").dataTable().fnDestroy();
+                           $('#skAssignedList').html(data.PartialViewAss);
+                           $('#skAssignedList').DataTable({
+                               select: true,
+                               responsive: true,
+                               "pageLength": 10,
+                               "lengthChange": false,
+                               "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                           });
+                           $.notify("Comedor desasociado", "success", { position: "right top" });
+                       }
+                       else {
+                           $.notify(data.message, "error", { position: "right top" });
+                       }
+                   },
+                   error: function (jqXHR, textStatus, errorThrown) {
+                       alert("error: " + jqXHR.responseText);
+                   }
+               });
+               return false;
+           }
+           else {
+               $.notify("No se ha asignado un usuario", "error", { position: "right top" });
+           }
+        }
+
+    </script>    
+}
+
+@section documentReady{
+    $('#skToAssignList').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+
+     $('#skAssignedList').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+
+}
+
+

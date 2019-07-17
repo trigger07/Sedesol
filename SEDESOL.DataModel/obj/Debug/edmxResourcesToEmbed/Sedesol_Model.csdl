@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SEDESOLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ATTENDANCE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="Birthdate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Id_Capture" Type="Int32" />
+    <Property Name="Id_Receiver" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CAPTURE" Relationship="Self.FK_ATTENDANCE_CAPTURE" FromRole="ATTENDANCE" ToRole="CAPTURE" />
+    <NavigationProperty Name="RECEIVER" Relationship="Self.FK_ATTENDANCE_RECEIVER" FromRole="ATTENDANCE" ToRole="RECEIVER" />
+    <Property Name="IsAnonym" Type="Boolean" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Id_Condition" Type="Int32" />
+    <Property Name="Id_State_Birth" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONDITION" Relationship="SEDESOLModel.FK_ATTENDANCE_CONDITION" FromRole="ATTENDANCE" ToRole="CONDITION" />
+    <NavigationProperty Name="STATE" Relationship="SEDESOLModel.FK_ATTENDANCE_STATE" FromRole="ATTENDANCE" ToRole="STATE" />
+    <Property Name="LastName2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CAPTURE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Id_Month" Type="Int32" Nullable="false" />
+    <Property Name="Id_Year" Type="Int32" Nullable="false" />
+    <Property Name="Id_Status" Type="Int32" Nullable="false" />
+    <Property Name="Id_SoupKitchen" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ATTENDANCEs" Relationship="Self.FK_ATTENDANCE_CAPTURE" FromRole="CAPTURE" ToRole="ATTENDANCE" />
+    <NavigationProperty Name="CAPTURE_HISTORY" Relationship="Self.FK_CAPTURE_HISTORY_CAPTURE" FromRole="CAPTURE" ToRole="CAPTURE_HISTORY" />
+    <NavigationProperty Name="MONTH" Relationship="Self.FK_CAPTURE_MONTH" FromRole="CAPTURE" ToRole="MONTH" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="Self.FK_CAPTURE_SOUP_KITCHEN" FromRole="CAPTURE" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="STATUS" Relationship="Self.FK_CAPTURE_STATUS" FromRole="CAPTURE" ToRole="STATUS" />
+    <NavigationProperty Name="YEAR" Relationship="Self.FK_CAPTURE_YEAR" FromRole="CAPTURE" ToRole="YEAR" />
+    <NavigationProperty Name="CAPTURE_IMAGE" Relationship="SEDESOLModel.FK_CAPTURE_IMAGE_CAPTURE" FromRole="CAPTURE" ToRole="CAPTURE_IMAGE" />
+    <Property Name="Folio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InspectionCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CAPTURE_APPROVAL" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_CAPTURE" FromRole="CAPTURE" ToRole="CAPTURE_APPROVAL" />
+    <Property Name="Id_LevelApproval" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="USER_TYPE" Relationship="SEDESOLModel.FK_CAPTURE_USER_TYPE" FromRole="CAPTURE" ToRole="USER_TYPE" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="USER" Relationship="SEDESOLModel.FK_CAPTURE_USER" FromRole="CAPTURE" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="CAPTURE_HISTORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Id_Capture" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CAPTURE" Relationship="Self.FK_CAPTURE_HISTORY_CAPTURE" FromRole="CAPTURE_HISTORY" ToRole="CAPTURE" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_CAPTURE_HISTORY_USER" FromRole="CAPTURE_HISTORY" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="MONTH">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CAPTUREs" Relationship="Self.FK_CAPTURE_MONTH" FromRole="MONTH" ToRole="CAPTURE" />
+    <NavigationProperty Name="GEN_CODE_DAY" Relationship="SEDESOLModel.FK_GEN_CODE_DAY_MONTH" FromRole="MONTH" ToRole="GEN_CODE_DAY" />
+    <NavigationProperty Name="INSPECTION_CODE" Relationship="SEDESOLModel.FK_INSPECTION_CODE_MONTH" FromRole="MONTH" ToRole="INSPECTION_CODE" />
+    <NavigationProperty Name="COUPONs" Relationship="SEDESOLModel.FK_COUPON_MONTH" FromRole="MONTH" ToRole="COUPON" />
+    <NavigationProperty Name="RATIONs" Relationship="SEDESOLModel.FK_RATION_MONTH" FromRole="MONTH" ToRole="RATION" />
+  </EntityType>
+  <EntityType Name="RECEIVER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ATTENDANCEs" Relationship="Self.FK_ATTENDANCE_RECEIVER" FromRole="RECEIVER" ToRole="ATTENDANCE" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Id_State_Birth" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="STATE" Relationship="SEDESOLModel.FK_RECEIVER_STATE" FromRole="RECEIVER" ToRole="STATE" />
+  </EntityType>
+  <EntityType Name="SOUP_KITCHEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ContactName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Id_State" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CAPTUREs" Relationship="Self.FK_CAPTURE_SOUP_KITCHEN" FromRole="SOUP_KITCHEN" ToRole="CAPTURE" />
+    <NavigationProperty Name="STATE" Relationship="Self.FK_SOUP_KITCHEN_STATE" FromRole="SOUP_KITCHEN" ToRole="STATE" />
+    <NavigationProperty Name="USER_SOUP_KITCHEN" Relationship="Self.FK_USER_SOUP_KITCHEN_SOUP_KITCHEN" FromRole="SOUP_KITCHEN" ToRole="USER_SOUP_KITCHEN" />
+    <Property Name="AllowAnonym" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SOUP_KITCHEN_USER_TYPE" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN" FromRole="SOUP_KITCHEN" ToRole="SOUP_KITCHEN_USER_TYPE" />
+    <Property Name="Folio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Region" Type="Int32" />
+    <NavigationProperty Name="COUPONs" Relationship="SEDESOLModel.FK_COUPON_SOUP_KITCHEN" FromRole="SOUP_KITCHEN" ToRole="COUPON" />
+    <NavigationProperty Name="RATIONs" Relationship="SEDESOLModel.FK_RATION_SOUP_KITCHEN" FromRole="SOUP_KITCHEN" ToRole="RATION" />
+    <NavigationProperty Name="REGION" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_REGION" FromRole="SOUP_KITCHEN" ToRole="REGION" />
+  </EntityType>
+  <EntityType Name="STATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="Self.FK_SOUP_KITCHEN_STATE" FromRole="STATE" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="ATTENDANCEs" Relationship="SEDESOLModel.FK_ATTENDANCE_STATE" FromRole="STATE" ToRole="ATTENDANCE" />
+    <NavigationProperty Name="RECEIVERs" Relationship="SEDESOLModel.FK_RECEIVER_STATE" FromRole="STATE" ToRole="RECEIVER" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CAPTUREs" Relationship="Self.FK_CAPTURE_STATUS" FromRole="STATUS" ToRole="CAPTURE" />
+    <NavigationProperty Name="CAPTURE_APPROVAL" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_STATUS" FromRole="STATUS" ToRole="CAPTURE_APPROVAL" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Id_User_Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CAPTURE_HISTORY" Relationship="Self.FK_CAPTURE_HISTORY_USER" FromRole="USER" ToRole="CAPTURE_HISTORY" />
+    <NavigationProperty Name="USER_SOUP_KITCHEN" Relationship="Self.FK_USER_SOUP_KITCHEN_USER" FromRole="USER" ToRole="USER_SOUP_KITCHEN" />
+    <NavigationProperty Name="USER_TYPE" Relationship="Self.FK_USER_USER_TYPE" FromRole="USER" ToRole="USER_TYPE" />
+    <NavigationProperty Name="INSPECTION_CODE" Relationship="SEDESOLModel.FK_INSPECTION_CODE_USER" FromRole="USER" ToRole="INSPECTION_CODE" />
+    <NavigationProperty Name="CAPTURE_APPROVAL" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_USER" FromRole="USER" ToRole="CAPTURE_APPROVAL" />
+    <NavigationProperty Name="CAPTUREs" Relationship="SEDESOLModel.FK_CAPTURE_USER" FromRole="USER" ToRole="CAPTURE" />
+  </EntityType>
+  <EntityType Name="USER_SOUP_KITCHEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Id_Soup_Kitchen" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="Self.FK_USER_SOUP_KITCHEN_SOUP_KITCHEN" FromRole="USER_SOUP_KITCHEN" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_USER_SOUP_KITCHEN_USER" FromRole="USER_SOUP_KITCHEN" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="USER_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="USERs" Relationship="Self.FK_USER_USER_TYPE" FromRole="USER_TYPE" ToRole="USER" />
+    <Property Name="ApprovalOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SOUP_KITCHEN_USER_TYPE" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE" FromRole="USER_TYPE" ToRole="SOUP_KITCHEN_USER_TYPE" />
+    <NavigationProperty Name="CAPTUREs" Relationship="SEDESOLModel.FK_CAPTURE_USER_TYPE" FromRole="USER_TYPE" ToRole="CAPTURE" />
+  </EntityType>
+  <EntityType Name="YEAR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CAPTUREs" Relationship="Self.FK_CAPTURE_YEAR" FromRole="YEAR" ToRole="CAPTURE" />
+    <NavigationProperty Name="GEN_CODE_DAY" Relationship="SEDESOLModel.FK_GEN_CODE_DAY_YEAR" FromRole="YEAR" ToRole="GEN_CODE_DAY" />
+    <NavigationProperty Name="INSPECTION_CODE" Relationship="SEDESOLModel.FK_INSPECTION_CODE_YEAR" FromRole="YEAR" ToRole="INSPECTION_CODE" />
+    <NavigationProperty Name="COUPONs" Relationship="SEDESOLModel.FK_COUPON_YEAR" FromRole="YEAR" ToRole="COUPON" />
+    <NavigationProperty Name="RATIONs" Relationship="SEDESOLModel.FK_RATION_YEAR" FromRole="YEAR" ToRole="RATION" />
+  </EntityType>
+  <Association Name="FK_ATTENDANCE_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ATTENDANCE_RECEIVER">
+    <End Role="RECEIVER" Type="Self.RECEIVER" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECEIVER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_HISTORY_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="1" />
+    <End Role="CAPTURE_HISTORY" Type="Self.CAPTURE_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_HISTORY">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_STATUS">
+    <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_HISTORY_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="CAPTURE_HISTORY" Type="Self.CAPTURE_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_HISTORY">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_STATE">
+    <End Role="STATE" Type="Self.STATE" Multiplicity="1" />
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id_State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_SOUP_KITCHEN_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="USER_SOUP_KITCHEN" Type="Self.USER_SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_SOUP_KITCHEN">
+        <PropertyRef Name="Id_Soup_Kitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_SOUP_KITCHEN_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="USER_SOUP_KITCHEN" Type="Self.USER_SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_SOUP_KITCHEN">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="Id_User_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SEDESOLEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ATTENDANCEs" EntityType="Self.ATTENDANCE" />
+    <EntitySet Name="CAPTUREs" EntityType="Self.CAPTURE" />
+    <EntitySet Name="CAPTURE_HISTORY" EntityType="Self.CAPTURE_HISTORY" />
+    <EntitySet Name="MONTHs" EntityType="Self.MONTH" />
+    <EntitySet Name="RECEIVERs" EntityType="Self.RECEIVER" />
+    <EntitySet Name="SOUP_KITCHEN" EntityType="Self.SOUP_KITCHEN" />
+    <EntitySet Name="STATEs" EntityType="Self.STATE" />
+    <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+    <EntitySet Name="USERs" EntityType="Self.USER" />
+    <EntitySet Name="USER_SOUP_KITCHEN" EntityType="Self.USER_SOUP_KITCHEN" />
+    <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" />
+    <EntitySet Name="YEARs" EntityType="Self.YEAR" />
+    <AssociationSet Name="FK_ATTENDANCE_CAPTURE" Association="Self.FK_ATTENDANCE_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ATTENDANCE_RECEIVER" Association="Self.FK_ATTENDANCE_RECEIVER">
+      <End Role="RECEIVER" EntitySet="RECEIVERs" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_HISTORY_CAPTURE" Association="Self.FK_CAPTURE_HISTORY_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+      <End Role="CAPTURE_HISTORY" EntitySet="CAPTURE_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_MONTH" Association="Self.FK_CAPTURE_MONTH">
+      <End Role="MONTH" EntitySet="MONTHs" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_SOUP_KITCHEN" Association="Self.FK_CAPTURE_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_STATUS" Association="Self.FK_CAPTURE_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_YEAR" Association="Self.FK_CAPTURE_YEAR">
+      <End Role="YEAR" EntitySet="YEARs" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_HISTORY_USER" Association="Self.FK_CAPTURE_HISTORY_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="CAPTURE_HISTORY" EntitySet="CAPTURE_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_STATE" Association="Self.FK_SOUP_KITCHEN_STATE">
+      <End Role="STATE" EntitySet="STATEs" />
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_SOUP_KITCHEN_SOUP_KITCHEN" Association="Self.FK_USER_SOUP_KITCHEN_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="USER_SOUP_KITCHEN" EntitySet="USER_SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_SOUP_KITCHEN_USER" Association="Self.FK_USER_SOUP_KITCHEN_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="USER_SOUP_KITCHEN" EntitySet="USER_SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_USER_TYPE" Association="Self.FK_USER_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="USER" EntitySet="USERs" />
+    </AssociationSet>
+    <EntitySet Name="CAPTURE_IMAGE" EntityType="SEDESOLModel.CAPTURE_IMAGE" />
+    <EntitySet Name="SOUP_KITCHEN_USER_TYPE" EntityType="SEDESOLModel.SOUP_KITCHEN_USER_TYPE" />
+    <AssociationSet Name="FK_CAPTURE_IMAGE_CAPTURE" Association="SEDESOLModel.FK_CAPTURE_IMAGE_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+      <End Role="CAPTURE_IMAGE" EntitySet="CAPTURE_IMAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN" Association="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="SOUP_KITCHEN_USER_TYPE" EntitySet="SOUP_KITCHEN_USER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE" Association="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="SOUP_KITCHEN_USER_TYPE" EntitySet="SOUP_KITCHEN_USER_TYPE" />
+    </AssociationSet>
+    <EntitySet Name="GEN_CODE_DAY" EntityType="SEDESOLModel.GEN_CODE_DAY" />
+    <EntitySet Name="INSPECTION_CODE" EntityType="SEDESOLModel.INSPECTION_CODE" />
+    <AssociationSet Name="FK_GEN_CODE_DAY_MONTH" Association="SEDESOLModel.FK_GEN_CODE_DAY_MONTH">
+      <End Role="MONTH" EntitySet="MONTHs" />
+      <End Role="GEN_CODE_DAY" EntitySet="GEN_CODE_DAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GEN_CODE_DAY_YEAR" Association="SEDESOLModel.FK_GEN_CODE_DAY_YEAR">
+      <End Role="YEAR" EntitySet="YEARs" />
+      <End Role="GEN_CODE_DAY" EntitySet="GEN_CODE_DAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_MONTH" Association="SEDESOLModel.FK_INSPECTION_CODE_MONTH">
+      <End Role="MONTH" EntitySet="MONTHs" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_USER" Association="SEDESOLModel.FK_INSPECTION_CODE_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_YEAR" Association="SEDESOLModel.FK_INSPECTION_CODE_YEAR">
+      <End Role="YEAR" EntitySet="YEARs" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <EntitySet Name="CAPTURE_APPROVAL" EntityType="SEDESOLModel.CAPTURE_APPROVAL" />
+    <EntitySet Name="CONDITIONs" EntityType="SEDESOLModel.CONDITION" />
+    <AssociationSet Name="FK_ATTENDANCE_CONDITION" Association="SEDESOLModel.FK_ATTENDANCE_CONDITION">
+      <End Role="CONDITION" EntitySet="CONDITIONs" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ATTENDANCE_STATE" Association="SEDESOLModel.FK_ATTENDANCE_STATE">
+      <End Role="STATE" EntitySet="STATEs" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_CAPTURE" Association="SEDESOLModel.FK_CAPTURE_APPROVAL_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_STATUS" Association="SEDESOLModel.FK_CAPTURE_APPROVAL_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_USER" Association="SEDESOLModel.FK_CAPTURE_APPROVAL_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECEIVER_STATE" Association="SEDESOLModel.FK_RECEIVER_STATE">
+      <End Role="STATE" EntitySet="STATEs" />
+      <End Role="RECEIVER" EntitySet="RECEIVERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_USER_TYPE" Association="SEDESOLModel.FK_CAPTURE_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_USER" Association="SEDESOLModel.FK_CAPTURE_USER">
+      <End Role="USER" EntitySet="USERs" />
+      <End Role="CAPTURE" EntitySet="CAPTUREs" />
+    </AssociationSet>
+    <EntitySet Name="COUPONs" EntityType="SEDESOLModel.COUPON" />
+    <EntitySet Name="COUPON_DETAIL" EntityType="SEDESOLModel.COUPON_DETAIL" />
+    <EntitySet Name="PRODUCTs" EntityType="SEDESOLModel.PRODUCT" />
+    <EntitySet Name="RATIONs" EntityType="SEDESOLModel.RATION" />
+    <EntitySet Name="REGIONs" EntityType="SEDESOLModel.REGION" />
+    <EntitySet Name="REGION_PRODUCT" EntityType="SEDESOLModel.REGION_PRODUCT" />
+    <AssociationSet Name="FK_COUPON_DETAIL_COUPON" Association="SEDESOLModel.FK_COUPON_DETAIL_COUPON">
+      <End Role="COUPON" EntitySet="COUPONs" />
+      <End Role="COUPON_DETAIL" EntitySet="COUPON_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_MONTH" Association="SEDESOLModel.FK_COUPON_MONTH">
+      <End Role="MONTH" EntitySet="MONTHs" />
+      <End Role="COUPON" EntitySet="COUPONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_SOUP_KITCHEN" Association="SEDESOLModel.FK_COUPON_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="COUPON" EntitySet="COUPONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_YEAR" Association="SEDESOLModel.FK_COUPON_YEAR">
+      <End Role="YEAR" EntitySet="YEARs" />
+      <End Role="COUPON" EntitySet="COUPONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_DETAIL_PRODUCT" Association="SEDESOLModel.FK_COUPON_DETAIL_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="COUPON_DETAIL" EntitySet="COUPON_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_MONTH" Association="SEDESOLModel.FK_RATION_MONTH">
+      <End Role="MONTH" EntitySet="MONTHs" />
+      <End Role="RATION" EntitySet="RATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_PRODUCT_PRODUCT" Association="SEDESOLModel.FK_REGION_PRODUCT_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="REGION_PRODUCT" EntitySet="REGION_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_SOUP_KITCHEN" Association="SEDESOLModel.FK_RATION_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="RATION" EntitySet="RATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_YEAR" Association="SEDESOLModel.FK_RATION_YEAR">
+      <End Role="YEAR" EntitySet="YEARs" />
+      <End Role="RATION" EntitySet="RATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_PRODUCT_REGION" Association="SEDESOLModel.FK_REGION_PRODUCT_REGION">
+      <End Role="REGION" EntitySet="REGIONs" />
+      <End Role="REGION_PRODUCT" EntitySet="REGION_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_REGION" Association="SEDESOLModel.FK_SOUP_KITCHEN_REGION">
+      <End Role="REGION" EntitySet="REGIONs" />
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+    </AssociationSet>
+    <EntitySet Name="CONFIGURATIONs" EntityType="SEDESOLModel.CONFIGURATION" />
+  </EntityContainer>
+  <EntityType Name="CAPTURE_IMAGE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="ImageFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Id_Capture" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CAPTURE" Relationship="SEDESOLModel.FK_CAPTURE_IMAGE_CAPTURE" FromRole="CAPTURE_IMAGE" ToRole="CAPTURE" />
+  </EntityType>
+  <EntityType Name="SOUP_KITCHEN_USER_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_SoupKitchen" Type="Int32" Nullable="false" />
+    <Property Name="Id_UserType" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN" FromRole="SOUP_KITCHEN_USER_TYPE" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="USER_TYPE" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE" FromRole="SOUP_KITCHEN_USER_TYPE" ToRole="USER_TYPE" />
+  </EntityType>
+  <Association Name="FK_CAPTURE_IMAGE_CAPTURE">
+    <End Type="SEDESOLModel.CAPTURE" Role="CAPTURE" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE_IMAGE" Role="CAPTURE_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_IMAGE">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN">
+    <End Type="SEDESOLModel.SOUP_KITCHEN" Role="SOUP_KITCHEN" Multiplicity="1" />
+    <End Type="SEDESOLModel.SOUP_KITCHEN_USER_TYPE" Role="SOUP_KITCHEN_USER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN_USER_TYPE">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE">
+    <End Type="SEDESOLModel.USER_TYPE" Role="USER_TYPE" Multiplicity="1" />
+    <End Type="SEDESOLModel.SOUP_KITCHEN_USER_TYPE" Role="SOUP_KITCHEN_USER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN_USER_TYPE">
+        <PropertyRef Name="Id_UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GEN_CODE_DAY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Month" Type="Int32" Nullable="false" />
+    <Property Name="Id_Year" Type="Int32" Nullable="false" />
+    <Property Name="Day" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MONTH" Relationship="SEDESOLModel.FK_GEN_CODE_DAY_MONTH" FromRole="GEN_CODE_DAY" ToRole="MONTH" />
+    <NavigationProperty Name="YEAR" Relationship="SEDESOLModel.FK_GEN_CODE_DAY_YEAR" FromRole="GEN_CODE_DAY" ToRole="YEAR" />
+  </EntityType>
+  <EntityType Name="INSPECTION_CODE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InspectionCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Year" Type="Int32" Nullable="false" />
+    <Property Name="Id_Month" Type="Int32" Nullable="false" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MONTH" Relationship="SEDESOLModel.FK_INSPECTION_CODE_MONTH" FromRole="INSPECTION_CODE" ToRole="MONTH" />
+    <NavigationProperty Name="USER" Relationship="SEDESOLModel.FK_INSPECTION_CODE_USER" FromRole="INSPECTION_CODE" ToRole="USER" />
+    <NavigationProperty Name="YEAR" Relationship="SEDESOLModel.FK_INSPECTION_CODE_YEAR" FromRole="INSPECTION_CODE" ToRole="YEAR" />
+  </EntityType>
+  <Association Name="FK_GEN_CODE_DAY_MONTH">
+    <End Type="SEDESOLModel.MONTH" Role="MONTH" Multiplicity="1" />
+    <End Type="SEDESOLModel.GEN_CODE_DAY" Role="GEN_CODE_DAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GEN_CODE_DAY">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GEN_CODE_DAY_YEAR">
+    <End Type="SEDESOLModel.YEAR" Role="YEAR" Multiplicity="1" />
+    <End Type="SEDESOLModel.GEN_CODE_DAY" Role="GEN_CODE_DAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GEN_CODE_DAY">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_MONTH">
+    <End Type="SEDESOLModel.MONTH" Role="MONTH" Multiplicity="1" />
+    <End Type="SEDESOLModel.INSPECTION_CODE" Role="INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_USER">
+    <End Type="SEDESOLModel.USER" Role="USER" Multiplicity="1" />
+    <End Type="SEDESOLModel.INSPECTION_CODE" Role="INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_YEAR">
+    <End Type="SEDESOLModel.YEAR" Role="YEAR" Multiplicity="1" />
+    <End Type="SEDESOLModel.INSPECTION_CODE" Role="INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CAPTURE_APPROVAL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Capture" Type="Int32" Nullable="false" />
+    <Property Name="Id_User" Type="Int32" Nullable="false" />
+    <Property Name="Id_Status" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CAPTURE" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_CAPTURE" FromRole="CAPTURE_APPROVAL" ToRole="CAPTURE" />
+    <NavigationProperty Name="STATUS" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_STATUS" FromRole="CAPTURE_APPROVAL" ToRole="STATUS" />
+    <NavigationProperty Name="USER" Relationship="SEDESOLModel.FK_CAPTURE_APPROVAL_USER" FromRole="CAPTURE_APPROVAL" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="CONDITION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ATTENDANCEs" Relationship="SEDESOLModel.FK_ATTENDANCE_CONDITION" FromRole="CONDITION" ToRole="ATTENDANCE" />
+  </EntityType>
+  <Association Name="FK_ATTENDANCE_CONDITION">
+    <End Type="SEDESOLModel.CONDITION" Role="CONDITION" Multiplicity="0..1" />
+    <End Type="SEDESOLModel.ATTENDANCE" Role="ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDITION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Condition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ATTENDANCE_STATE">
+    <End Type="SEDESOLModel.STATE" Role="STATE" Multiplicity="0..1" />
+    <End Type="SEDESOLModel.ATTENDANCE" Role="ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_State_Birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_CAPTURE">
+    <End Type="SEDESOLModel.CAPTURE" Role="CAPTURE" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE_APPROVAL" Role="CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_STATUS">
+    <End Type="SEDESOLModel.STATUS" Role="STATUS" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE_APPROVAL" Role="CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_USER">
+    <End Type="SEDESOLModel.USER" Role="USER" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE_APPROVAL" Role="CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECEIVER_STATE">
+    <End Type="SEDESOLModel.STATE" Role="STATE" Multiplicity="0..1" />
+    <End Type="SEDESOLModel.RECEIVER" Role="RECEIVER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RECEIVER">
+        <PropertyRef Name="Id_State_Birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_USER_TYPE">
+    <End Type="SEDESOLModel.USER_TYPE" Role="USER_TYPE" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE" Role="CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_LevelApproval" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_USER">
+    <End Type="SEDESOLModel.USER" Role="USER" Multiplicity="1" />
+    <End Type="SEDESOLModel.CAPTURE" Role="CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="COUPON">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Id_SoupKitchen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Month" Type="Int32" Nullable="false" />
+    <Property Name="Id_Year" Type="Int32" Nullable="false" />
+    <Property Name="Id_Ration" Type="Int32" />
+    <Property Name="RationQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Sequential" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="EditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EditDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="COUPON_DETAIL" Relationship="SEDESOLModel.FK_COUPON_DETAIL_COUPON" FromRole="COUPON" ToRole="COUPON_DETAIL" />
+    <NavigationProperty Name="MONTH" Relationship="SEDESOLModel.FK_COUPON_MONTH" FromRole="COUPON" ToRole="MONTH" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="SEDESOLModel.FK_COUPON_SOUP_KITCHEN" FromRole="COUPON" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="YEAR" Relationship="SEDESOLModel.FK_COUPON_YEAR" FromRole="COUPON" ToRole="YEAR" />
+  </EntityType>
+  <EntityType Name="COUPON_DETAIL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Coupon" Type="Int32" Nullable="false" />
+    <Property Name="Id_Product" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="AskedQuantity" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="DeliveredQuantity" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="COUPON" Relationship="SEDESOLModel.FK_COUPON_DETAIL_COUPON" FromRole="COUPON_DETAIL" ToRole="COUPON" />
+    <NavigationProperty Name="PRODUCT" Relationship="SEDESOLModel.FK_COUPON_DETAIL_PRODUCT" FromRole="COUPON_DETAIL" ToRole="PRODUCT" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Measure" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="UnitMeasure" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Momio" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EditDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="COUPON_DETAIL" Relationship="SEDESOLModel.FK_COUPON_DETAIL_PRODUCT" FromRole="PRODUCT" ToRole="COUPON_DETAIL" />
+    <NavigationProperty Name="REGION_PRODUCT" Relationship="SEDESOLModel.FK_REGION_PRODUCT_PRODUCT" FromRole="PRODUCT" ToRole="REGION_PRODUCT" />
+  </EntityType>
+  <EntityType Name="RATION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Id_SoupKitchen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Month" Type="Int32" Nullable="false" />
+    <Property Name="Id_Year" Type="Int32" Nullable="false" />
+    <Property Name="Id_Capture" Type="Int32" />
+    <Property Name="RationQuantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="EditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EditDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MONTH" Relationship="SEDESOLModel.FK_RATION_MONTH" FromRole="RATION" ToRole="MONTH" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="SEDESOLModel.FK_RATION_SOUP_KITCHEN" FromRole="RATION" ToRole="SOUP_KITCHEN" />
+    <NavigationProperty Name="YEAR" Relationship="SEDESOLModel.FK_RATION_YEAR" FromRole="RATION" ToRole="YEAR" />
+    <Property Name="HasCoupon" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="REGION_PRODUCT" Relationship="SEDESOLModel.FK_REGION_PRODUCT_REGION" FromRole="REGION" ToRole="REGION_PRODUCT" />
+    <NavigationProperty Name="SOUP_KITCHEN" Relationship="SEDESOLModel.FK_SOUP_KITCHEN_REGION" FromRole="REGION" ToRole="SOUP_KITCHEN" />
+  </EntityType>
+  <EntityType Name="REGION_PRODUCT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Region" Type="Int32" Nullable="false" />
+    <Property Name="Id_Product" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="PRODUCT" Relationship="SEDESOLModel.FK_REGION_PRODUCT_PRODUCT" FromRole="REGION_PRODUCT" ToRole="PRODUCT" />
+    <NavigationProperty Name="REGION" Relationship="SEDESOLModel.FK_REGION_PRODUCT_REGION" FromRole="REGION_PRODUCT" ToRole="REGION" />
+  </EntityType>
+  <Association Name="FK_COUPON_DETAIL_COUPON">
+    <End Type="SEDESOLModel.COUPON" Role="COUPON" Multiplicity="1" />
+    <End Type="SEDESOLModel.COUPON_DETAIL" Role="COUPON_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUPON">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON_DETAIL">
+        <PropertyRef Name="Id_Coupon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_MONTH">
+    <End Type="SEDESOLModel.MONTH" Role="MONTH" Multiplicity="1" />
+    <End Type="SEDESOLModel.COUPON" Role="COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_SOUP_KITCHEN">
+    <End Type="SEDESOLModel.SOUP_KITCHEN" Role="SOUP_KITCHEN" Multiplicity="1" />
+    <End Type="SEDESOLModel.COUPON" Role="COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_YEAR">
+    <End Type="SEDESOLModel.YEAR" Role="YEAR" Multiplicity="1" />
+    <End Type="SEDESOLModel.COUPON" Role="COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_DETAIL_PRODUCT">
+    <End Type="SEDESOLModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="SEDESOLModel.COUPON_DETAIL" Role="COUPON_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON_DETAIL">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_MONTH">
+    <End Type="SEDESOLModel.MONTH" Role="MONTH" Multiplicity="1" />
+    <End Type="SEDESOLModel.RATION" Role="RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_PRODUCT_PRODUCT">
+    <End Type="SEDESOLModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+    <End Type="SEDESOLModel.REGION_PRODUCT" Role="REGION_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REGION_PRODUCT">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_SOUP_KITCHEN">
+    <End Type="SEDESOLModel.SOUP_KITCHEN" Role="SOUP_KITCHEN" Multiplicity="1" />
+    <End Type="SEDESOLModel.RATION" Role="RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_YEAR">
+    <End Type="SEDESOLModel.YEAR" Role="YEAR" Multiplicity="1" />
+    <End Type="SEDESOLModel.RATION" Role="RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_PRODUCT_REGION">
+    <End Type="SEDESOLModel.REGION" Role="REGION" Multiplicity="1" />
+    <End Type="SEDESOLModel.REGION_PRODUCT" Role="REGION_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REGION_PRODUCT">
+        <PropertyRef Name="Id_Region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_REGION">
+    <End Type="SEDESOLModel.REGION" Role="REGION" Multiplicity="0..1" />
+    <End Type="SEDESOLModel.SOUP_KITCHEN" Role="SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id_Region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CONFIGURATION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KeyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KeyDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KeyValue" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

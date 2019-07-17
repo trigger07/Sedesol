@@ -1,0 +1,72 @@
+﻿@model SEDESOL.DataEntities.DTO.CatalogDTO
+@{
+    Html.EnableClientValidation(false);
+    ViewBag.Title = "Registro de Catálogos";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Administración de Catálogos</h4>
+    </div>
+    <div class="col-md-6">
+        <div class="col-md-7 pull-right" style="padding-right:0px;">
+            <div class="alert alert-warning">
+                <div><i class="fa fa-trash-o fa-lg pull-left m-t-2"></i><b class="text-inverse"> = </b> Click para desactivar un elemento del catálogo.</div>
+                <div><i class="fa fa-plug fa-lg pull-left m-t-2"></i><b class="text-inverse"> = </b> El elemento está Inactivo. Click para Activar.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" id="pnlListas">
+        @Html.Partial("Listas")
+    </div>
+</div>
+
+<style>
+    .lowerPosition {
+        margin-top: 20px;
+    }
+
+    /*.page-header {
+        margin-top: 40px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        margin-left: 0px;
+        border-bottom: 1px solid #eee;
+    }*/
+    .stats-icon {
+        font-size: 35px !important;
+        top: 2px !important;
+    }
+
+    .widget {
+        overflow: visible;
+    }
+
+     .materia, .periodo, .nivel, .cursolectivo {
+        color:#fff !important;
+        border-bottom:none;
+    }
+
+    .alert {
+        margin-bottom: 3px !important;
+    }
+</style>
+<script>
+    function mostrarMensaje(texto) {
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+            title: 'Operación Completada!',
+            // (string | mandatory) the text inside the notification
+            text: texto,
+            class_name: 'gritter-light',
+            time: '2400'
+        });
+    }
+
+    $(document).ready(function () {
+
+    });
+</script>

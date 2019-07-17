@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SEDESOLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ATTENDANCE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Curp" Type="varchar" MaxLength="18" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Id_Capture" Type="int" />
+    <Property Name="Id_Receiver" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsAnonym" Type="bit" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Id_Condition" Type="int" />
+    <Property Name="Id_State_Birth" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="30" />
+    <Property Name="LastName2" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CAPTURE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Id_Month" Type="int" Nullable="false" />
+    <Property Name="Id_Year" Type="int" Nullable="false" />
+    <Property Name="Id_Status" Type="int" Nullable="false" />
+    <Property Name="Id_SoupKitchen" Type="int" Nullable="false" />
+    <Property Name="Folio" Type="nvarchar" MaxLength="50" />
+    <Property Name="InspectionCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="Id_LevelApproval" Type="int" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAPTURE_APPROVAL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Capture" Type="int" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="Id_Status" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAPTURE_HISTORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="Id_Capture" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAPTURE_IMAGE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="600" />
+    <Property Name="ImageFile" Type="varbinary(max)" />
+    <Property Name="Id_Capture" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONDITION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONFIGURATION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KeyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="KeyDetail" Type="varchar" MaxLength="100" />
+    <Property Name="KeyValue" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COUPON">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Id_SoupKitchen" Type="int" Nullable="false" />
+    <Property Name="Id_Month" Type="int" Nullable="false" />
+    <Property Name="Id_Year" Type="int" Nullable="false" />
+    <Property Name="Id_Ration" Type="int" />
+    <Property Name="RationQuantity" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Sequential" Type="varchar" MaxLength="20" />
+    <Property Name="CreateUser" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EditUser" Type="varchar" MaxLength="50" />
+    <Property Name="EditDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="COUPON_DETAIL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Coupon" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AskedQuantity" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="DeliveredQuantity" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="DueDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GEN_CODE_DAY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Month" Type="int" Nullable="false" />
+    <Property Name="Id_Year" Type="int" Nullable="false" />
+    <Property Name="Day" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INSPECTION_CODE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InspectionCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Id_Year" Type="int" Nullable="false" />
+    <Property Name="Id_Month" Type="int" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MONTH">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Measure" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="UnitMeasure" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Momio" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreateUser" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="EditUser" Type="varchar" MaxLength="50" />
+    <Property Name="EditDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RATION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Id_SoupKitchen" Type="int" Nullable="false" />
+    <Property Name="Id_Month" Type="int" Nullable="false" />
+    <Property Name="Id_Year" Type="int" Nullable="false" />
+    <Property Name="Id_Capture" Type="int" />
+    <Property Name="RationQuantity" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreateUser" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EditUser" Type="varchar" MaxLength="50" />
+    <Property Name="EditDate" Type="datetime" />
+    <Property Name="HasCoupon" Type="bit" />
+  </EntityType>
+  <EntityType Name="RECEIVER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Curp" Type="varchar" MaxLength="18" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Id_State_Birth" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REGION_PRODUCT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Region" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="SOUP_KITCHEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+    <Property Name="ContactName" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Id_State" Type="int" Nullable="false" />
+    <Property Name="AllowAnonym" Type="bit" Nullable="false" />
+    <Property Name="Folio" Type="varchar" MaxLength="10" />
+    <Property Name="Id_Region" Type="int" />
+  </EntityType>
+  <EntityType Name="SOUP_KITCHEN_USER_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_SoupKitchen" Type="int" Nullable="false" />
+    <Property Name="Id_UserType" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Abbreviation" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="300" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Dni" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Id_User_Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_SOUP_KITCHEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="Id_Soup_Kitchen" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="ApprovalOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YEAR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ATTENDANCE_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ATTENDANCE_CONDITION">
+    <End Role="CONDITION" Type="Self.CONDITION" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDITION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Condition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ATTENDANCE_RECEIVER">
+    <End Role="RECEIVER" Type="Self.RECEIVER" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECEIVER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_Receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ATTENDANCE_STATE">
+    <End Role="STATE" Type="Self.STATE" Multiplicity="0..1" />
+    <End Role="ATTENDANCE" Type="Self.ATTENDANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ATTENDANCE">
+        <PropertyRef Name="Id_State_Birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="1" />
+    <End Role="CAPTURE_APPROVAL" Type="Self.CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_STATUS">
+    <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+    <End Role="CAPTURE_APPROVAL" Type="Self.CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_APPROVAL_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="CAPTURE_APPROVAL" Type="Self.CAPTURE_APPROVAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_APPROVAL">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_HISTORY_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="1" />
+    <End Role="CAPTURE_HISTORY" Type="Self.CAPTURE_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_HISTORY">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_HISTORY_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="CAPTURE_HISTORY" Type="Self.CAPTURE_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_HISTORY">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_IMAGE_CAPTURE">
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="1" />
+    <End Role="CAPTURE_IMAGE" Type="Self.CAPTURE_IMAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPTURE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE_IMAGE">
+        <PropertyRef Name="Id_Capture" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_STATUS">
+    <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_LevelApproval" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAPTURE_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="CAPTURE" Type="Self.CAPTURE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAPTURE">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_DETAIL_COUPON">
+    <End Role="COUPON" Type="Self.COUPON" Multiplicity="1" />
+    <End Role="COUPON_DETAIL" Type="Self.COUPON_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUPON">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON_DETAIL">
+        <PropertyRef Name="Id_Coupon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_DETAIL_PRODUCT">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="COUPON_DETAIL" Type="Self.COUPON_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON_DETAIL">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="COUPON" Type="Self.COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="COUPON" Type="Self.COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COUPON_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="COUPON" Type="Self.COUPON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="COUPON">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GEN_CODE_DAY_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="GEN_CODE_DAY" Type="Self.GEN_CODE_DAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GEN_CODE_DAY">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GEN_CODE_DAY_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="GEN_CODE_DAY" Type="Self.GEN_CODE_DAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GEN_CODE_DAY">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="INSPECTION_CODE" Type="Self.INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="INSPECTION_CODE" Type="Self.INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTION_CODE_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="INSPECTION_CODE" Type="Self.INSPECTION_CODE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="INSPECTION_CODE">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_MONTH">
+    <End Role="MONTH" Type="Self.MONTH" Multiplicity="1" />
+    <End Role="RATION" Type="Self.RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MONTH">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_Month" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="RATION" Type="Self.RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RATION_YEAR">
+    <End Role="YEAR" Type="Self.YEAR" Multiplicity="1" />
+    <End Role="RATION" Type="Self.RATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEAR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RATION">
+        <PropertyRef Name="Id_Year" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RECEIVER_STATE">
+    <End Role="STATE" Type="Self.STATE" Multiplicity="0..1" />
+    <End Role="RECEIVER" Type="Self.RECEIVER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RECEIVER">
+        <PropertyRef Name="Id_State_Birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_PRODUCT_PRODUCT">
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="REGION_PRODUCT" Type="Self.REGION_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REGION_PRODUCT">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_REGION_PRODUCT_REGION">
+    <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
+    <End Role="REGION_PRODUCT" Type="Self.REGION_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="REGION_PRODUCT">
+        <PropertyRef Name="Id_Region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_REGION">
+    <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id_Region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_STATE">
+    <End Role="STATE" Type="Self.STATE" Multiplicity="1" />
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id_State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="SOUP_KITCHEN_USER_TYPE" Type="Self.SOUP_KITCHEN_USER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN_USER_TYPE">
+        <PropertyRef Name="Id_SoupKitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+    <End Role="SOUP_KITCHEN_USER_TYPE" Type="Self.SOUP_KITCHEN_USER_TYPE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SOUP_KITCHEN_USER_TYPE">
+        <PropertyRef Name="Id_UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_SOUP_KITCHEN_SOUP_KITCHEN">
+    <End Role="SOUP_KITCHEN" Type="Self.SOUP_KITCHEN" Multiplicity="1" />
+    <End Role="USER_SOUP_KITCHEN" Type="Self.USER_SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUP_KITCHEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_SOUP_KITCHEN">
+        <PropertyRef Name="Id_Soup_Kitchen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_SOUP_KITCHEN_USER">
+    <End Role="USER" Type="Self.USER" Multiplicity="1" />
+    <End Role="USER_SOUP_KITCHEN" Type="Self.USER_SOUP_KITCHEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_SOUP_KITCHEN">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_USER_TYPE">
+    <End Role="USER_TYPE" Type="Self.USER_TYPE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER_TYPE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="Id_User_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SEDESOLModelStoreContainer">
+    <EntitySet Name="ATTENDANCE" EntityType="Self.ATTENDANCE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAPTURE" EntityType="Self.CAPTURE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAPTURE_APPROVAL" EntityType="Self.CAPTURE_APPROVAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAPTURE_HISTORY" EntityType="Self.CAPTURE_HISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAPTURE_IMAGE" EntityType="Self.CAPTURE_IMAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONDITION" EntityType="Self.CONDITION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONFIGURATION" EntityType="Self.CONFIGURATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUPON" EntityType="Self.COUPON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUPON_DETAIL" EntityType="Self.COUPON_DETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GEN_CODE_DAY" EntityType="Self.GEN_CODE_DAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INSPECTION_CODE" EntityType="Self.INSPECTION_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MONTH" EntityType="Self.MONTH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RATION" EntityType="Self.RATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RECEIVER" EntityType="Self.RECEIVER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGION" EntityType="Self.REGION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGION_PRODUCT" EntityType="Self.REGION_PRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOUP_KITCHEN" EntityType="Self.SOUP_KITCHEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOUP_KITCHEN_USER_TYPE" EntityType="Self.SOUP_KITCHEN_USER_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATE" EntityType="Self.STATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_SOUP_KITCHEN" EntityType="Self.USER_SOUP_KITCHEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_TYPE" EntityType="Self.USER_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEAR" EntityType="Self.YEAR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ATTENDANCE_CAPTURE" Association="Self.FK_ATTENDANCE_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ATTENDANCE_CONDITION" Association="Self.FK_ATTENDANCE_CONDITION">
+      <End Role="CONDITION" EntitySet="CONDITION" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ATTENDANCE_RECEIVER" Association="Self.FK_ATTENDANCE_RECEIVER">
+      <End Role="RECEIVER" EntitySet="RECEIVER" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ATTENDANCE_STATE" Association="Self.FK_ATTENDANCE_STATE">
+      <End Role="STATE" EntitySet="STATE" />
+      <End Role="ATTENDANCE" EntitySet="ATTENDANCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_CAPTURE" Association="Self.FK_CAPTURE_APPROVAL_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_STATUS" Association="Self.FK_CAPTURE_APPROVAL_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_APPROVAL_USER" Association="Self.FK_CAPTURE_APPROVAL_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="CAPTURE_APPROVAL" EntitySet="CAPTURE_APPROVAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_HISTORY_CAPTURE" Association="Self.FK_CAPTURE_HISTORY_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+      <End Role="CAPTURE_HISTORY" EntitySet="CAPTURE_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_HISTORY_USER" Association="Self.FK_CAPTURE_HISTORY_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="CAPTURE_HISTORY" EntitySet="CAPTURE_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_IMAGE_CAPTURE" Association="Self.FK_CAPTURE_IMAGE_CAPTURE">
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+      <End Role="CAPTURE_IMAGE" EntitySet="CAPTURE_IMAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_MONTH" Association="Self.FK_CAPTURE_MONTH">
+      <End Role="MONTH" EntitySet="MONTH" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_SOUP_KITCHEN" Association="Self.FK_CAPTURE_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_STATUS" Association="Self.FK_CAPTURE_STATUS">
+      <End Role="STATUS" EntitySet="STATUS" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_USER" Association="Self.FK_CAPTURE_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_USER_TYPE" Association="Self.FK_CAPTURE_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAPTURE_YEAR" Association="Self.FK_CAPTURE_YEAR">
+      <End Role="YEAR" EntitySet="YEAR" />
+      <End Role="CAPTURE" EntitySet="CAPTURE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_DETAIL_COUPON" Association="Self.FK_COUPON_DETAIL_COUPON">
+      <End Role="COUPON" EntitySet="COUPON" />
+      <End Role="COUPON_DETAIL" EntitySet="COUPON_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_DETAIL_PRODUCT" Association="Self.FK_COUPON_DETAIL_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="COUPON_DETAIL" EntitySet="COUPON_DETAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_MONTH" Association="Self.FK_COUPON_MONTH">
+      <End Role="MONTH" EntitySet="MONTH" />
+      <End Role="COUPON" EntitySet="COUPON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_SOUP_KITCHEN" Association="Self.FK_COUPON_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="COUPON" EntitySet="COUPON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COUPON_YEAR" Association="Self.FK_COUPON_YEAR">
+      <End Role="YEAR" EntitySet="YEAR" />
+      <End Role="COUPON" EntitySet="COUPON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GEN_CODE_DAY_MONTH" Association="Self.FK_GEN_CODE_DAY_MONTH">
+      <End Role="MONTH" EntitySet="MONTH" />
+      <End Role="GEN_CODE_DAY" EntitySet="GEN_CODE_DAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GEN_CODE_DAY_YEAR" Association="Self.FK_GEN_CODE_DAY_YEAR">
+      <End Role="YEAR" EntitySet="YEAR" />
+      <End Role="GEN_CODE_DAY" EntitySet="GEN_CODE_DAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_MONTH" Association="Self.FK_INSPECTION_CODE_MONTH">
+      <End Role="MONTH" EntitySet="MONTH" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_USER" Association="Self.FK_INSPECTION_CODE_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTION_CODE_YEAR" Association="Self.FK_INSPECTION_CODE_YEAR">
+      <End Role="YEAR" EntitySet="YEAR" />
+      <End Role="INSPECTION_CODE" EntitySet="INSPECTION_CODE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_MONTH" Association="Self.FK_RATION_MONTH">
+      <End Role="MONTH" EntitySet="MONTH" />
+      <End Role="RATION" EntitySet="RATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_SOUP_KITCHEN" Association="Self.FK_RATION_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="RATION" EntitySet="RATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RATION_YEAR" Association="Self.FK_RATION_YEAR">
+      <End Role="YEAR" EntitySet="YEAR" />
+      <End Role="RATION" EntitySet="RATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RECEIVER_STATE" Association="Self.FK_RECEIVER_STATE">
+      <End Role="STATE" EntitySet="STATE" />
+      <End Role="RECEIVER" EntitySet="RECEIVER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_PRODUCT_PRODUCT" Association="Self.FK_REGION_PRODUCT_PRODUCT">
+      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="REGION_PRODUCT" EntitySet="REGION_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_REGION_PRODUCT_REGION" Association="Self.FK_REGION_PRODUCT_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="REGION_PRODUCT" EntitySet="REGION_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_REGION" Association="Self.FK_SOUP_KITCHEN_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_STATE" Association="Self.FK_SOUP_KITCHEN_STATE">
+      <End Role="STATE" EntitySet="STATE" />
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN" Association="Self.FK_SOUP_KITCHEN_USER_TYPE_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="SOUP_KITCHEN_USER_TYPE" EntitySet="SOUP_KITCHEN_USER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE" Association="Self.FK_SOUP_KITCHEN_USER_TYPE_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="SOUP_KITCHEN_USER_TYPE" EntitySet="SOUP_KITCHEN_USER_TYPE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_SOUP_KITCHEN_SOUP_KITCHEN" Association="Self.FK_USER_SOUP_KITCHEN_SOUP_KITCHEN">
+      <End Role="SOUP_KITCHEN" EntitySet="SOUP_KITCHEN" />
+      <End Role="USER_SOUP_KITCHEN" EntitySet="USER_SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_SOUP_KITCHEN_USER" Association="Self.FK_USER_SOUP_KITCHEN_USER">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="USER_SOUP_KITCHEN" EntitySet="USER_SOUP_KITCHEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_USER_TYPE" Association="Self.FK_USER_USER_TYPE">
+      <End Role="USER_TYPE" EntitySet="USER_TYPE" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

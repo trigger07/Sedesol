@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SEDESOLModelStoreContainer" CdmEntityContainer="SEDESOLEntities">
+    <EntitySetMapping Name="ATTENDANCEs">
+      <EntityTypeMapping TypeName="SEDESOLModel.ATTENDANCE">
+        <MappingFragment StoreEntitySet="ATTENDANCE">
+          <ScalarProperty Name="LastName2" ColumnName="LastName2" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Id_State_Birth" ColumnName="Id_State_Birth" />
+          <ScalarProperty Name="Id_Condition" ColumnName="Id_Condition" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="IsAnonym" ColumnName="IsAnonym" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Id_Capture" ColumnName="Id_Capture" />
+          <ScalarProperty Name="Id_Receiver" ColumnName="Id_Receiver" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAPTUREs">
+      <EntityTypeMapping TypeName="SEDESOLModel.CAPTURE">
+        <MappingFragment StoreEntitySet="CAPTURE">
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_LevelApproval" ColumnName="Id_LevelApproval" />
+          <ScalarProperty Name="InspectionCode" ColumnName="InspectionCode" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+          <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+          <ScalarProperty Name="Id_Status" ColumnName="Id_Status" />
+          <ScalarProperty Name="Id_SoupKitchen" ColumnName="Id_SoupKitchen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAPTURE_HISTORY">
+      <EntityTypeMapping TypeName="SEDESOLModel.CAPTURE_HISTORY">
+        <MappingFragment StoreEntitySet="CAPTURE_HISTORY">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Capture" ColumnName="Id_Capture" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONTHs">
+      <EntityTypeMapping TypeName="SEDESOLModel.MONTH">
+        <MappingFragment StoreEntitySet="MONTH">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEIVERs">
+      <EntityTypeMapping TypeName="SEDESOLModel.RECEIVER">
+        <MappingFragment StoreEntitySet="RECEIVER">
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Id_State_Birth" ColumnName="Id_State_Birth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOUP_KITCHEN">
+      <EntityTypeMapping TypeName="SEDESOLModel.SOUP_KITCHEN">
+        <MappingFragment StoreEntitySet="SOUP_KITCHEN">
+          <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="AllowAnonym" ColumnName="AllowAnonym" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_State" ColumnName="Id_State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATEs">
+      <EntityTypeMapping TypeName="SEDESOLModel.STATE">
+        <MappingFragment StoreEntitySet="STATE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUS">
+      <EntityTypeMapping TypeName="SEDESOLModel.STATUS">
+        <MappingFragment StoreEntitySet="STATUS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="SEDESOLModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Dni" ColumnName="Dni" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_User_Type" ColumnName="Id_User_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_SOUP_KITCHEN">
+      <EntityTypeMapping TypeName="SEDESOLModel.USER_SOUP_KITCHEN">
+        <MappingFragment StoreEntitySet="USER_SOUP_KITCHEN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Soup_Kitchen" ColumnName="Id_Soup_Kitchen" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_TYPE">
+      <EntityTypeMapping TypeName="SEDESOLModel.USER_TYPE">
+        <MappingFragment StoreEntitySet="USER_TYPE">
+          <ScalarProperty Name="ApprovalOrder" ColumnName="ApprovalOrder" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YEARs">
+      <EntityTypeMapping TypeName="SEDESOLModel.YEAR">
+        <MappingFragment StoreEntitySet="YEAR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAPTURE_IMAGE">
+      <EntityTypeMapping TypeName="SEDESOLModel.CAPTURE_IMAGE">
+        <MappingFragment StoreEntitySet="CAPTURE_IMAGE">
+          <ScalarProperty Name="Id_Capture" ColumnName="Id_Capture" />
+          <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOUP_KITCHEN_USER_TYPE">
+      <EntityTypeMapping TypeName="SEDESOLModel.SOUP_KITCHEN_USER_TYPE">
+        <MappingFragment StoreEntitySet="SOUP_KITCHEN_USER_TYPE">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_UserType" ColumnName="Id_UserType" />
+          <ScalarProperty Name="Id_SoupKitchen" ColumnName="Id_SoupKitchen" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GEN_CODE_DAY">
+      <EntityTypeMapping TypeName="SEDESOLModel.GEN_CODE_DAY">
+        <MappingFragment StoreEntitySet="GEN_CODE_DAY">
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+          <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSPECTION_CODE">
+      <EntityTypeMapping TypeName="SEDESOLModel.INSPECTION_CODE">
+        <MappingFragment StoreEntitySet="INSPECTION_CODE">
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+          <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+          <ScalarProperty Name="InspectionCode" ColumnName="InspectionCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAPTURE_APPROVAL">
+      <EntityTypeMapping TypeName="SEDESOLModel.CAPTURE_APPROVAL">
+        <MappingFragment StoreEntitySet="CAPTURE_APPROVAL">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Id_Status" ColumnName="Id_Status" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+          <ScalarProperty Name="Id_Capture" ColumnName="Id_Capture" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONDITIONs">
+      <EntityTypeMapping TypeName="SEDESOLModel.CONDITION">
+        <MappingFragment StoreEntitySet="CONDITION">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUPONs">
+      <EntityTypeMapping TypeName="SEDESOLModel.COUPON">
+        <MappingFragment StoreEntitySet="COUPON">
+          <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+          <ScalarProperty Name="EditUser" ColumnName="EditUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="Sequential" ColumnName="Sequential" />
+          <ScalarProperty Name="RationQuantity" ColumnName="RationQuantity" />
+          <ScalarProperty Name="Id_Ration" ColumnName="Id_Ration" />
+          <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+          <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+          <ScalarProperty Name="Id_SoupKitchen" ColumnName="Id_SoupKitchen" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUPON_DETAIL">
+      <EntityTypeMapping TypeName="SEDESOLModel.COUPON_DETAIL">
+        <MappingFragment StoreEntitySet="COUPON_DETAIL">
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="DeliveredQuantity" ColumnName="DeliveredQuantity" />
+          <ScalarProperty Name="AskedQuantity" ColumnName="AskedQuantity" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Id_Coupon" ColumnName="Id_Coupon" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="SEDESOLModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+          <ScalarProperty Name="EditUser" ColumnName="EditUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Momio" ColumnName="Momio" />
+          <ScalarProperty Name="UnitMeasure" ColumnName="UnitMeasure" />
+          <ScalarProperty Name="Measure" ColumnName="Measure" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RATIONs">
+      <EntityTypeMapping TypeName="SEDESOLModel.RATION">
+        <MappingFragment StoreEntitySet="RATION">
+          <ScalarProperty Name="HasCoupon" ColumnName="HasCoupon" />
+          <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+          <ScalarProperty Name="EditUser" ColumnName="EditUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="RationQuantity" ColumnName="RationQuantity" />
+          <ScalarProperty Name="Id_Capture" ColumnName="Id_Capture" />
+          <ScalarProperty Name="Id_Year" ColumnName="Id_Year" />
+          <ScalarProperty Name="Id_Month" ColumnName="Id_Month" />
+          <ScalarProperty Name="Id_SoupKitchen" ColumnName="Id_SoupKitchen" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGIONs">
+      <EntityTypeMapping TypeName="SEDESOLModel.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION_PRODUCT">
+      <EntityTypeMapping TypeName="SEDESOLModel.REGION_PRODUCT">
+        <MappingFragment StoreEntitySet="REGION_PRODUCT">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONFIGURATIONs">
+      <EntityTypeMapping TypeName="SEDESOLModel.CONFIGURATION">
+        <MappingFragment StoreEntitySet="CONFIGURATION">
+          <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
+          <ScalarProperty Name="KeyDetail" ColumnName="KeyDetail" />
+          <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

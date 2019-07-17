@@ -1,0 +1,44 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<ProductDTO>
+
+
+<table class="table table-striped table-bordered nowrap" width="100%" id="ProductListTable">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Gramaje</th>
+            <th>U.M.</th>
+            <th>Momio</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td onclick="LoadForm(@item.Id)" title="Editar Producto" style="cursor: pointer;">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td onclick="LoadForm(@item.Id)" title="Editar Producto" style="cursor: pointer;">
+                @Html.DisplayFor(modelItem => item.Measure)
+            </td>
+            <td onclick="LoadForm(@item.Id)" title="Editar Producto" style="cursor: pointer;">
+                @Html.DisplayFor(modelItem => item.UnitMeasure)
+            </td>
+            <td onclick="LoadForm(@item.Id)" title="Editar Producto" style="cursor: pointer;">
+                @Html.DisplayFor(modelItem => item.Momio)
+            </td>
+            <td onclick="LoadForm(@item.Id)" title="Editar Producto" style="cursor: pointer;">
+                @if(item.IsActive)
+                {
+                <p>Activo</p>
+                }
+                else
+                {
+                <p>Inactivo</p>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

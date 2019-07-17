@@ -1,0 +1,330 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects
+@model RationModel
+@{
+    ViewBag.Title = "Listado de Raciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/dropzone.css" rel="stylesheet" />
+<script src="~/Scripts/dropzone.js"></script>
+<div class="row">
+    <div class="col-md-3">
+        <h4>Listado de Raciones</h4>
+    </div>
+    @*<div class="col-md-2 col-md-offset-1">
+            @Html.DropDownListFor(m => m.ListState, new SelectList(Model.ListState, "Id", "Name", Model.ListState), "Ubicación", new { @class = "form-control input-sm", @id = "ddlStates" })
+
+        </div>*@
+    <div class="col-md-2 col-md-offset-1">
+        @Html.DropDownListFor(m => m.ListYear, new SelectList(Model.ListYear, "Id", "Description", Model.ListYear), "Año", new { @class = "form-control input-sm", @id = "ddlYears", data_parsley_required = "true" })
+    </div>
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.ListMonth, new SelectList(Model.ListMonth, "Id", "Description", Model.ListMonth), "Mes", new { @class = "form-control input-sm", @id = "ddlMonths", data_parsley_required = "true" })
+    </div>
+    <div class="col-md-1">
+        <button type="button" id="btnSearch" onclick="Search()" class="btn btn-sm col-md-12  btn-success" style="font-size:16px;">Buscar</button>
+    </div>
+    <div class="col-md-1">
+        <button type="button" id="btnExcel" onclick="LoadFile()" class="btn btn-sm col-md-12  btn-primary" style="font-size:16px;">Cargar</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="btnPdf" onclick="GenerateConsolid()" class="btn btn-sm col-md-12  btn-danger" style="font-size:16px;">Consolidados</button>
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+                </div>
+                <h4 class="panel-title">Listado</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("RationList", Model.ListRation)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Carga de Archivo</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <div class="row" style="width: 90%; margin-left:auto;margin-right:auto; margin-bottom:7px;">
+                        <label id="period" />
+                    </div>
+                    <div class="row" style="width: 90%; margin-left:auto;margin-right:auto; margin-bottom:10px;">
+                        <form action="~/Ration/UploadFile" class="dropzone" id="dropzoneJsForm"></form>
+                    </div>
+                    <div class="row" style="width: 90%; margin-left:auto;margin-right:auto; text-align:right;">
+                        <a href="@Url.Action("DownloadFile", "Ration")">Descargar plantilla</a>
+                    </div>
+                    <hr />
+                    <div class="row" style="text-align:right;">
+                        <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Cerrar</a>
+                        @*<a onclick="Save()" class="btn btn-sm btn-primary">Guardar</a>&nbsp;*@
+                        <button class="btn btn-sm btn-primary" id="submit-all">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Modal descarga pdf consolidado *@
+<div class="modal fade" id="modal-dialog-consolid">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Descarga de Archivos Consolidados</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <div class="row" style="width: 90%; margin-left:auto;margin-right:auto; margin-bottom:7px;">
+                        <label id="period2" />
+                    </div>
+                    <div class="row" style="width: 90%; margin-left:auto;margin-right:auto; margin-bottom:10px;">
+                        @Html.DropDownListFor(m => m.ListState, new SelectList(Model.ListState, "Id", "Name", Model.ListState), "Seleccione el Estado", new { @class = "form-control input-sm", @id = "ddlStates", data_parsley_required = "true" })
+                    </div>
+                    
+                    <hr />
+                    <div class="row" style="text-align:right;">
+
+                        @*<a onclick="Save()" class="btn btn-sm btn-primary">Guardar</a>&nbsp;*@
+                        @*<button class="btn btn-sm btn-primary" onclick="DownloadPdf()" id="btnPdfDownload">PDF</button>
+                        <button class="btn btn-sm btn-primary" onclick="DownloadExcel()" id="btnPdfExcel">Excel</button>*@
+                        <a href="javascript:;" onclick="DownloadExcel()" id="btnPdfExcel" class="btn btn-success m-r-5"><i class="fa fa-file-excel-o"></i> Excel</a>
+                        <a href="javascript:;" onclick="DownloadPdf()" id="btnPdfDownload" class="btn btn-danger m-r-5"><i class="fa fa-file-pdf-o"></i> PDF</a>
+                        <a href="javascript:;" class="btn btn-white m-r-5" data-dismiss="modal">Cerrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section documentReady{
+
+    $('#RationListTable').DataTable({
+    "dom": 'lftipr',
+    "lengthChange": false,
+    "lengthMenu": [ 10, 25, 50, 75, 100 ],
+    ServerSide: false,
+    select: true,
+    responsive: true,
+    "pageLength": 20,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+    });
+
+}
+
+@section scripts{
+    <script type="text/javascript">
+
+        function DownloadExcel() {
+            if ($('#ddlStates').parsley().validate()) {
+                var idYear = $("#ddlYears").val();
+                var idMonth = $("#ddlMonths").val();
+                var idState = $("#ddlStates").val();
+                window.location.href = '@Url.Action("ExportExcel", "Ration")?pIdState=' + idState + '&pMonth=' + $("#ddlMonths").val() + '&pYear=' + $("#ddlYears").val() ;
+            }
+        }
+
+        function DownloadPdf() {
+            if ($('#ddlStates').parsley().validate()) {
+                var idYear = $("#ddlYears").val();
+                var idMonth = $("#ddlMonths").val();
+                var idState = $("#ddlStates").val();
+                window.location.href = '@Url.Action("GetCouponFileByState", "Ration")?pIdState=' + idState + '&pYear=' + $("#ddlYears").val() + '&pMonth=' + $("#ddlMonths").val();
+            }
+        }
+
+        function LoadFile() {
+            if ($('#ddlYears').parsley().validate() && $('#ddlMonths').parsley().validate()) {
+                var idYear = $("#ddlYears").val();
+                var idMonth = $("#ddlMonths").val();
+                if (idYear != '' && idMonth != '') {
+                    $('#modal-dialog').modal('show');
+                    $('#period').text('Periodo seleccionado: Año - ' + $('#ddlYears option:selected').text() + ' | Mes - ' + $('#ddlMonths option:selected').text());
+                }
+            }
+            
+        }
+
+        function Search() {
+
+            if ($('#ddlYears').parsley().validate() && $('#ddlMonths').parsley().validate()) {
+
+                var idYear = $("#ddlYears").val();
+                var idMonth = $("#ddlMonths").val();
+                if (idYear != '' && idMonth != '') {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Search", "Ration")',
+                        data: '{pYear: ' + idYear + ', pMonth: ' + idMonth + '}',
+                        dataType: "html",
+                        async: false,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            if (data != null) {
+
+                                $("#RationListTable").dataTable().fnDestroy();
+                                $('#RationListTable').html(data);
+                                $("#ddlYears").val(idYear);
+                                $("#ddlMonths").val(idMonth);
+
+                                $('#RationListTable').DataTable({
+                                    "dom": 'lftipr',
+                                    "lengthChange": false,
+                                    "lengthMenu": [10, 25, 50, 75, 100],
+                                    ServerSide: false,
+                                    select: true,
+                                    responsive: true,
+                                    "pageLength": 20,
+                                    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                                });
+
+                            }
+                            else {
+                                $.notify("No se pudo obtener datos de las raciones.", "error", { position: "right top" });
+                            }
+                        },
+                        error: function () {
+                            $.notify("No se pudo obtener datos de las raciones.", "error", { position: "right top" })
+                        }
+
+                    });
+                }
+                return false;
+            }
+        }
+
+        function GenerateConsolid() {
+
+            if ($('#ddlYears').parsley().validate() && $('#ddlMonths').parsley().validate()) {
+
+                var idYear = $("#ddlYears").val();
+                var idMonth = $("#ddlMonths").val();
+                if (idYear != '' && idMonth != '') {
+                    $('#period2').text('Periodo seleccionado: Año - ' + $('#ddlYears option:selected').text() + ' | Mes - ' + $('#ddlMonths option:selected').text());
+                    $('#modal-dialog-consolid').modal('show');
+                }
+                return false;
+            }
+        }
+
+        function GetCoupon(id) {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetModalAttendance", "Ration")',
+                dataType: 'html',
+                data: {'id':id},
+                success: function (data) {
+                    $('#modalContent').html(data);
+                    $('#modal-dialog').modal('show');
+
+                    $('#attendanceModalList').DataTable({
+                        select: true,
+                        responsive: true,
+                        //"scrollX": true,
+                        "pageLength": 20,
+                        "lengthChange": false,
+                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+        }
+
+       
+    </script>
+
+    <script type="text/javascript">
+        Dropzone.options.dropzoneJsForm = {
+            maxFiles: 1,
+            //prevents Dropzone from uploading dropped files immediately
+            autoProcessQueue: false,
+            addRemoveLinks: true,
+            parallelUploads: 10000,
+            uploadMultiple: true,
+            acceptedFiles: ".xls,.xlsx",
+            removedfile: function (file) {
+                
+                var _ref;
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+            },
+            init: function () {
+                var submitButton = document.querySelector("#submit-all");
+                var myDropzone = this; //closure
+
+                this.on("sendingmultiple", function (file, xhr, formData) {
+                    formData.append("pYear", $("#ddlYears").val());
+                    formData.append("pMonth", $("#ddlMonths").val());
+                });
+                this.on("completemultiple", function (file) {
+                    //$('#myModal').click();
+                    //myDropzone.removeAllFiles(true);
+                });
+
+                this.on("successmultiple", function (file, response) {
+                    var responseData = response;
+                    //console.log(responseData);
+                    //FillForm(responseData);
+                    //$('#myModal').click();
+                    myDropzone.removeAllFiles(true);
+                    if (responseData.message == "SUCCESS") {
+                        $('#modal-dialog').modal('hide');
+                        
+
+                        $("#RationListTable").dataTable().fnDestroy();
+                        $('#RationListTable').html(responseData.PartialView);
+
+                        $('#RationListTable').DataTable({
+                            "dom": 'lftipr',
+                            "lengthChange": false,
+                            "lengthMenu": [10, 25, 50, 75, 100],
+                            ServerSide: false,
+                            select: true,
+                            responsive: true,
+                            "pageLength": 20,
+                            "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                        });
+                        $.notify("El archivo ha sido procesado.", "success", { position: "right top" });
+                        //window.location.href = '@Url.Action("Search", "Ration")?pYear=' + $("#ddlYears").val() + '&pMonth=' + $("#ddlYears").val();
+                    }
+                    else {
+                        $.notify("Ha ocurrido un error al procesar el archivo.", "error", { position: "right top" });
+                    }
+                })
+
+                this.on("error", function (file, errorMessage, xhr) {
+                    if (!file.accepted) this.removeFile(file);
+                    //codigo para manejo error
+                    alert(errorMessage);
+                });
+                this.on("maxfilesexceeded", function (file) {
+                    myDropzone.removeFile(file);
+                    alert('Max File Exceeded');
+                });
+
+                submitButton.addEventListener("click", function () {
+
+                    //tell Dropzone to process all queued files
+                    myDropzone.processQueue();
+                });
+
+            }
+        };
+    </script>
+}

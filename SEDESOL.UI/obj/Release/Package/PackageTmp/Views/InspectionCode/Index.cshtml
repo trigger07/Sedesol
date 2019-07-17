@@ -1,0 +1,227 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects;
+@model CodeParam
+@{
+    ViewBag.Title = "Generación de Códigos";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Generación de Códigos</h4>
+    </div>
+    <div class="col-md-1 col-md-offset-3">
+        
+    </div>
+    <div class="col-md-2">
+        
+    </div>
+</div>
+<hr />
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-inverse" style="min-height:80%">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+                <h4 class="panel-title">Formulario de datos</h4>
+            </div>
+            <form id="frmCode" data-parsley-validate="true">
+                <div class="panel-body panel-form">
+                    <div class="form-horizontal form-bordered">
+                        @Html.HiddenFor(model => model.Id_User, new { id = "UserId" })
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Año:</label>
+                            <div class="col-md-7 col-sm-7">
+                                @Html.DropDownListFor(model => model.Id_Year, new SelectList(Model.Years, "Id", "Description"), "Seleccione una opción", new { @class = "form-control parsley-validated", @id = "cboYear", data_parsley_required = "true" })
+                                @*@Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Mes:</label>
+                            <div class="col-md-7 col-sm-7">
+                                @Html.DropDownListFor(model => model.Id_Month, new SelectList(Model.Months, "Id", "Description"), "Seleccione una opción", new { @class = "form-control parsley-validated", @id = "cboMonth", data_parsley_required = "true" })
+                                @*@Html.ValidationMessageFor(model => model.SoupKitchen.Id_State, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <label class="col-md-3 col-sm-3 control-label" style="text-align:right;">Código:</label>
+                            <div class="col-md-7 col-sm-7">
+                                <div class="col-md-6 col-sm-6">
+                                    <button type="button" id="btnGenCodigo" onclick="GenerateCode()" class="btn btn-sm col-md-12 btn-primary" style="font-size:16px;">Generar Código</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <button type="button" id="btnGenCodigo" onclick="GetDates()" class="btn btn-sm col-md-12 btn-primary" style="font-size:16px;">Fechas disponibles</button>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12" style="margin-top:5px;">
+                                    @Html.EditorFor(model => model.InspectionCode, new { htmlAttributes = new { @class = "form-control", @id = "txtCode", data_parsley_required = "true", disabled = "disabled", style = "height:100px; font-size:35px;text-align:center;" } })
+                                    @Html.ValidationMessageFor(model => model.InspectionCode, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3"></label>
+                            <div class="col-md-7 col-sm-7">
+                                @*<input type="submit" value="Create" class="btn btn-default" />*@
+                                <button type="button" id="btnRegistrar" onclick="SaveRegister()" class="btn btn-sm col-md-12 btn-success" style="font-size:16px;">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+
+                </div>
+
+                <h4 class="panel-title">Códigos generados.</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("CodeList", Model.ListCode)
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Fechas de Inicio de Generación de Códigos</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="modalContent">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        function GenerateCode() {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "@Url.Action("GenerateCode", "InspectionCode")",
+                dataType: "json",
+                success: function (data) {
+                $('#txtCode').val(data);
+            },
+            error: function (jqXHR, exception) {
+                if (jqXHR.status == 0) {
+                    alert('Unable to connect to server. Please Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    alert('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    alert('Internal Server Error [500]. ' + jqXHR.responseText);
+                } else if (exception == 'timeout') {
+                    alert('Time out error.');
+                } else if (exception == 'abort') {
+                    alert('Ajax request aborted.');
+                } else {
+                    alert('Uncaught Error.\n' + jqXHR.responseText);
+                }
+            }
+        });
+        }
+
+        function SaveRegister() {
+            var att = {};
+            att.Id_Year = $("#cboYear").val();
+            att.Id_Month = $("#cboMonth").val();
+            att.InspectionCode = $("#txtCode").val();
+
+            if ($('#frmCode').parsley().validate()) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SaveCode", "InspectionCode")',
+                    data: '{att: ' + JSON.stringify(att) + '}',
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.message == "SUCCESS") {
+                           
+
+                            $("#codeListTable").dataTable().fnDestroy();
+                            $('#codeListTable').html(data.PartialView);
+                            $('#codeListTable').DataTable({
+                                select: true,
+                                responsive: true,
+                                "pageLength": 10,
+                                "lengthChange": false,
+                                "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                            });
+                            $("#btnRegistrar").notify("Código guardado", "success", { position: "right top" });
+                            cleanForm();
+                        }
+                        else {
+                            $("#btnRegistrar").notify(data.message, "error", { position: "right top" });
+                        }
+                    },
+                    error: function () {
+                        $("#btnRegistrar").notify("Se ha producido un error. Contacte al administrador.", "error", { position: "right top" });
+                    }
+                });
+                return false;
+            }
+        }
+
+        function cleanForm() {
+
+            $("#cboYear").val("");
+            $("#cboMonth").val("");
+            $("#txtCode").val("");
+        }
+
+        function GetDates() {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDates", "InspectionCode")',
+                dataType: 'html',
+                success: function (data) {
+                    $('#modalContent').html(data);
+                    $('#modal-dialog').modal('show');
+
+                    $('#datesList').DataTable({
+                        select: true,
+                        responsive: true,
+                        "pageLength": 10,
+                        "lengthChange": false,
+                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+        }
+</script>
+}
+
+@section documentReady{
+    $('#codeListTable').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+
+
+}

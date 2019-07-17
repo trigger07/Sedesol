@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bc5a631a-a21e-4084-8eb5-9a62e4730e79" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="SEDESOL.DataEntities" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50420/SedesolService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SedesolService.wsdl" MetadataType="Wsdl" ID="a5443896-3bc7-4ba0-94a7-ddd0489a3847" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?wsdl" />
+    <MetadataFile FileName="SedesolService.xsd" MetadataType="Schema" ID="ddb0d41c-3414-4a2c-97e9-ad9c1c3b9193" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SedesolService1.xsd" MetadataType="Schema" ID="9d1532fd-d425-4360-9600-c3c71bb3117b" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SedesolService2.xsd" MetadataType="Schema" ID="d922d922-85be-423b-aa98-850247c2c66b" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SedesolService3.xsd" MetadataType="Schema" ID="7db3d12c-2335-461f-96ee-98f6c32f5eea" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SedesolService.disco" MetadataType="Disco" ID="ad96396c-d6e0-4a2e-8b6e-7ac97f00b753" SourceId="1" SourceUrl="http://localhost:50420/SedesolService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

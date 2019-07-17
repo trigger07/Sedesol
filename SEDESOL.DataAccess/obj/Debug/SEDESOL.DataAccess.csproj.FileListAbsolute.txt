@@ -1,0 +1,50 @@
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csproj.CopyComplete
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.pdb
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll.config
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataAccess.pdb
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.pdb
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataEntities.dll.config
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.pdb
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\SEDESOL.DataModel.dll.config
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.xml
+E:\Projects\SEDESOL\SEDESOL.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csprojAssemblyReference.cache
+E:\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csproj.CoreCompileInputs.cache
+E:\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.csproj.CopyComplete
+E:\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.dll
+E:\Projects\SEDESOL\SEDESOL.DataAccess\obj\Debug\SEDESOL.DataAccess.pdb

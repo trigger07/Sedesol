@@ -1,0 +1,236 @@
+﻿@using SEDESOL.DataEntities.DTO
+@model List<ProductDTO>
+    @{
+        ViewBag.Title = "Listado de Productos";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Listado de Productos</h4>
+        </div>
+
+        <div class="col-md-1 col-sm-offset-8">
+            <button type="button" id="btnAdd" onclick="LoadForm(0)" class="btn btn-sm col-md-12  btn-success" style="font-size:16px;">Crear Producto</button>
+
+        </div>
+        @*<div class="col-md-2">
+            <button type="button" id="btnExcel" onclick="ExportData()" class="btn btn-sm col-md-12  btn-primary" style="font-size:16px;">Exportar a Excel</button>
+        </div>*@
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                    </div>
+                    <h4 class="panel-title">Listado</h4>
+                </div>
+                <div class="panel-body">
+                    @Html.Partial("ProductList", Model)
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-message">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Formulario de Productos</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("Form")
+                </div>
+                @*<div class="modal-footer">
+                    <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                    <a href="javascript:;" class="btn btn-sm btn-primary">Guardar</a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+
+    @section documentReady{
+
+        $('#ProductListTable').DataTable({
+        //"dom": 'lftipr',
+        "lengthChange": false,
+        "lengthMenu": [ 10, 25, 50, 75, 100 ],
+        ServerSide: false,
+        select: true,
+        responsive: true,
+        "pageLength": 20,
+        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+        });
+
+    }
+
+    @section scripts{
+        <script type="text/javascript">
+            function Save() {
+                if ($('#frmProduct').parsley().validate()) {
+
+                    var prod = {};
+                    prod.Id = $("#prodId").val();
+                    prod.Description = $("#txtDescription").val();
+                    prod.Measure = $("#txtMeasure").val();
+                    prod.UnitMeasure = $("#cboMeausure").val();
+                    prod.Momio = $("#txtMomio").val();
+                    prod.IsActive = $('#chkStatus').is(':checked');
+                    prod.ListRegion = [];
+
+                    $("input[name='chkRegions']").each(function () {
+                        var listReg = {};
+                        listReg.Id = $(this).attr('id');
+
+                        if ($(this).is(":checked")) {
+                            listReg.IsActive = true;
+                        }
+                        else {
+                            listReg.IsActive = false;
+                        }
+                        prod.ListRegion.push(listReg);
+                    });
+
+                    $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("SaveProduct", "Product")',
+                            data: '{productDTO: ' + JSON.stringify(prod) + '}',
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                if (data.message == "SUCCESS") {
+                                    $('#modal-message').modal('hide');
+                                    $.notify("Registro ingresado", "success", { position: "right top" });
+
+                                    $("#ProductListTable").dataTable().fnDestroy();
+                                    $('#ProductListTable').html(data.PartialView);
+                                    $('#ProductListTable').DataTable({
+                                        "lengthChange": false,
+                                        "lengthMenu": [10, 25, 50, 75, 100],
+                                        ServerSide: false,
+                                        select: true,
+                                        responsive: true,
+                                        "pageLength": 20,
+                                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                                    });
+                                    cleanForm();
+                                }
+                                else {
+                                    $.notify(data.message, "error", { position: "right top" });
+                                }
+                            },
+                            error: function () {
+                                $.notify("Error al guardar el producto.", "error", { position: "right top" });
+                            }
+                    });
+                    return false;
+                }
+            }
+
+        @*function ExportData() {
+            var idSoupK = $("#ddlComedor").val();
+            var idStates = $("#ddlStates").val();
+            var idStatus = $("#ddlStatus").val();
+
+            location.href = '@Url.Action("ExportCapture", "Capture")?idState=' + idStates + '&idSoupK=' + idSoupK + '&idStatus=' + idStatus;
+        }*@
+
+        function LoadForm(idProduct) {
+
+            if (idProduct > 0) {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("LoadForm", "Product")',
+                    data: { 'idProduct': idProduct },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data != null) {
+
+                            //cargar form
+                            $('#modal-message').modal('show');
+                            $("#prodId").val(data.Id);
+                            $("#txtDescription").val(data.Description);
+                            $("#txtMeasure").val(data.MeasureString);
+                            $("#txtMomio").val(data.MomioString); 
+                            $("#cboMeausure").val(data.UnitMeasure);
+                            if (data.IsActive) {
+                                $("#chkStatus").prop('checked', true);
+                            }
+
+                            var row = "";
+                            $.each(data.ListRegion, function (index, item) {
+                                var isChecked = "";
+                                if (item.IsAdded == true) {
+                                    isChecked = "checked";
+                                }
+                                
+                                row += "<tr class='odd gradeX'><td><input type='checkbox'id='" + item.Id +
+                                    "' name='chkRegions' " + isChecked +
+                                    " />&nbsp;<label for='" + item.Id +
+                                    "'>" + item.Name + "</label></td></tr>";
+
+                                $("#regionListTable").html(row);
+
+                            });
+                        }
+                        else {
+                           $.notify("No se pudo obtener la información del producto", "error", { position: "right top" });
+                        }
+                    },
+                    error: function () {
+                        $.notify("No se pudo obtener la información del producto", "error", { position: "right top" });
+                    }
+                });
+            }
+            else {
+
+                 $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetActiveRegions", "Product")',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data != null) {
+
+                            var row = "";
+                            $.each(data, function (index, item) {
+                                row += "<tr class='odd gradeX'><td><input type='checkbox'id='" + item.Id + "' name='chkRegions' />&nbsp;<label for='" + item.Id + "'>" + item.Name + "</label></td></tr>";
+                                $("#regionListTable").html(row);    
+
+                            });
+                        }
+                        else {
+                           $.notify("No se pudo obtener la información de las regiones", "error", { position: "right top" });
+                        }
+                    },
+                    error: function () {
+                        $.notify("No se pudo obtener la información de las regiones", "error", { position: "right top" });
+                    }
+                });
+                cleanForm();
+                $("#prodId").val(0);
+                $('#modal-message').modal('show');
+            }
+
+            
+            //return false;
+        }
+
+            function cleanForm() {
+                $("#prodId").val("");
+                $("#txtDescription").val("");
+                $("#txtMeasure").val("");
+                $("#txtMomio").val("");
+                $("#cboMeausure").val("");
+                
+                $('#chkStatus').prop('checked', false);
+
+            }
+        </script>
+    }

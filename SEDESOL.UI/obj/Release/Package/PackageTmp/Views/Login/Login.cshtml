@@ -1,0 +1,120 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects
+@model UserValidationRequest
+@{
+    ViewBag.Title = "Login";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="Sedesol" />
+    <meta content="" name="Sedesol" />
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="~/plugins/jquery-ui/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/animate.min.css" rel="stylesheet" />
+    <link href="~/css/style.min.css" rel="stylesheet" />
+    <link href="~/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/animation.css" rel="stylesheet" />
+    <link href="~/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link href="~/plugins/parsley/src/parsley.css" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <!-- ================== END BASE JS ================== -->
+</head>
+<body class="pace-top  pace-done loginbackground">
+
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <div class="login-cover">
+        <div class="login-cover-image">
+
+        </div>
+        <div class="login-cover-bg"></div>
+    </div>
+
+    <section class="cd-intro">
+        <div id="page-container" class="fade cd-intro-content scale mask-2">
+            <!-- begin login -->
+            <div>
+              
+                <div class="login login-v2" data-pageload-addclass="animated fadeIn">
+
+                    
+                    <div class="content-wrapper">
+                        
+                        <div class="login-content">
+                            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frmLogin", data_parsley_validate = "true" }))
+                            {
+                                <div class="loginlogobb3">
+                                    <img src="~/img/logo_logo_color_Sedesol_gobmx.png" style="height:75px;" data-id="login-logo" alt="" />
+                                </div>
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger semi-bold f-s-17" })
+                                <div class="form-group m-b-15">
+                                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control logintxtbottom", @type = "text", @placeholder = "Usuario", @id = "txtUser", data_parsley_required = "true" })
+                                </div>
+                                <div class="form-group m-b-15">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control logintxtbottom", @type = "password", @placeholder = "Contraseña", @id = "txtPassword", data_parsley_required = "true" })
+                                </div>
+
+                                <div class="login-buttons">
+                                    <button type="submit" class="btn btn-success btn-block btn-lg" style="background-color:#cc4946; border-color:#cc4946;">Ingresar</button>
+                                </div>
+                                @*<p class="text-center text-inverse" style="font-weight:normal; font-size:small;">
+                                    @(((List<LabelDTO>)Session["Labels"]).Find(l => l.LabelKey == "LoginMessage").Value)
+                                </p>*@
+                                @*<div class="loginlogobs">
+                                    <img src="~/img/logo-brightstar.png" style="width:45%" data-id="login-logo" alt="" />
+                                </div>*@
+                            }
+                        </div>
+                    </div>
+                    <div class="login-footer">
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- end login -->
+        </div>
+
+        <div style="width:80%; text-align:center; margin:auto;">
+            <hr />
+        </div>
+        <div style="width:80%; text-align:right; color:#fff; margin:auto;">
+            &copy; @DateTime.Now.Year - SEDESOL
+        </div>
+
+    </section>
+    <!-- end page container -->
+    <!-- end page container -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="~/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="~/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="~/plugins/jquery-ui/ui/jquery-ui.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="assets/crossbrowserjs/html5shiv.js"></script>
+        <script src="assets/crossbrowserjs/respond.min.js"></script>
+        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="~/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/plugins/parsley/dist/parsley.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="~/js/apps.min.js"></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+</body>
+

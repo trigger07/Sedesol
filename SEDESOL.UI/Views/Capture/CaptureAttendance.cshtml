@@ -1,0 +1,1112 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects;
+@model CaptureModel
+@{
+    ViewBag.Title = "Captura de Asistencia";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/zozo.tabs.min.css" rel="stylesheet" />
+<script src="~/js/zozo.tabs.min.js"></script>
+<script type="text/javascript" src="~/js/webcam.min.js"></script>
+<link href="~/css/styleFile.css" rel="stylesheet" />
+<link href="~/plugins/isotope/isotope.css" rel="stylesheet" />
+<link href="~/plugins/lightbox/css/lightbox.css" rel="stylesheet" />
+<script src="~/plugins/isotope/jquery.isotope.min.js"></script>
+<script src="~/plugins/lightbox/js/lightbox-2.6.min.js"></script>
+<script src="~/js/gallery.demo.js"></script>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Captura de Raciones</h4>
+    </div>
+    <div class="col-md-1 col-md-offset-3">
+        <button type="button" id="btnExcel" onclick="document.location.href = '@Url.Action("ExportAttendance", "Capture", new { id = Model.Capture.Id })'" class="btn btn-sm col-md-12  btn-primary" style="font-size:16px;">Excel</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" id="btnSendCapture" onclick="SendCapture(@Model.Capture.Id)" class="btn btn-sm col-md-12 btn-danger" style="font-size:16px;">Enviar Captura</button>
+    </div>
+</div>
+
+<hr />
+
+
+@*@using (Html.BeginForm("CaptureAttendance", "Capture", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frmCaptureAttendance", data_parsley_validate = "true" }))
+    {*@
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <div id="tab-req" style="width:95%; margin-left:auto; margin-right:auto; font-size:small;">
+        <ul>
+            <li><a>Asistencia</a></li>
+            <li><a>Imágenes</a></li>
+        </ul>
+        <div>
+            <div>
+                <div class="col-md-6">
+                    <div class="panel panel-inverse" style="min-height:80%">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            </div>
+                            <h4 class="panel-title">Formulario de datos</h4>
+                        </div>
+
+
+                        @{string dynamicClass = "";
+                            if (Model.Capture.Status.Id == 1 || Model.Capture.Status.Id == 2)
+                            {
+                                dynamicClass = "alert alert-info fade in";
+                            }
+                            else if (Model.Capture.Status.Id == 3)
+                            {
+                                dynamicClass = "alert alert-warning fade in";
+                            }
+                            else if (Model.Capture.Status.Id == 4)
+                            {
+                                dynamicClass = "alert alert-success fade in";
+                            }
+                            else if (Model.Capture.Status.Id == 5)
+                            {
+                                dynamicClass = "alert alert-danger fade in";
+                            }
+                            else if (Model.Capture.Status.Id == 6)
+                            {
+                                dynamicClass = "alert alert-warning fade in";
+                            }
+                        }
+                        <div class="@dynamicClass">
+                            <div class="row">
+                                <div class="col-md-12" style="font-size:16px">
+                                    <div class="col-md-12">
+                                        @Model.Capture.Description | <b>Estado: @Model.Capture.Status.Description</b>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <form id="frmAttendance" data-parsley-validate="true">
+                            <div class="panel-body panel-form">
+                                <div class="form-horizontal form-bordered">
+                                    @if (Model.Capture.SoupKitchen.AllowAnonym)
+                                    {
+                                        <div class="form-group" id="divAnonym">
+                                            <label class="control-label col-md-3 col-sm-3"></label>
+                                            <div class="col-md-7 col-sm-7">
+                                                <input type="checkbox" value="true" id="chkAnonym" />&nbsp;Beneficiario Anónimo
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.Name, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.Name, new { htmlAttributes = new { @class = "form-control", @id = "txtName", data_parsley_required = "true", autocomplete = "false", style = "text-transform: uppercase" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.LastName, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.LastName, new { htmlAttributes = new { @class = "form-control", @id = "txtLastName", style = "text-transform: uppercase", data_parsley_required = "true" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.LastName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.LastName2, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.LastName2, new { htmlAttributes = new { @class = "form-control", @id = "txtLastName2", style = "text-transform: uppercase", data_parsley_required = "true" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.LastName2, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.HiddenFor(model => model.Attendance.Id, new { id = "AttendanceId" })
+                                        @Html.HiddenFor(model => model.Attendance.IsAnonym, new { id = "IsAnonym" })
+                                        @Html.LabelFor(model => model.Attendance.Curp, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.Curp, new { htmlAttributes = new { @class = "form-control", @id = "txtCurp", data_parsley_required = "true", style = "text-transform: uppercase", data_parsley_minlength = "18", data_parsley_maxlength = "18" } })
+                                            <input type="checkbox" value="true" id="chkNoCurp" />&nbsp;Bajo responsablidad del coordinador estatal se omite este dato
+                                            @Html.ValidationMessageFor(model => model.Attendance.Curp, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.Birthdate, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.Birthdate, new { htmlAttributes = new { @class = "form-control", @id = "txtFechaNacimiento", @placeholder = "Seleccione", @value = "", data_parsley_required = "true" } })
+                                            <input type="checkbox" value="true" id="chkNoBirthdate" />&nbsp;Bajo responsablidad del coordinador estatal se omite este dato
+                                            @Html.ValidationMessageFor(model => model.Attendance.Birthdate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.Attendance.Quantity, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.Quantity, new { htmlAttributes = new { @class = "form-control", @id = "txtQuantity", @min = "0", @max = "60", data_parsley_required = "true" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.Quantity, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @* campos nuevos *@
+                                    @* pendiente sexo *@
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.Gender, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @*<input type="radio" style="padding-top:15px" name="gender" value="M" />&nbsp;<b>M</b>&nbsp;&nbsp;
+                                                <input type="radio" style="padding-top:15px" name="gender" value="F" />&nbsp;<b>F</b>*@
+                                            <select class="form-control input-sm" id="cboGender" data-parsley-required="true" name="cboGender">
+                                                <option value="">Seleccione</option>
+                                                <option value="M">HOMBRE</option>
+                                                <option value="F">MUJER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.Id_Condition, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.DropDownListFor(m => m.ConditionDtoList, new SelectList(Model.ConditionDtoList, "Id", "Name", Model.ConditionDtoList), "Seleccione", new { @id = "cboCondition", @class = "form-control input-md parsley-validated", data_parsley_required = "true" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Attendance.Id_State_Birth, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.DropDownListFor(m => m.StateDtoList, new SelectList(Model.StateDtoList, "Id", "Name", Model.StateDtoList), "Seleccione", new { @id = "cboState", @class = "form-control input-md parsley-validated", data_parsley_required = "true" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.Attendance.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "txtPhoneNumber" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.PhoneNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="address">
+
+                                        @Html.LabelFor(model => model.Attendance.Address, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3" })
+                                        <div class="col-md-7 col-sm-7">
+                                            @Html.EditorFor(model => model.Attendance.Address, new { htmlAttributes = new { @class = "form-control", @id = "txtAddress" } })
+                                            @Html.ValidationMessageFor(model => model.Attendance.Address, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3"></label>
+                                        <div class="col-md-7 col-sm-7">
+                                            @*<input type="submit" value="Create" class="btn btn-default" />*@
+                                            <button type="button" id="btnRegistrar" onclick="SaveRegister()" class="btn btn-sm col-md-12 btn-success" style="font-size:16px;">Registrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+
+                            </div>
+
+                            <h4 class="panel-title">Raciones registradas.</h4>
+                        </div>
+                        <div class="panel-body">
+                            @Html.Partial("AttendanceList", Model.Capture.AttendanceList)
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <div class="col-md-5">
+                        <div class="form-group col-md-10">
+                            <div class="col-md-10" style="text-align:center">
+                                <div id="my_camera" style="margin-left:auto; margin-right:auto;"></div>
+                            </div>
+                            <div class="col-md-12" id="divBtnCamera">
+                                <input type=button class="btn btn-success col-md-12" value="Tomar Foto" onClick="take_snapshot()">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <div class="col-md-12">
+                                <hr>
+                                <p><b>O seleccione los archivos:</b></p>
+
+                            </div>
+                            <div class="col-md-9">
+                                <input type="file" id="upImg" name="upImg" class="file2" accept="image/jpeg" />
+                                <div class="input-group col-md-12">
+                                    <span class="input-group-btn">
+                                        <button class="browse btn btn-primary input-md" id="btnSearch" type="button"><i class="glyphicon glyphicon-search"></i> Buscar</button>
+                                    </span>
+                                    <input type="text" class="form-control" disabled placeholder="">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-folder-open"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <a href="javascript:;" id="btnSaveImage" onclick='uploadFile(2)' class="btn btn-md btn-success">Guardar</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        @* listado de imagenes *@
+                        @Html.Partial("ImageList", Model.Capture.ImageList)
+                        <div id="results" style="display:none;">Your captured image will appear here...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal spinner-->
+    <div class="modal fade" id="modalup">
+        <div class="center21">
+            <img src="~/img/loading.gif" />
+        </div>
+    </div>
+
+    <div id="divconfirmFile" title="Archivos Adjuntos" style="display:none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Desea eliminar la imágen?</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="errorModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Envío de Captura</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="errorMessage"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Envío de Captura</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="errorMessage"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href = '@Url.Action("Index", "Capture")'">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function ($) {
+        /* jQuery activation and setting options for first tabs*/
+        $("#tab-req").zozoTabs({
+            multiline: true,
+            theme: "white",
+            size: "medium",
+            responsive: true,
+            rounded: true,
+            orientation: "horizontal",
+            animation: {
+                effects: "slideH",
+                easing: "easeInOutCirc",
+                duration: 900
+            }
+        });
+        //$("#tab-req").zozoTabs({
+        //    theme: "blue",
+        //    position: "top-left",
+        //    style: "underlined",
+        //    orientation: "horizontal",
+        //    size: "small",
+        //    animation: {
+        //        easing: "easeInOutExpo",
+        //        duration: 600,
+        //        effects: "slideV",
+        //        type: "jquery"
+        //    }
+        //});
+    });
+</script>
+@*}*@
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            //$('#txtName').keypress(function (e) {
+            //    //var regex = new RegExp("^[a-zA-Z0-9]+$");
+            //    var regex = new RegExp("/^[a-z\d\-_\s]+$/i");
+            //    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            //    if (regex.test(str)) {
+            //        return true;
+            //    }
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            $("#txtName").keypress(function (event) {
+                var inputValue = event.charCode;
+                if (!((inputValue >= 65 && inputValue <= 120) || (inputValue >= 47 && inputValue <= 58)) && (inputValue != 32 && inputValue != 0)) {
+                    event.preventDefault();
+                    //$('#input').html(inputValue);
+                }
+
+            });
+
+        });
+
+        
+
+        $(function () {
+            //$('#txtLastName').keypress(function (e) {
+            //    var regex = new RegExp("^[a-zA-Z0-9]+$");
+            //    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            //    if (regex.test(str)) {
+            //        return true;
+            //    }
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            $("#txtLastName").keypress(function (event) {
+                var inputValue = event.charCode;
+                if (!((inputValue >= 65 && inputValue <= 120) || (inputValue >= 47 && inputValue <= 58)) && (inputValue != 32 && inputValue != 0)) {
+                    event.preventDefault();
+                    //$('#input').html(inputValue);
+                }
+
+            });
+
+        });
+
+        $(function () {
+            //$('#txtLastName2').keypress(function (e) {
+            //    var regex = new RegExp("^[a-zA-Z0-9]+$");
+            //    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            //    if (regex.test(str)) {
+            //        return true;
+            //    }
+
+            //    e.preventDefault();
+            //    return false;
+            //});
+            $("#txtLastName2").keypress(function (event) {
+                var inputValue = event.charCode;
+                if (!((inputValue >= 65 && inputValue <= 120) || (inputValue >= 47 && inputValue <= 58)) && (inputValue != 32 && inputValue != 0)) {
+                    event.preventDefault();
+                    //$('#input').html(inputValue);
+                }
+
+            });
+        });
+
+        $(function () {
+
+            $('#cboCondition').change(function () {
+                if ($('#cboCondition option:selected').text() == 'COCINERO(A)') {
+                    $('#address').show();
+                } else {
+                    $('#address').hide();
+                }
+            });
+        });
+
+        $(function () {
+            $('#chkAnonym').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#txtName').attr('disabled', true);
+                    $("#txtName").val("Beneficiario Anonimo");
+                    $('#txtCurp').attr('disabled', true);
+                    $("#txtCurp").val("000000000000000000");
+                    $('#chkNoCurp').prop('checked', true);
+                    $('#chkNoBirthdate').prop('checked', true);
+                    $('#txtLastName').attr('disabled', true);
+                    $("#txtLastName").val("Beneficiario Anonimo");
+                    $('#txtFechaNacimiento').attr('disabled', true);
+                    $("#txtFechaNacimiento").val("BENEFICIARIO ANONIMO");
+
+                    $("#txtQuantity").focus();
+
+                    $("#cboGender").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboGender").val("-1");
+                    $('#cboGender').attr('disabled', true);
+
+                    $("#cboCondition").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboCondition").val("-1");
+                    $('#cboCondition').attr('disabled', true);
+
+                    $("#cboState").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboState").val("-1");
+                    $('#cboState').attr('disabled', true);
+
+                    $('#txtAddress').attr('disabled', true);
+                    $("#txtAddress").val("BENEFICIARIO ANONIMO");
+
+                    $('#txtPhoneNumber').attr('disabled', true);
+                    $("#txtPhoneNumber").val("BENEFICIARIO ANONIMO");
+
+                    $('#txtLastName2').attr('disabled', true);
+                    $("#txtLastName2").val("BENEFICIARIO ANONIMO");
+
+                    $('#chkNoCurp').attr('disabled', true);
+                    $('#chkNoBirthdate').attr('disabled', true);
+                }
+                else {
+                    $('#txtName').attr('disabled', false);
+                    $("#txtName").val("");
+                    $('#txtCurp').attr('disabled', false);
+                    $("#txtCurp").val("");
+                    $('#txtLastName').attr('disabled', false);
+                    $("#txtLastName").val("");
+                    $('#txtFechaNacimiento').attr('disabled', false);
+                    $("#txtFechaNacimiento").val("");
+                    $("#txtQuantity").val("");
+
+                    $("#cboGender option[value='-1']").remove();
+                    $("#cboGender").val("0");
+                    $('#cboGender').attr('disabled', false);
+
+                    $("#cboCondition option[value='-1']").remove();
+                    $("#cboCondition").val("0");
+                    $('#cboCondition').attr('disabled', false);
+
+                    $("#cboState option[value='-1']").remove();
+                    $("#cboState").val("0");
+                    $('#cboState').attr('disabled', false);
+
+                    $('#txtAddress').attr('disabled', false);
+                    $("#txtAddress").val("");
+
+                    $('#txtPhoneNumber').attr('disabled', false);
+                    $("#txtPhoneNumber").val("");
+
+                    $('#txtLastName2').attr('disabled', false);
+                    $("#txtLastName2").val("");
+
+                    $("#txtName").focus();
+                    $('#chkNoCurp').attr('disabled', false);
+                    $('#chkNoBirthdate').attr('disabled', false);
+                }
+            });
+
+        });
+
+        $(function () {
+            $('#chkNoBirthdate').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#txtFechaNacimiento').attr('disabled', true);
+                    $("#txtFechaNacimiento").val("SIN FECHA");
+
+                }
+                else {
+                    $('#txtFechaNacimiento').attr('disabled', false);
+                    $("#txtFechaNacimiento").val("");
+                }
+            });
+
+        });
+
+        $(function () {
+            $('#chkNoCurp').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#txtCurp').attr('disabled', true);
+                    $("#txtCurp").val("000000000000000000");
+
+                }
+                else {
+                    $('#txtCurp').attr('disabled', false);
+                    $("#txtCurp").val("");
+                }
+            });
+
+        });
+
+        $(function () {
+            $('#txtFechaNacimiento').datepicker({
+                todayHighlight: true,
+                autoclose: true,
+                dateFormat: 'mm/dd/yy',
+            });
+        });
+
+    $(function () {
+        $("#txtName").autocomplete({
+            minLength: 4,
+            source: function (request, response) {
+                var itemnamecodes = new Array();
+                $.ajax({
+                    async: false,
+                    cache: false,
+                    //type: "POST",
+                    url: "@(Url.Action("GetDataForAc", "Capture"))",
+                    data: { "term": request.term },
+                    success: function (data) {
+                        //alert(data[0].Value);
+                        for (var i = 0; i < data.length ; i++) {
+                            itemnamecodes[i] = { label: data[i].Value, Id: data[i].Key };
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("error: " + jqXHR.responseText);
+                    }
+                });
+                response(itemnamecodes);
+            },
+            select: function (event, ui) {
+                event.preventDefault();
+                var dataForm = {};
+                dataForm = ui.item.label.split('|');
+                //$("#txtName").val("");
+                $("#txtName").val($.trim(dataForm[0]));
+                $("#txtLastName").val($.trim(dataForm[1]));
+                $("#txtLastName2").val($.trim(dataForm[2]));
+                if ($.trim(dataForm[3]) == "000000000000000000") {
+                    $('#chkNoCurp').prop('checked', true);
+                    $('#txtCurp').attr('disabled', true);
+                    $("#txtCurp").val($.trim(dataForm[3]));
+                }
+                else {
+                    $("#txtCurp").val($.trim(dataForm[3]));
+                }
+                
+                if ($.trim(dataForm[4]) == null || $.trim(dataForm[4]) == "01/01/0001") {
+                    $("#txtFechaNacimiento").val("SIN FECHA");
+                    $('#chkNoBirthdate').prop('checked', true);
+                    $('#txtFechaNacimiento').attr('disabled', true);
+                } else {
+                    $("#txtFechaNacimiento").val($.trim(dataForm[4]));
+                }
+                
+
+                $("#cboGender").val($.trim(dataForm[5]));
+                $("#cboCondition").val($.trim(dataForm[6]));
+                $("#cboState").val($.trim(dataForm[7]));
+                $("#txtAddress").val($.trim(dataForm[8]));
+                $("#txtPhoneNumber").val($.trim(dataForm[9]));
+
+                if ($('#cboCondition option:selected').text() == 'COCINERO(A)') {
+                    $('#address').show();
+                }
+
+                $("#txtQuantity").focus();
+            }
+
+        });
+    });
+
+    //$(function () {
+    //	var table = $('#attendanceList').DataTable();
+
+    //	$('#attendanceList tbody').on('click', 'tr', function () {
+    //		alert(table.row(this).data());
+    //	});
+    //});
+
+    function EditAttendance(id) {
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("EditAttendance", "Capture")",
+            dataType: 'json',
+            data: { 'id': id },
+            success: function (data) {
+                if (data.IsAnonym){
+                    $("#txtCurp").val("000000000000000000");
+                    $("#txtName").val("Beneficiario Anonimo");
+                    $("#txtLastName").val("Beneficiario Anonimo");
+                    $("#txtLastName2").val("Beneficiario Anonimo");
+                    $("#txtFechaNacimiento").val("Beneficiario Anonimo");
+                    $("#txtQuantity").val(data.Quantity);
+                    $("#AttendanceId").val(data.Id);
+                    $("#IsAnonym").val(data.IsAnonym);
+
+                    $('#txtCurp').attr('disabled', true);
+                    $('#txtName').attr('disabled', true);
+                    $('#txtLastName').attr('disabled', true);
+                    $('#txtLastName2').attr('disabled', true);
+                    $('#txtFechaNacimiento').attr('disabled', true);
+                    $('#chkAnonym').prop('checked', data.IsAnonym);
+
+                    $("#cboGender").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboGender").val("-1");
+                    $('#cboGender').attr('disabled', true);
+
+                    $("#cboCondition").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboCondition").val("-1");
+                    $('#cboCondition').attr('disabled', true);
+
+                    $("#cboState").append('<option value="-1">BENEFICIARIO ANONIMO</option>');
+                    $("#cboState").val("-1");
+                    $('#cboState').attr('disabled', true);
+
+                    $('#txtAddress').attr('disabled', true);
+                    $("#txtAddress").val("BENEFICIARIO ANONIMO");
+
+                    $('#txtPhoneNumber').attr('disabled', true);
+                    $("#txtPhoneNumber").val("BENEFICIARIO ANONIMO");
+
+                    $('#chkNoCurp').prop('checked', true);
+                    $('#chkNoBirthdate').prop('checked', true);
+
+                    $('#address').hide();
+                }
+                else {
+                    if (data.Birthdate == null)
+                    {
+                        $("#txtFechaNacimiento").val("SIN FECHA");
+                        $('#chkNoBirthdate').prop('checked', true);
+                        $('#txtFechaNacimiento').attr('disabled', true);
+                    }
+                    else
+                    {
+                        var value = new Date(parseInt(data.Birthdate.replace("/Date(", "").replace(")/", ""), 10));
+                        var d = new Date(value);
+                        var str = $.datepicker.formatDate('mm/dd/yy', d);
+                        $("#txtFechaNacimiento").val(str);
+                        $('#txtFechaNacimiento').attr('disabled', false);
+                    }
+
+
+                    if (data.Curp == "000000000000000000")
+                    {
+                        $('#chkNoCurp').prop('checked', true);
+                        $('#txtCurp').attr('disabled', true);
+                        $("#txtCurp").val(data.Curp);
+                    }
+                    else
+                    {
+                        $("#txtCurp").val(data.Curp);
+                        $('#txtCurp').attr('disabled', false);
+                    }
+                    $("#txtName").val(data.Name);
+                    $("#txtLastName").val(data.LastName);
+                    $("#txtLastName2").val(data.LastName2);
+
+                    $("#txtQuantity").val(data.Quantity);
+                    $("#AttendanceId").val(data.Id);
+                    $("#IsAnonym").val(data.IsAnonym);
+
+                    $('#txtName').attr('disabled', false);
+                    $('#txtLastName').attr('disabled', false);
+                    $('#txtLastName2').attr('disabled', false);
+
+                    $('#chkAnonym').prop('checked', data.IsAnonym);
+
+                    $("#cboGender option[value='-1']").remove();
+                    $("#cboGender").val(data.Gender);
+                    $('#cboGender').attr('disabled', false);
+
+                    $("#cboCondition option[value='-1']").remove();
+                    $("#cboCondition").val(data.Id_Condition);
+                    $('#cboCondition').attr('disabled', false);
+
+                    $("#cboState option[value='-1']").remove();
+                    $("#cboState").val(data.Id_State_Birth);
+                    $('#cboState').attr('disabled', false);
+
+                    $("#txtAddress").val(data.Address);
+                    $('#txtAddress').attr('disabled', false);
+
+                    $('#txtPhoneNumber').attr('disabled', false);
+                    $("#txtPhoneNumber").val(data.PhoneNumber);
+
+                    if ($('#cboCondition option:selected').text() == 'COCINERO(A)') {
+                        $('#address').show();
+                    }
+
+                }
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("error: " + jqXHR.responseText);
+            }
+        });
+        return false;
+    }
+
+
+
+        function DeleteAttendance(id) {
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("DeleteAttendance", "Capture")",
+            dataType: 'json',
+            async: false,
+            data: { 'idAttendance': id },
+            success: function (data) {
+                if (data.message == "SUCCESS") {
+                    $.notify("Asistencia eliminada de la captura", "success", { position: "right top" });
+                    $("#AttendanceId").val("");
+                    $("#attendanceList").dataTable().fnDestroy();
+                    $('#attendanceList').html(data.PartialView);
+                    $('#attendanceList').DataTable({
+                        select: true,
+                        responsive: true,
+                        "pageLength": 10,
+                        "lengthChange": false,
+                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                    });
+                }
+                else {
+                    $.notify(data.message, "error", { position: "right top" });
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("error: " + jqXHR.responseText);
+            }
+        });
+        return false;
+    }
+
+    function SendCapture(id) {
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("EditStatus", "Capture")",
+                dataType: 'json',
+                data: { 'id': id },
+                success: function (data) {
+                    if (data == "SUCCESS") {
+                        //$.notify("Asistencia eliminada de la captura", "success", { position: "right top" });
+                        $(".modal-body #errorMessage").html('<br/> La Captura ha sido enviada de forma exitosa.');
+                        $('#successModal').modal('show');
+                        //window.location.href = '@Url.Action("Index", "Capture")';
+                    }
+                    else {
+                        $(".modal-body #errorMessage").html('<br/>' + data);
+                        $('#errorModal').modal('show');
+                        //$.notify(data, "error", { position: "right top" });
+                    }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("error: " + jqXHR.responseText);
+            }
+        });
+        return false;
+        }
+
+        function SaveRegister() {
+            var att = {};
+            att.Curp = $("#txtCurp").val().toUpperCase();
+            att.Name = $("#txtName").val().toUpperCase();
+            att.LastName = $("#txtLastName").val().toUpperCase();
+            att.BirthDate = new Date($("#txtFechaNacimiento").val());
+            att.Quantity = $("#txtQuantity").val();
+            att.Id = $("#AttendanceId").val();
+            if (att.Id > 0) {
+                att.IsAnonym = $("#IsAnonym").val();
+            }
+            else {
+                att.IsAnonym = $('#chkAnonym').is(':checked');
+            }
+            att.Gender = $("#cboGender").val();
+            att.Id_Condition = $("#cboCondition").val();
+            att.Id_State_Birth = $("#cboState").val();
+            att.Address = $("#txtAddress").val();
+            att.PhoneNumber = $("#txtPhoneNumber").val();
+            att.LastName2 = $("#txtLastName2").val().toUpperCase();
+            if ($('#chkNoCurp').is(':checked')) {
+                att.HasCurp = false;
+            }
+            else {
+                att.HasCurp = true;
+            }
+            //att.HasCurp = $('#chkNoCurp').is(':checked');
+
+            if ($('#frmAttendance').parsley().validate()) {
+
+                if ($('#cboCondition option:selected').text() == 'COCINERO(A)' && $('#txtAddress').val() == "") {
+                    $("#btnRegistrar").notify("El campo Domicilio es requerido.", "error", { position: "right top" });
+                }
+                else {
+                     if (att.IsAnonym == 'true' || att.IsAnonym == true) {
+                            att.Name = "BENEFICIARIO";
+                            att.LastName = "ANONIMO";
+                            att.LastName2 = "ANONIMO";
+                            att.Curp = "000000000000000000";
+                            att.BirthDate = null;
+                            att.Gender = null;
+                            att.Id_Condition = null;
+                            att.Id_State_Birth = null;
+                            att.Address = " ";
+                            att.PhoneNumber = " ";
+                     }
+                    if (att.BirthDate == "SIN FECHA") {
+                            att.BirthDate = null;
+                    }
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("CaptureAttendance", "Capture")',
+                            data: '{att: ' + JSON.stringify(att) + '}',
+                            dataType: "json",
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                if (data.message == "SUCCESS") {
+                                    $("#btnRegistrar").notify("Registro ingresado", "success", { position: "right top" });
+                                    //$("#btnRegistrar").notify("Registro ingresado", "success", { position: "top" });
+                                    //var t = $("#attendanceList").DataTable();
+                                    //t.row.add([att.Curp, att.Name + " " + att.LastName, att.BirthDate, att.Quantity, 5]).draw(false);
+
+
+                                    $("#attendanceList").dataTable().fnDestroy();
+                                    $('#attendanceList').html(data.PartialView);
+                                    $('#attendanceList').DataTable({
+                                        select: true,
+                                        responsive: true,
+                                        "pageLength": 10,
+                                        "lengthChange": false,
+                                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                                    });
+                                    cleanForm();
+                                }
+                                else if (data.message == "ERRORCURP") {
+                                    $("#btnRegistrar").notify(data.MessageError, "error", { position: "right top" });
+                                }
+                                else {
+                                    $("#btnRegistrar").notify("Se ha registrado el curp previamente en la captura", "error", { position: "right top" });
+                                }
+                            },
+                            error: function () {
+                                $("#btnRegistrar").notify("Se ha registrado el curp previamente en la captura", "error", { position: "right top" });
+                            }
+                        });
+                    return false;
+                }
+            }
+        }
+
+    function cleanForm() {
+        $("#txtCurp").val("");
+        $("#txtName").val("");
+        $("#txtLastName").val("");
+        $("#txtLastName2").val("");
+        $("#txtFechaNacimiento").val("");
+        $("#txtQuantity").val("");
+        $("#AttendanceId").val("");
+        $("#IsAnonym").val("");
+        $('#txtName').attr('disabled', false);
+        $('#txtCurp').attr('disabled', false);
+        $('#txtLastName').attr('disabled', false);
+        $('#txtLastName2').attr('disabled', false);
+        $('#txtFechaNacimiento').attr('disabled', false);
+
+        $('#chkAnonym').prop('checked', false);
+
+        $("#cboGender option[value='-1']").remove();
+        $("#cboGender").val("0");
+        $('#cboGender').attr('disabled', false);
+
+        $("#cboCondition option[value='-1']").remove();
+        $("#cboCondition").val("0");
+        $('#cboCondition').attr('disabled', false);
+
+        $("#cboState option[value='-1']").remove();
+        $("#cboState").val("0");
+        $('#cboState').attr('disabled', false);
+
+        $('#txtAddress').attr('disabled', false);
+        $("#txtAddress").val("");
+
+        $('#txtPhoneNumber').attr('disabled', false);
+        $("#txtPhoneNumber").val("");
+
+        $("#address").hide();
+        $('#chkNoCurp').prop('checked', false);
+        $('#chkNoBirthdate').prop('checked', false);
+    }
+    </script>
+    <script language="JavaScript">
+    if (@System.Configuration.ConfigurationManager.AppSettings["activeCam"] == "1")
+    {
+
+        $("#divBtnCamera").show();
+        navigator.getUserMedia = navigator.getUserMedia ||
+                             navigator.webkitGetUserMedia ||
+                             navigator.mozGetUserMedia ||
+                             navigator.msGetUserMedia;
+        if (navigator.getUserMedia) {
+            Webcam.set({
+                width: 390,
+                height: 310,
+                image_format: 'jpeg',
+                jpeg_quality: 90,
+                // device capture size
+                //dest_width: 560,
+                //dest_height: 420,
+
+                // final cropped size
+                //crop_width: 480,
+                //crop_height: 480,
+            });
+            Webcam.attach('#my_camera');
+        }
+        else {
+            alert("Su navegador no soporta el uso de la cámara");
+        }
+    }
+    else{
+        $("#divBtnCamera").hide();
+    }
+
+
+    </script>
+    <script language="JavaScript">
+		function take_snapshot() {
+			// take snapshot and get image data
+			Webcam.snap( function(data_uri) {
+				// display results in page
+				document.getElementById('results').innerHTML =
+					'<h2>Here is your image:</h2>' +
+					'<img id="imgWebCam" src="'+data_uri+'"/>';
+			});
+
+			//var fileImage = document.getElementById("imgWebCam").src;
+
+			//var formdata = new FormData();
+			//formdata.append("imgWebCam", fileImage);
+
+			uploadFile(1);
+		}
+
+		function uploadFile(type) {
+
+		    $('#modalup').modal('show');
+		    var formdata = new FormData();
+
+		    if (type == 1) {
+		        var fileImage = document.getElementById("imgWebCam").src;
+		        formdata.append("pFileCam", fileImage);
+		        formdata.append("pFile", '');
+		        formdata.append("pType", 1);
+		    }
+		    else
+		    {
+		        var files = $("#upImg").get(0).files;
+		        if (files.length > 0) {
+		            formdata.append("pFileCam", '');
+		            formdata.append("pFile", files[0]);
+		            formdata.append("pType", 2);
+		        }
+		    }
+
+		    $.ajax({
+		        type: 'POST',
+		        url: "@Url.Action("UploadFiles", "Capture")",
+		        contentType: false,
+		        processData: false,
+		        async: false,
+		        cache: false,
+		        enctype: 'multipart/form-data',
+		        data: formdata,
+		        beforeSend: function () {
+		            //$('#modalup').modal('show');
+		        },
+		        complete: function () {
+		            $("#modalup").modal('hide');
+		        },
+		        success: function (result) {
+		            if (result.message == "SUCCESS") {
+		                //refrescar vista parcial
+		                $('#listImage').html(result.PartialView);
+		                if (jQuery.browser.msie) {
+		                    alert("Imagen guardada");
+
+		                } else {
+		                    $.notify("Imagen guardada", "info", { position: "right top" });
+		                }
+		            }
+		            else {
+		                $.notify(result.message, "error", { position: "right top" });
+		            }
+		        },
+		        error: function (jqXHR, textStatus, errorThrown) {
+		            if (jQuery.browser.msie) {
+		                alert("Tamaño máximo permitido: 1 MB");
+		            } else {
+		                alert('Uncaught Error.\n' + jqXHR.status + '-' + exception);
+		                //$.notify("Tamaño máximo permitido: 1 MB", "info", { position: "right top" });
+		            }
+		        }
+		    });
+		    return false;
+		}
+
+
+    function DeleteFile(id) {
+
+        $.ajax({
+            type: 'POST',
+            url: "@Url.Action("DeleteFile", "Capture")",
+            dataType: 'json',
+            async: false,
+            cache: false,
+            data: { 'idFile': id },
+            beforeSend: function () {
+                //$("#modaldown").modal('show');
+            },
+            complete: function () {
+                //$("#modaldown").modal('hide');
+            },
+            success: function (data) {
+                if (data.message == "SUCCESS") {
+                    //refrescar vista parcial
+                    $('#listImage').html(data.PartialView);
+                    if (jQuery.browser.msie) {
+                        alert("Imagen eliminada");
+
+                    } else {
+                        $.notify("Imagen eliminada", "info", { position: "right top" });
+                    }
+                }
+                else {
+                    $.notify(data.message, "error", { position: "right top" });
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("error: " + jqXHR.responseText);
+            }
+        });
+    }
+    </script>
+
+}
+
+@section documentReady{
+
+    $('#address').hide();
+
+    Gallery.init();
+    $('#attendanceList').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+
+    $(document).on('click', '.browse', function () {
+    var file = $(this).parent().parent().parent().find('.file2');
+    file.trigger('click');
+    });
+    $(document).on('change', '.file2', function () {
+    $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+    });
+
+}
+

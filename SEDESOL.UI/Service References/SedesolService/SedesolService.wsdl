@@ -1,0 +1,1522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SedesolService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50420/SedesolService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50420/SedesolService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50420/SedesolService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SEDESOL.DataEntities.DTO" />
+      <xsd:import schemaLocation="http://localhost:50420/SedesolService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SEDESOL.DataEntities.IntegrationObjects" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISedesolService_GetCaptures_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaptures" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCaptures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCapturesSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapturesSearch" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCapturesSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapturesSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCapturesFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapturesFilter" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCapturesFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapturesFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateCapture_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateCapture" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateCapture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateCapture_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateCapture" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateCapture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveCapture_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCapture" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveCapture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateCapture_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCapture" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateCapture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCaptureById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaptureById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCaptureById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaptureByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveCaptureImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCaptureImage" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveCaptureImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCaptureImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteCaptureImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaptureImage" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteCaptureImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaptureImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetImageByCaptureId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByCaptureId" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetImageByCaptureId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByCaptureIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCodesByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodesByUserId" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCodesByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodesByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SendToApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendToApproval" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SendToApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendToApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamCapture_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamCapture" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamCapture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_EditStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_EditStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStatesFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesFilter" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStatesFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetYears_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetYears" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetYears_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetYearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetMonths_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonths" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetMonths_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateState" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateYear" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMonth" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_UpdateMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateState_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateState" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateState_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateState" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateYear" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateYear" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateMonth" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateMonth_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateMonth" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateMonth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamCode" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GenerateCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateCode" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GenerateCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveStates" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveCondition" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveRegions" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetActiveRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveAttendance_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAttendance" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveAttendance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAttendanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetAttendanceById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetAttendanceById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteAttendance_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttendance" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteAttendance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttendanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetDataForAc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataForAc" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetDataForAc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataForAcResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetAttendanceReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceReport" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetAttendanceReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendanceReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCaptureReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaptureReport" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCaptureReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaptureReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenByUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveSoupKitchen_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSoupKitchen" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveSoupKitchen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveSoupKitchenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenAll" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenToAssignUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenToAssignUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenToAssignUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenToAssignUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSKAssignedUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSKAssignedUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSKAssignedUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSKAssignedUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetSoupKitchenById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoupKitchenByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_Deactivate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deactivate" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_Deactivate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_Activate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Activate" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_Activate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeBySKId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeBySKId" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeBySKId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeBySKIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteUserTypeSk_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserTypeSk" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteUserTypeSk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserTypeSkResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAll" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeactivateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUser" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_ActivateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeAll" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeApproval" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetUserTypeApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTypeApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUserTypeSK_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserTypeSK" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUserTypeSK_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserTypeSKResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUserSoupKitchen_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserSoupKitchen" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveUserSoupKitchen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserSoupKitchenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteUserSoupKitchen_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserSoupKitchen" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_DeleteUserSoupKitchen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserSoupKitchenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveInspectionCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInspectionCode" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveInspectionCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInspectionCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetGenerationCodeDayAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenerationCodeDayAll" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetGenerationCodeDayAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenerationCodeDayAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveGencodeDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveGencodeDay" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveGencodeDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveGencodeDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetGenerationCodeDayById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenerationCodeDayById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetGenerationCodeDayById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenerationCodeDayByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamGen_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamGen" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetParamGen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetParamGenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetApprovalByCaptureId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalByCaptureId" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetApprovalByCaptureId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalByCaptureIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetProductAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductAll" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetProductAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductById" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProduct" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetRationSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRationSearch" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetRationSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRationSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveRations_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRations" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_SaveRations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCouponData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCouponData" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCouponData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCouponDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCouponDataByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCouponDataByState" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetCouponDataByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCouponDataByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetDataExcel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataExcel" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetDataExcel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="ISedesolService_GetConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISedesolService">
+    <wsdl:operation name="GetCaptures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCaptures" message="tns:ISedesolService_GetCaptures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCapturesResponse" message="tns:ISedesolService_GetCaptures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCapturesSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCapturesSearch" message="tns:ISedesolService_GetCapturesSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCapturesSearchResponse" message="tns:ISedesolService_GetCapturesSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCapturesFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCapturesFilter" message="tns:ISedesolService_GetCapturesFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCapturesFilterResponse" message="tns:ISedesolService_GetCapturesFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateCapture">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateCapture" message="tns:ISedesolService_ActivateCapture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateCaptureResponse" message="tns:ISedesolService_ActivateCapture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateCapture">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateCapture" message="tns:ISedesolService_DeactivateCapture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateCaptureResponse" message="tns:ISedesolService_DeactivateCapture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCapture">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveCapture" message="tns:ISedesolService_SaveCapture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveCaptureResponse" message="tns:ISedesolService_SaveCapture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCapture">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/UpdateCapture" message="tns:ISedesolService_UpdateCapture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/UpdateCaptureResponse" message="tns:ISedesolService_UpdateCapture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaptureById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCaptureById" message="tns:ISedesolService_GetCaptureById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCaptureByIdResponse" message="tns:ISedesolService_GetCaptureById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCaptureImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveCaptureImage" message="tns:ISedesolService_SaveCaptureImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveCaptureImageResponse" message="tns:ISedesolService_SaveCaptureImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaptureImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeleteCaptureImage" message="tns:ISedesolService_DeleteCaptureImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeleteCaptureImageResponse" message="tns:ISedesolService_DeleteCaptureImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByCaptureId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetImageByCaptureId" message="tns:ISedesolService_GetImageByCaptureId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetImageByCaptureIdResponse" message="tns:ISedesolService_GetImageByCaptureId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodesByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCodesByUserId" message="tns:ISedesolService_GetCodesByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCodesByUserIdResponse" message="tns:ISedesolService_GetCodesByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendToApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SendToApproval" message="tns:ISedesolService_SendToApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SendToApprovalResponse" message="tns:ISedesolService_SendToApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamCapture">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetParamCapture" message="tns:ISedesolService_GetParamCapture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetParamCaptureResponse" message="tns:ISedesolService_GetParamCapture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/EditStatus" message="tns:ISedesolService_EditStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/EditStatusResponse" message="tns:ISedesolService_EditStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetStates" message="tns:ISedesolService_GetStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetStatesResponse" message="tns:ISedesolService_GetStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetStatesFilter" message="tns:ISedesolService_GetStatesFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetStatesFilterResponse" message="tns:ISedesolService_GetStatesFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetStatus" message="tns:ISedesolService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetStatusResponse" message="tns:ISedesolService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYears">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetYears" message="tns:ISedesolService_GetYears_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetYearsResponse" message="tns:ISedesolService_GetYears_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonths">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetMonths" message="tns:ISedesolService_GetMonths_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetMonthsResponse" message="tns:ISedesolService_GetMonths_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/UpdateState" message="tns:ISedesolService_UpdateState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/UpdateStateResponse" message="tns:ISedesolService_UpdateState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/UpdateStatus" message="tns:ISedesolService_UpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/UpdateStatusResponse" message="tns:ISedesolService_UpdateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/UpdateYear" message="tns:ISedesolService_UpdateYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/UpdateYearResponse" message="tns:ISedesolService_UpdateYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/UpdateMonth" message="tns:ISedesolService_UpdateMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/UpdateMonthResponse" message="tns:ISedesolService_UpdateMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateStatus" message="tns:ISedesolService_ActivateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateStatusResponse" message="tns:ISedesolService_ActivateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateStatus" message="tns:ISedesolService_DeactivateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateStatusResponse" message="tns:ISedesolService_DeactivateStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateState" message="tns:ISedesolService_ActivateState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateStateResponse" message="tns:ISedesolService_ActivateState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateState" message="tns:ISedesolService_DeactivateState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateStateResponse" message="tns:ISedesolService_DeactivateState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateYear" message="tns:ISedesolService_ActivateYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateYearResponse" message="tns:ISedesolService_ActivateYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateYear" message="tns:ISedesolService_DeactivateYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateYearResponse" message="tns:ISedesolService_DeactivateYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateMonth" message="tns:ISedesolService_ActivateMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateMonthResponse" message="tns:ISedesolService_ActivateMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateMonth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateMonth" message="tns:ISedesolService_DeactivateMonth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateMonthResponse" message="tns:ISedesolService_DeactivateMonth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetParamCode" message="tns:ISedesolService_GetParamCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetParamCodeResponse" message="tns:ISedesolService_GetParamCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GenerateCode" message="tns:ISedesolService_GenerateCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GenerateCodeResponse" message="tns:ISedesolService_GenerateCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetActiveStates" message="tns:ISedesolService_GetActiveStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetActiveStatesResponse" message="tns:ISedesolService_GetActiveStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetActiveCondition" message="tns:ISedesolService_GetActiveCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetActiveConditionResponse" message="tns:ISedesolService_GetActiveCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetActiveRegions" message="tns:ISedesolService_GetActiveRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetActiveRegionsResponse" message="tns:ISedesolService_GetActiveRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAttendance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveAttendance" message="tns:ISedesolService_SaveAttendance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveAttendanceResponse" message="tns:ISedesolService_SaveAttendance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetAttendanceById" message="tns:ISedesolService_GetAttendanceById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetAttendanceByIdResponse" message="tns:ISedesolService_GetAttendanceById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttendance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeleteAttendance" message="tns:ISedesolService_DeleteAttendance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeleteAttendanceResponse" message="tns:ISedesolService_DeleteAttendance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataForAc">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetDataForAc" message="tns:ISedesolService_GetDataForAc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetDataForAcResponse" message="tns:ISedesolService_GetDataForAc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetAttendanceReport" message="tns:ISedesolService_GetAttendanceReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetAttendanceReportResponse" message="tns:ISedesolService_GetAttendanceReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaptureReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCaptureReport" message="tns:ISedesolService_GetCaptureReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCaptureReportResponse" message="tns:ISedesolService_GetCaptureReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenByUser" message="tns:ISedesolService_GetSoupKitchenByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenByUserResponse" message="tns:ISedesolService_GetSoupKitchenByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ValidateUser" message="tns:ISedesolService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ValidateUserResponse" message="tns:ISedesolService_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSoupKitchen">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveSoupKitchen" message="tns:ISedesolService_SaveSoupKitchen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveSoupKitchenResponse" message="tns:ISedesolService_SaveSoupKitchen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenAll" message="tns:ISedesolService_GetSoupKitchenAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenAllResponse" message="tns:ISedesolService_GetSoupKitchenAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenToAssignUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenToAssignUser" message="tns:ISedesolService_GetSoupKitchenToAssignUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenToAssignUserResponse" message="tns:ISedesolService_GetSoupKitchenToAssignUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSKAssignedUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetSKAssignedUser" message="tns:ISedesolService_GetSKAssignedUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetSKAssignedUserResponse" message="tns:ISedesolService_GetSKAssignedUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenById" message="tns:ISedesolService_GetSoupKitchenById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetSoupKitchenByIdResponse" message="tns:ISedesolService_GetSoupKitchenById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/Deactivate" message="tns:ISedesolService_Deactivate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateResponse" message="tns:ISedesolService_Deactivate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/Activate" message="tns:ISedesolService_Activate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateResponse" message="tns:ISedesolService_Activate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeBySKId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeBySKId" message="tns:ISedesolService_GetUserTypeBySKId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeBySKIdResponse" message="tns:ISedesolService_GetUserTypeBySKId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTypeSk">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeleteUserTypeSk" message="tns:ISedesolService_DeleteUserTypeSk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeleteUserTypeSkResponse" message="tns:ISedesolService_DeleteUserTypeSk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveUser" message="tns:ISedesolService_SaveUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveUserResponse" message="tns:ISedesolService_SaveUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetUserAll" message="tns:ISedesolService_GetUserAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetUserAllResponse" message="tns:ISedesolService_GetUserAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetUserById" message="tns:ISedesolService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetUserByIdResponse" message="tns:ISedesolService_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeactivateUser" message="tns:ISedesolService_DeactivateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeactivateUserResponse" message="tns:ISedesolService_DeactivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/ActivateUser" message="tns:ISedesolService_ActivateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/ActivateUserResponse" message="tns:ISedesolService_ActivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeAll" message="tns:ISedesolService_GetUserTypeAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeAllResponse" message="tns:ISedesolService_GetUserTypeAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeApproval" message="tns:ISedesolService_GetUserTypeApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetUserTypeApprovalResponse" message="tns:ISedesolService_GetUserTypeApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserTypeSK">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveUserTypeSK" message="tns:ISedesolService_SaveUserTypeSK_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveUserTypeSKResponse" message="tns:ISedesolService_SaveUserTypeSK_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSoupKitchen">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveUserSoupKitchen" message="tns:ISedesolService_SaveUserSoupKitchen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveUserSoupKitchenResponse" message="tns:ISedesolService_SaveUserSoupKitchen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserSoupKitchen">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/DeleteUserSoupKitchen" message="tns:ISedesolService_DeleteUserSoupKitchen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/DeleteUserSoupKitchenResponse" message="tns:ISedesolService_DeleteUserSoupKitchen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInspectionCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveInspectionCode" message="tns:ISedesolService_SaveInspectionCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveInspectionCodeResponse" message="tns:ISedesolService_SaveInspectionCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenerationCodeDayAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetGenerationCodeDayAll" message="tns:ISedesolService_GetGenerationCodeDayAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetGenerationCodeDayAllResponse" message="tns:ISedesolService_GetGenerationCodeDayAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveGencodeDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveGencodeDay" message="tns:ISedesolService_SaveGencodeDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveGencodeDayResponse" message="tns:ISedesolService_SaveGencodeDay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenerationCodeDayById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetGenerationCodeDayById" message="tns:ISedesolService_GetGenerationCodeDayById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetGenerationCodeDayByIdResponse" message="tns:ISedesolService_GetGenerationCodeDayById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParamGen">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetParamGen" message="tns:ISedesolService_GetParamGen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetParamGenResponse" message="tns:ISedesolService_GetParamGen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalByCaptureId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetApprovalByCaptureId" message="tns:ISedesolService_GetApprovalByCaptureId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetApprovalByCaptureIdResponse" message="tns:ISedesolService_GetApprovalByCaptureId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetProductAll" message="tns:ISedesolService_GetProductAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetProductAllResponse" message="tns:ISedesolService_GetProductAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetProductById" message="tns:ISedesolService_GetProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetProductByIdResponse" message="tns:ISedesolService_GetProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveProduct" message="tns:ISedesolService_SaveProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveProductResponse" message="tns:ISedesolService_SaveProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRationSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetRationSearch" message="tns:ISedesolService_GetRationSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetRationSearchResponse" message="tns:ISedesolService_GetRationSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/SaveRations" message="tns:ISedesolService_SaveRations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/SaveRationsResponse" message="tns:ISedesolService_SaveRations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCouponData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCouponData" message="tns:ISedesolService_GetCouponData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCouponDataResponse" message="tns:ISedesolService_GetCouponData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCouponDataByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetCouponDataByState" message="tns:ISedesolService_GetCouponDataByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetCouponDataByStateResponse" message="tns:ISedesolService_GetCouponDataByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataExcel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetDataExcel" message="tns:ISedesolService_GetDataExcel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetDataExcelResponse" message="tns:ISedesolService_GetDataExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISedesolService/GetConfiguration" message="tns:ISedesolService_GetConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISedesolService/GetConfigurationResponse" message="tns:ISedesolService_GetConfiguration_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISedesolService" type="tns:ISedesolService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCaptures">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCaptures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCapturesSearch">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCapturesSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCapturesFilter">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCapturesFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateCapture">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateCapture">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCapture">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCapture">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/UpdateCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaptureById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCaptureById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCaptureImage">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveCaptureImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCaptureImage">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeleteCaptureImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByCaptureId">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetImageByCaptureId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodesByUserId">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCodesByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendToApproval">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SendToApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamCapture">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetParamCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditStatus">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/EditStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatesFilter">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetStatesFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYears">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonths">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetMonths" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/UpdateState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateStatus">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/UpdateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYear">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/UpdateYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMonth">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/UpdateMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateStatus">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateStatus">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateState">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateState">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateYear">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateYear">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateMonth">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateMonth">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamCode">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetParamCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateCode">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GenerateCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveStates">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetActiveStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCondition">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetActiveCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveRegions">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetActiveRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAttendance">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveAttendance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetAttendanceById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttendance">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeleteAttendance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataForAc">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetDataForAc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceReport">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetAttendanceReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaptureReport">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCaptureReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenByUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetSoupKitchenByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSoupKitchen">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveSoupKitchen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenAll">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetSoupKitchenAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenToAssignUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetSoupKitchenToAssignUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSKAssignedUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetSKAssignedUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoupKitchenById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetSoupKitchenById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/Deactivate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/Activate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeBySKId">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetUserTypeBySKId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserTypeSk">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeleteUserTypeSk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAll">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetUserAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeactivateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUser">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/ActivateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeAll">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetUserTypeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTypeApproval">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetUserTypeApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserTypeSK">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveUserTypeSK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSoupKitchen">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveUserSoupKitchen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserSoupKitchen">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/DeleteUserSoupKitchen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInspectionCode">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveInspectionCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenerationCodeDayAll">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetGenerationCodeDayAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveGencodeDay">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveGencodeDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenerationCodeDayById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetGenerationCodeDayById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParamGen">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetParamGen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalByCaptureId">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetApprovalByCaptureId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductAll">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetProductAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveProduct">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRationSearch">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetRationSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRations">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/SaveRations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCouponData">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCouponData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCouponDataByState">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetCouponDataByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataExcel">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetDataExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfiguration">
+      <soap:operation soapAction="http://tempuri.org/ISedesolService/GetConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SedesolService">
+    <wsdl:port name="BasicHttpBinding_ISedesolService" binding="tns:BasicHttpBinding_ISedesolService">
+      <soap:address location="http://localhost:50420/SedesolService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

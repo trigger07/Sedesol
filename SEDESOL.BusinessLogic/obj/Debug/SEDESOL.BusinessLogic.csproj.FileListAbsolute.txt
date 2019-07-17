@@ -1,0 +1,49 @@
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csproj.CopyComplete
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.pdb
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.BusinessLogic.pdb
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.pdb
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataAccess.dll.config
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.pdb
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataEntities.dll.config
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.pdb
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\SEDESOL.DataModel.dll.config
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\bin\Debug\EntityFramework.xml
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csprojAssemblyReference.cache
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csproj.CoreCompileInputs.cache
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.csproj.CopyComplete
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.dll
+E:\Projects\SEDESOL\SEDESOL.BusinessLogic\obj\Debug\SEDESOL.BusinessLogic.pdb

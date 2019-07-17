@@ -1,0 +1,59 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<CaptureImageDTO>
+@{
+    Layout = null;
+}
+
+@if (Model.Count > 0)
+{
+                        <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @{int count = 0;}
+        @foreach (CaptureImageDTO pic in Model)
+        {
+            if (count == 0)
+            {
+                <li data-target="#myCarousel" data-slide-to="@count" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#myCarousel" data-slide-to="@count"></li>
+            }
+            count++;
+        }
+    </ol>
+
+                    <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                @{count = 0;}
+                @foreach (CaptureImageDTO pic in Model)
+                {
+                    if (count == 0)
+                    {
+                        <div class="item active">
+                            <img src="data:image/jpeg;base64,@pic.ImageFileB64" alt="" style="width:100%;">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="data:image/jpeg;base64,@pic.ImageFileB64" alt="" style="width:100%;">
+                        </div>
+                    }
+                    count++;
+                }
+
+            </div>
+                    }
+                    else
+                    {
+                        <h3>No hay imágenes disponibles</h3>
+                    }
+
+<script language="JavaScript" type="text/javascript">
+  $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: false
+    })
+  });
+</script>

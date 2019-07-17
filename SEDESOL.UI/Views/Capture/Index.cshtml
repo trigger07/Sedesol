@@ -1,0 +1,391 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects
+@model ListCaptureModel
+@{
+    ViewBag.Title = "Listado de Capturas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h4>Listado de Capturas</h4>
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        @Html.DropDownListFor(m => m.ListStatus, new SelectList(Model.ListStatus, "Id", "Description", Model.ListStatus), "Estado de la Captura", new { @class = "form-control input-sm", @id = "ddlStatus" })
+
+    </div>
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.ListState, new SelectList(Model.ListState, "Id", "Name", Model.ListState), "Ubicación", new { @class = "form-control input-sm", @id="ddlStates"})
+
+    </div>
+    <div class="col-md-2">
+        <select class="form-control input-sm" id="ddlComedor" name="ddlComedor">
+            <option value="">Comedor</option>
+        </select>
+    </div>
+    <div class="col-md-1">
+        <button type="button" id="btnSearch" onclick="SearchCapture()" class="btn btn-sm col-md-12  btn-success" style="font-size:16px;">Buscar</button>
+        
+    </div>
+    <div class="col-md-1">
+        <button type="button" id="btnExcel" onclick="ExportData()" class="btn btn-sm col-md-12  btn-primary" style="font-size:16px;">Excel</button>
+    </div>
+</div>
+<hr/>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-inverse">
+            <div class="panel-heading">
+                <div class="panel-heading-btn">
+                </div>
+                <h4 class="panel-title">Listado</h4>
+            </div>
+            <div class="panel-body">
+                @Html.Partial("CaptureList", Model.ListCapture)
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Modal -->
+<div class="modal fade" id="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Listado de Raciones</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent" style="width:100%;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Modal Approval-->
+<div class="modal fade" id="modal-dialog-approval">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Histórico de Aprobaciones</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modalContentApproval">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="HandsetQuotePics" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 id="modalPicsTitle"></h3>
+                <div id="myCarousel" class="carousel slide">
+                    <div id="carouselContent"></div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" id="leftClick" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" id="rightClick" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section documentReady{
+    function leftCarousel() {
+        $('#myCarousel').carousel('prev');
+    }
+
+    function rightCarousel() {
+        $('#myCarousel').carousel('next');
+    }
+
+     $('#CaptureList').DataTable({
+          //"dom": 'lftipr',
+          "lengthChange": false,
+          "lengthMenu": [ 10, 25, 50, 75, 100 ],
+           ServerSide: false,
+           select: true,
+           responsive: true,
+           "pageLength": 20,
+           "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+     });          
+     
+     $('#attendanceModalList').DataTable( {
+    select: true,
+    responsive: true,
+    "pageLength": 10,
+    "lengthChange": false,
+    "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" }},
+    } );
+         
+    $("#ddlComedor").prop('disabled',true);
+    $("#ddlStates").on('change',function(){
+        var id = $(this).find(':selected').val();
+        if(id != null && id > 0){
+
+            $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: "{ 'StateId' : '"+ id +"' }",
+            url: "@Url.Action("FindSoupKitchen", "Capture")",
+            dataType: "json",
+            success: function (data) {
+                var sel = document.getElementById("ddlComedor");
+                removeOptions(sel);
+                //alert(data[1]['Id']);
+                for(soupKitchen in data)
+                {
+                    var opt = document.createElement("option");
+                    opt.value = data[soupKitchen].Id;
+                    opt.innerHTML =  data[soupKitchen].Name;
+                    sel.add(opt);
+                }
+
+                $("#ddlComedor").prop('disabled',false);
+            },
+            error: function (jqXHR, exception) {
+            window.location.href = "@Url.Action("Login", "Login")";
+        }
+        });
+        }else{
+            var sel = document.getElementById("ddlComedor");
+            removeOptions(sel);
+            $("#ddlComedor").prop('disabled',true);
+        }
+    });
+
+    function removeOptions(selectbox)
+    {
+        var i;
+        for(i=selectbox.options.length-1;i>0;i--)
+        {
+            selectbox.remove(i);
+        }
+    }
+
+}
+
+@section scripts{
+    <script type="text/javascript">
+
+        function ExportData() {
+            var idSoupK = $("#ddlComedor").val();
+            var idStates = $("#ddlStates").val();
+            var idStatus = $("#ddlStatus").val();
+
+            location.href = '@Url.Action("ExportCapture", "Capture")?idState=' + idStates + '&idSoupK=' + idSoupK + '&idStatus=' + idStatus;
+        }
+
+        function SearchCapture() {
+            var idSoupK = $("#ddlComedor").val();
+            var idStates = $("#ddlStates").val();
+            var idStatus = $("#ddlStatus").val();
+
+            if (idSoupK == null || idSoupK == '')
+                idSoupK = 0;
+            if (idStates == null || idStates == '')
+                idStates = 0;
+            if (idStatus == null || idStatus == '')
+                idStatus = 0;
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SearchCaptures", "Capture")',
+                data: '{pState: ' + idStates + ', pSoupK: ' + idSoupK + ', pStatus: ' + idStatus + '}',
+                dataType: "html",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data != null) {
+
+                        $("#CaptureList").dataTable().fnDestroy();
+                        $('#CaptureList').html(data);
+                        $("#ddlComedor").val(idSoupK);
+                        $("#ddlStates").val(idStates);
+                        $("#ddlStatus").val(idStatus);
+                        $('#CaptureList').DataTable({
+                            //"dom": 'lftipr',
+                            "lengthChange": false,
+                            "lengthMenu": [10, 25, 50, 75, 100],
+                            ServerSide: false,
+                            select: true,
+                            responsive: true,
+                            "pageLength": 20,
+                            "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                        });
+
+                    }
+                    else {
+                       // $("#btnRegistrar").notify("Se ha registrado el curp previamente en la captura", "error", { position: "right top" });
+                    }
+                },
+                error: function () {
+                   // $("#btnRegistrar").notify("Se ha registrado el curp previamente en la captura", "error", { position: "right top" });
+                }
+            });
+            return false;
+        }
+
+        function Detail(id) {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetModalAttendance", "Capture")',
+                dataType: 'html',
+                data: {'id':id},
+                success: function (data) {
+                    $('#modalContent').html(data);
+                    $('#modal-dialog').modal('show');
+
+                    $('#attendanceModalList').DataTable({
+                        select: true,
+                        responsive: true,
+                        //"scrollX": true,
+                        "pageLength": 20,
+                        "lengthChange": false,
+                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+        }
+
+        function showPictureModal(hq) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: "{ hq:" + hq + "}",
+                url: "@Url.Action("Pictures", "Capture")",
+                success: function (data) {
+                    //When session is expired data comes null to redirect to login
+                    if (data != "") {
+                        $("#carouselContent").html(data);
+                        //Removing the left and right arrows if the hq doesn't have pictures
+                        if ($('.item').length == 0) {
+                            $("#leftClick").hide();
+                            $("#rightClick").hide();
+                            $('#modalPicsTitle').empty();
+                        }
+                        else {
+                            var titleText = 'Imágenes de la captura.'
+                            $('#modalPicsTitle').html(titleText);
+                            $("#leftClick").show();
+                            $("#rightClick").show();
+                        }
+                        $('#HandsetQuotePics').modal('show');
+                    } else {
+                        window.location.href = '@Url.Action("Login", "Login")';
+                    }
+                },
+            error: function (jqXHR, exception) {
+                if (jqXHR.status == 0) {
+                    alert('Unable to connect to server. Please Verify Network.');
+                } else if (jqXHR.status == 404) {
+                    alert('Requested page not found. [404]');
+                } else if (jqXHR.status == 500) {
+                    alert('Internal Server Error [500]. ' + jqXHR.responseText);
+                } else if (exception == 'timeout') {
+                    alert('Time out error.');
+                } else if (exception == 'abort') {
+                    alert('Ajax request aborted.');
+                } else {
+                    alert('Uncaught Error.\n' + jqXHR.status + '-' + exception);
+                }
+            }
+        });
+        } 
+
+        function GetApproval(id) {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetModalApproval", "Capture")',
+                dataType: 'html',
+                data: { 'id': id },
+                success: function (data) {
+                    $('#modalContentApproval').html(data);
+                    $('#modal-dialog-approval').modal('show');
+
+                    $('#approvalTable').DataTable({
+                        select: true,
+                        responsive: true,
+                        "pageLength": 10,
+                        "lengthChange": false,
+                        "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+        }
+
+        function SendToApproval(id, approved) {
+
+            var idSoupK = $("#ddlComedor").val();
+            var idStates = $("#ddlStates").val();
+            var idStatus = $("#ddlStatus").val();
+
+            if (idSoupK == null || idSoupK == '')
+                idSoupK = 0;
+            if (idStates == null || idStates == '')
+                idStates = 0;
+            if (idStatus == null || idStatus == '')
+                idStatus = 0;
+
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("SendToApproval2", "Capture")",
+                dataType: 'json',
+                async: false,
+                data: '{idCapture: ' + id + ', approved: ' + approved + ', pState: ' + idStates + ', pSoupK: ' + idSoupK + ', pStatus: ' + idStatus + '}',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.message == "SUCCESS") {
+                        $.notify("Se ha registrado el estado de aprobación.", "info", { position: "right top" });
+                        
+                        $("#CaptureList").dataTable().fnDestroy();
+                        $('#CaptureList').html(data.PartialView);
+                        $('#CaptureList').DataTable({
+                            select: true,
+                            responsive: true,
+                            "pageLength": 10,
+                            "lengthChange": false,
+                            "language": { "sSearch": "B&uacute;squeda:", "sLengthMenu": "Mostrar _ MENU _ Entradas", "sInfo": "Mostrando de _START_ a _END_ de _TOTAL_ entradas", "sInfoEmpty": "Mostrando de 0 a 0 de 0 entradas", "sZeroRecords": "No hay datos disponibles", "oPaginate": { "sNext": "Siguiente", "sPrevious": "Anterior", "sFirst": "Primero", "sLast": "&Uacute;ltimo" } },
+                        });
+                    }
+                    else {
+                        $.notify(data.message, "error", { position: "right top" });
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("error: " + jqXHR.responseText);
+                }
+            });
+            return false;
+        }
+    </script>
+}

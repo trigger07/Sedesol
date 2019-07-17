@@ -1,0 +1,119 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<CaptureDTO>
+
+
+<table class="table table-striped table-bordered nowrap" width="100%" id="CaptureList">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th>Nivel</th>
+            @*<th>Comedor</th>*@
+            @*<th>Ubicación</th>*@
+            <th>Fecha Creación</th>
+            <th>Beneficiarios</th>
+            <th>Raciones</th>
+            <th>Folio</th>
+            <th>Código</th>
+            <th>Imágenes</th>
+            <th>Formulario</th>
+            @if (((UserDTO)Session["userData"]).UserType.Id != 1)
+            {
+                <th>Aprobar</th>
+                <th>Rechazar</th>
+            }
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            var dynamicClass = "";
+            if (@item.Status.Id == 1 || @item.Status.Id == 2)
+            {
+                dynamicClass = "alert alert-info fade in";
+            }
+            else if (@item.Status.Id == 3)
+            {
+                dynamicClass = "alert alert-warning fade in";
+            }
+            else if (@item.Status.Id == 4)
+            {
+                dynamicClass = "alert alert-success fade in";
+            }
+            else if (@item.Status.Id == 5)
+            {
+                dynamicClass = "alert alert-danger fade in";
+            }
+            else if (@item.Status.Id == 6)
+            {
+                dynamicClass = "alert alert-warning fade in";
+            }
+            <tr class="@dynamicClass">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td onclick="GetApproval(@item.Id)" title="Ver Aprobaciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.Status.Description)
+                </td>
+                <td onclick="GetApproval(@item.Id)" title="Ver Aprobaciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.UserTypeDto.Description)
+                </td>
+                @*<td onclick="Detail(@item.Id)" style="cursor: pointer;">
+                        @Html.DisplayFor(modelItem => item.Carne)
+                    </td>*@
+                @*<td onclick="Detail(@item.Id)" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.SoupKitchen.Name)
+                </td>*@
+                @*<td onclick="Detail(@item.Id)" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.SoupKitchen.State.Name)
+                </td>*@
+                <td onclick="Detail(@item.Id)" title="Ver Lista de Raciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td onclick="Detail(@item.Id)" title="Ver Lista de Raciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.ReceiverCount)
+                </td>
+                <td onclick="Detail(@item.Id)" title="Ver Lista de Raciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.AttendanceCount)
+                </td>
+                <td onclick="Detail(@item.Id)" title="Ver Lista de Raciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.Folio)
+                </td>
+                <td onclick="Detail(@item.Id)" title="Ver Lista de Raciones" style="cursor: pointer;">
+                    @Html.DisplayFor(modelItem => item.InspectionCode)
+                </td>
+                <td title="Ver Fotos">
+                    <button type="button" class="fa fa-camera" style="background-color:transparent; border:none;" onclick="showPictureModal(@item.Id)"></button>
+                </td>
+                <td title="Ir a formulario">
+                    @if (@item.Status.Id == 1 || @item.Status.Id == 2 || ((UserDTO)Session["userData"]).UserType.Id != 1)
+                    {
+                        <button type="button" class="fa fa-pencil" style="background-color:transparent; border:none;" onclick="window.location.href = '@Url.Action("CaptureAttendance", "Capture", new { id = item.Id })'"></button>
+                    }
+                </td>
+                @if (((UserDTO)Session["userData"]).UserType.Id != 1)
+                {
+                    <td title="Aprobar">
+                        <button type="button" class="fa fa-check" style="background-color:transparent; border:none;" onclick="SendToApproval(@item.Id, 1)"></button>
+                    </td>
+                    <td title="Rechazar">
+                        <button type="button" class="fa fa-times" style="background-color:transparent; border:none;" onclick="SendToApproval(@item.Id, 0)"></button>
+                    </td>
+                }
+
+                @*<td>
+                        @if (item.Activo)
+                        {
+                            <span class="glyphicon glyphicon-trash">&nbsp;</span>@Html.ActionLink("Desactivar", "Inactivar", new { id = item.Id })
+                        }
+                        else
+                        {
+                            <span class="glyphicon glyphicon-trash">&nbsp;</span>@Html.ActionLink("Activar", "Activar", new { id = item.Id })
+                        }
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>

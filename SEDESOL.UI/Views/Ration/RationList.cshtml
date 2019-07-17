@@ -1,0 +1,64 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<RationDTO>
+
+
+<table class="table table-striped table-bordered nowrap" width="100%" id="RationListTable">
+    <thead>
+        <tr>
+            <th>Folio Vale</th>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Comedor</th>
+            <th>Folio Comedor</th>
+            <th>Ubicación</th>
+            <th>Raciones</th>
+            <th>Vale</th>
+            @*@if (((UserDTO)Session["userData"]).UserType.Id != 1)
+        {
+            <th>Aprobar</th>
+            <th>Rechazar</th>
+        }*@
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequential)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YEARDTO.Description)
+            </td>
+            <td @*onclick="GetApproval(@item.Id)" title="Ver Aprobaciones" style="cursor: pointer;"*@>
+                @Html.DisplayFor(modelItem => item.MONTHDTO.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOUP_KITCHENDTO.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOUP_KITCHENDTO.Folio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SOUP_KITCHENDTO.State.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RationQuantity)
+            </td>
+            <td>
+                <input type="image" src="~/img/if_pdf_3745.png" height="20px" onclick="window.location.href = '@Url.Action("GetCouponFile", "Ration", new { pIdRation = item.Id })'" name="saveForm" id="saveForm" />
+            </td>
+            @*@if (((UserDTO)Session["userData"]).UserType.Id != 1)
+        {
+            <td title="Aprobar">
+                <button type="button" class="fa fa-check" style="background-color:transparent; border:none;" onclick="SendToApproval(@item.Id, 1)"></button>
+            </td>
+            <td title="Rechazar">
+                <button type="button" class="fa fa-times" style="background-color:transparent; border:none;" onclick="SendToApproval(@item.Id, 0)"></button>
+            </td>
+        }*@
+        </tr>
+        }
+    </tbody>
+</table>

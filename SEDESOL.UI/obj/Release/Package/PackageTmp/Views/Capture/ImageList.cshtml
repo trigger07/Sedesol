@@ -1,0 +1,19 @@
+﻿@using SEDESOL.DataEntities.DTO;
+@model List<CaptureImageDTO>
+
+<div  class="col-md-12" id="listImage" style="margin-top:20px; overflow-y:auto; max-height:470px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4" style="padding:10; margin-bottom:10px;">
+            <div class="gallery" style="min-height:182px;">
+                <a href="@item.ImageFileB64">
+                    <img src="@item.ImageFileB64" class="myImg" width="100%" alt="" />
+                </a>
+                <p class="image-caption">
+                    <a href="javascript:;" onclick="DeleteFile(@item.Id)" >Eliminar</a>
+                </p>
+            </div>
+        </div>
+    }
+   
+</div>

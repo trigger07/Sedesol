@@ -1,0 +1,276 @@
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csprojResolveAssemblyReference.cache
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\ApplicationInsights.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\csc.exe
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\vbc.exe
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll.config
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\EntityFramework.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Owin.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\WebGrease.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.pdb
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\EntityFramework.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\bin\Select.Html.dep
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.dll
+C:\Users\gt19813\Desktop\prs\SEDESOL\Code\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\ApplicationInsights.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\csc.exe
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\vbc.exe
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Owin.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\WebGrease.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.dll.config
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\Select.Html.dep
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csprojResolveAssemblyReference.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csproj.CoreCompileInputs.cache
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csproj.CopyComplete
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.pdb
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\DocumentFormat.OpenXml.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\DocumentFormat.OpenXml.xml
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.xmlworker.dll
+C:\Users\Gerson Trigueros\Documents\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\ApplicationInsights.config
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\csc.exe
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\vbc.exe
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe
+E:\Projects\SEDESOL\SEDESOL.UI\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll.config
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.UI.pdb
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.xmlworker.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Owin.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\WebGrease.dll
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.pdb
+E:\Projects\SEDESOL\SEDESOL.UI\bin\SEDESOL.DataEntities.dll.config
+E:\Projects\SEDESOL\SEDESOL.UI\bin\DocumentFormat.OpenXml.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\itextsharp.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.DependencyCollector.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.Web.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AI.WindowsServer.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.ApplicationInsights.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Select.HtmlToPdf.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Helpers.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Mvc.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Optimization.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.Razor.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\System.Web.WebPages.Razor.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Antlr3.Runtime.pdb
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Newtonsoft.Json.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\EntityFramework.SqlServer.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\SEDESOL\SEDESOL.UI\bin\Select.Html.dep
+E:\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csprojAssemblyReference.cache
+E:\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csproj.CoreCompileInputs.cache
+E:\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.csproj.CopyComplete
+E:\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.dll
+E:\Projects\SEDESOL\SEDESOL.UI\obj\Debug\SEDESOL.UI.pdb

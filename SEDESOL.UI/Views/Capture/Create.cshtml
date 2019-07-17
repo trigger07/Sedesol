@@ -1,0 +1,187 @@
+﻿@using SEDESOL.DataEntities.IntegrationObjects;
+@model CaptureParam
+@{
+    ViewBag.Title = "Agregar";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="modal fade" id="captureParam-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-dialog">
+
+            <!-- end brand -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="@Url.Action("Index", "Capture")" class="close" aria-hidden="true">x</a>
+                    <h3>Creación de Nueva Captura</h3>
+                </div>
+                <div class="modal-body row">
+                    @using (Html.BeginForm("Index", "Capture", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frmParamCapture", data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "")
+                        <div class="col-md-8 col-md-offset-2">
+                            @Html.DropDownListFor(m => m.Years, new SelectList(Model.Years, "Id", "Description", Model.Years), "Año", new { @class = "form-control input-md parsley-validated", data_parsley_required = "true" })
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 text-left text-danger">
+                            <span class="field-validation-valid" data-valmsg-for="Years" data-valmsg-replace="true" id="valYears"></span>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 m-t-10">
+                            @Html.DropDownListFor(m => m.Months, new SelectList(Model.Months, "Id", "Description", Model.Months), "Mes", new { @class = "form-control input-md parsley-validated", data_parsley_required = "true" })
+                            @*<select class="form-control input-sm" id="Months" data-parsley-required="true" name="Months">
+                                <option value="">Mes</option>
+                            </select>*@
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 text-left text-danger">
+                            <span class="field-validation-valid" data-valmsg-for="Months" data-valmsg-replace="true" id="valMonths"></span>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 m-t-10">
+                            @Html.DropDownListFor(m => m.SoapKitchens, new SelectList(Model.SoapKitchens, "Id", "Description", Model.SoapKitchens), "Comedor", new { @class = "form-control input-md parsley-validated", data_parsley_required = "true" })
+                            @*<select class="form-control input-sm" id="SoapKitchens" data-parsley-required="true" name="SoapKitchens">
+                                <option value="">Comedor</option>
+                            </select>*@
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 text-left text-danger">
+                            <span class="field-validation-valid" data-valmsg-for="SoapKitchens" data-valmsg-replace="true" id="valSoapKitchens"></span>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 m-t-10">
+                            @Html.TextBoxFor(model => model.Folio, new { @class = "form-control input-md parsley-validated", @id = "txtFolio", data_parsley_required = "true", placeholder = "Folio" })
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 m-t-10">
+                            @Html.TextBoxFor(model => model.InspectionCode, new { @class = "form-control input-md parsley-validated", @id = "txtInspectionCode", data_parsley_required = "true", placeholder = "Código de Inspección" })
+                        </div>
+                    }
+
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-2">
+                            <button type="button" class="btn btn-success" id="btnRegistrar" onclick="setParamCapture()">Agregar Asistencia</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script>
+    function setParamCapture() {
+        var selYears = document.getElementById("Years");
+        var selMonths = document.getElementById("Months");
+        var selSoupK = document.getElementById("SoapKitchens");
+        var selFolio = document.getElementById("txtFolio");
+        var selCode = document.getElementById("txtInspectionCode");
+        //if (selMonths.options[selMonths.selectedIndex].value != null && selMonths.options[selMonths.selectedIndex].value > 0 &&
+        //    selYears.options[selYears.selectedIndex].value != null && selYears.options[selYears.selectedIndex].value > 0 &&
+        //    selSoupK.options[selSoupK.selectedIndex].value != null && selSoupK.options[selSoupK.selectedIndex].value > 0) {
+
+        if ($('#frmParamCapture').parsley().validate()) {
+            var valYear = document.getElementById('valYears');
+            valYear.innerHTML = '';
+
+            var valMonth = document.getElementById('valMonths');
+            valMonth.innerHTML = '';
+
+            var valSoapKs = document.getElementById('valSoapKitchens');
+            valSoapKs.innerHTML = '';
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: "{ 'idYear' : '" + selYears.options[selYears.selectedIndex].value + "','idMonth' : '" + selMonths.options[selMonths.selectedIndex].value +
+                    "','idSoupK' : '" + selSoupK.options[selSoupK.selectedIndex].value + "','soupK' : '" + selSoupK.options[selSoupK.selectedIndex].text +
+                    "','year' : '" + selYears.options[selYears.selectedIndex].text + "','month' : '" + selMonths.options[selMonths.selectedIndex].text + 
+                    "','pFolio' : '" + selFolio.value + "', 'pCode' : '" + selCode.value + "' }",
+                    
+                url: "@Url.Action("SetParamCapture", "Capture")",
+                dataType: "json",
+                success: function (data) {
+                    if (data.message == "SUCCESS")
+                    {
+                        //$('#captureParam-modal').modal('toggle');
+                        window.location.href = '@Url.Action("CaptureAttendance", "Capture")';
+                    }
+                    else
+                    {
+                        $("#btnRegistrar").notify(data.message, "error", { position: "right top" });
+                    }
+                    
+                },
+                error: function (jqXHR, exception) {
+                    if (jqXHR.status == 0) {
+                        alert('Unable to connect to server. Please Verify Network.');
+                    } else if (jqXHR.status == 404) {
+                        alert('Requested page not found. [404]');
+                    } else if (jqXHR.status == 500) {
+                        alert('Internal Server Error [500]. ' + jqXHR.responseText);
+                    } else if (exception == 'timeout') {
+                        alert('Time out error.');
+                    } else if (exception == 'abort') {
+                        alert('Ajax request aborted.');
+                    } else {
+                        alert('Uncaught Error.\n' + jqXHR.responseText);
+                    }
+                }
+            });
+        }
+        //else {
+        //    alert('validation');
+        //}
+    }
+</script>
+}
+
+@section documentReady{
+    $("#captureParam-modal").modal({ backdrop: 'static', keyboard: false });
+
+    $("#Months").prop('disabled',true);
+    $("#Years").on('change',function(){
+        var id = $(this).find(':selected').text();
+        if(id != null && id > 0){
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: "{ 'year' : '"+ id +"' }",
+                url: "@Url.Action("FindMonth", "Capture")",
+                dataType: "json",
+                success: function (data) {
+                    var sel = document.getElementById("Months");
+                    removeOptions(sel);
+                    //alert(data[1]['Id']);
+                    for(month in data)
+                    {
+                        var opt = document.createElement("option");
+                        opt.value = data[month].Id;
+                        opt.innerHTML =  data[month].Description;
+                        sel.add(opt);
+                    }
+
+                    $("#Months").prop('disabled',false);
+               },
+                error: function (jqXHR, exception) {
+                    window.location.href = "@Url.Action("Login", "Login")";
+                }
+            });
+        }else{
+            var sel = document.getElementById("Months");
+            removeOptions(sel);
+            $("#Months").prop('disabled',true);
+        }
+    });
+
+    function removeOptions(selectbox)
+    {
+    var i;
+    for(i=selectbox.options.length-1;i>0;i--)
+    {
+    selectbox.remove(i);
+    }
+    }
+
+}
